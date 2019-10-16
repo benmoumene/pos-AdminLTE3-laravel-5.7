@@ -90,6 +90,8 @@ List Of Sales
                                     <td>{{ $sale->paid }}</td>
                                     <td>{{ $sale->due }}</td>
                                     <td>
+                                        <a href="{{ route('sale.show', $sale->id) }}"
+                                            class="btn btn-primary btn-sm">Print</a>
                                         @if (auth()->user()->hasPermission('update_sales'))
                                         @if ($sale->due != 0)
                                         <button class="btn btn-warning btn-sm pcredit">Payment of dues</button>
@@ -183,6 +185,45 @@ List Of Sales
                 </div>
             </div>
         </div>
+        {{-- Facture Print Model--}}
+        <div class="modal fade" id="facture_print" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Print Facture</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form id="paymentcredit">
+                        {{ csrf_field() }}
+                        {{ method_field('post') }}
+                        @include('partials._errors')
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-md-12 inline-block">
+                                    <h1 class="text-center">{{ $store_name }}</h1>
+                                    <div class="col-md-6">
+                                        <h1 class="text-center">owner side</h1>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h1 class="text-center">client side</h1>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Save Payment of dues</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
 
     </div>
 </div>
@@ -232,6 +273,17 @@ List Of Sales
                 }
             });
         });
+
+        // // facture Print model js
+        // $('.facture-print').on('click', function () {
+        //     $('#facture_print').modal('show');
+
+        //     $tr = $(this).closest('tr');
+        //     var data = $tr.children("td").map(function () {
+        //         return $(this).text();
+        //     }).get();
+        //     console.log(data);
+        // })
     });
 
 </script>

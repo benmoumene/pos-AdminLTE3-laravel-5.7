@@ -36,9 +36,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::put('/paymentdue/{id}', 'Dashboard\SaleController@paymentdue');
     Route::put('/paymentduep/{id}', 'Dashboard\purchaseController@paymentduep');
-    Route::resource('/sale', 'Dashboard\SaleController')->except([
-        'show'
-    ]);
+    Route::resource('/sale', 'Dashboard\SaleController');
     Route::resource('/purchase', 'Dashboard\PurchaseController')->except([
         'show'
     ]);

@@ -38,6 +38,55 @@
             background: #04daaf;
         }
 
+        .page {
+            width: 21cm;
+            min-height: 29.7cm;
+            padding: 2cm;
+            margin: 1cm auto;
+            border: 1px #D3D3D3 solid;
+            border-radius: 5px;
+            background: white;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        @media print {
+            .page {
+                margin: 0;
+                border: initial;
+                border-radius: initial;
+                width: initial;
+                min-height: initial;
+                box-shadow: initial;
+                background: initial;
+                page-break-after: always;
+            }
+        }
+
+        /* table column */
+        .ftable {
+            border: none;
+            border-collapse: collapse;
+        }
+
+        .ftable td {
+            border-left: 1px solid #000;
+            border-right: 1px solid #000;
+        }
+
+        .ftable td:first-child {
+            border-left: none;
+        }
+
+        .ftable td:last-child {
+            border-right: none;
+        }
+
     </style>
     {{--
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.9/sweetalert2.min.css">

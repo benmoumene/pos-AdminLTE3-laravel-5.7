@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Input;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 class SaleController extends Controller
 {
@@ -114,7 +115,14 @@ class SaleController extends Controller
      */
     public function show(Sale $sale)
     {
-        //
+        $product_sales = $sale->products;
+        // foreach ($product_sales as $key => $product_sale) {
+        //     dd($product_sale->quantity);
+        // }
+        $sales = Sale::findorfail($sale)->first();
+
+
+        return view('dashboard.sale.show', compact('product_sales', 'sales'));
     }
 
     /**
