@@ -92,4 +92,8 @@ __do that with one command :__
   - [ ] Multipe and Soft Delete for Some featured actions
   - [ ] New Design with dark mode toggle
   - [ ] ............
+
+## To fix errors
+   - [ ] delete category spending
+   - [ ] fix layout not fit properly
  

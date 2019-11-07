@@ -167,7 +167,6 @@ Products Page
 
 
 </div>
-</div>
 
 
 @stop
