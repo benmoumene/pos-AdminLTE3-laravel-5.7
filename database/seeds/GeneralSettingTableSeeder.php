@@ -14,6 +14,9 @@ class GeneralSettingTableSeeder extends Seeder
     {
         App\GeneralSetting::create([
             'store_name' => 'TouwfiQ',
+            'activity' => 'installation reseaux et centrale telephonique',
+            'phone' => '0698100116',
+            'address' => '14 cite djnane mlou mila',
             'start_day' => Carbon::parse('2019-06-17'),
             'image' => 'logo_default.png',
             'investment_capital' => '1000000',
