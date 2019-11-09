@@ -119,9 +119,10 @@ class SaleController extends Controller
         //     dd($product_sale->quantity);
         // }
         $sales = Sale::findorfail($sale)->first();
+        $i=0;
 
 
-        return view('dashboard.sale.show', compact('product_sales', 'sales'));
+        return view('dashboard.sale.show', compact('product_sales', 'sales','i'));
     }
 
     /**
