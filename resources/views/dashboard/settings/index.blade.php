@@ -29,6 +29,18 @@ General Settings
                             <input type="text" name="store_name" id="" class="form-control" value="{{ $store_name }}">
                         </div>
                         <div class="form-group">
+                            <label>Activity</label>
+                            <input type="text" name="activity" id="" class="form-control" value="{{ $activity }}">
+                        </div>
+                        <div class="form-group">
+                            <label>Phone</label>
+                            <input type="text" name="phone" id="" class="form-control" value="{{ $phone }}">
+                        </div>
+                        <div class="form-group">
+                            <label>Address</label>
+                            <input type="text" name="address" id="" class="form-control" value="{{ $address }}">
+                        </div>
+                        <div class="form-group">
                             <label>Start Day</label>
                             <input type="date" name="start_day" class="form-control datepicker"
                                 data-provide="datepicker" value="{{ $start_day }}">
@@ -38,16 +50,7 @@ General Settings
                             <input type="text" name="investment_capital" id="" class="form-control"
                                 value="{{ $investment_capital }}">
                         </div>
-                        <div class="form-group">
-                            <label>Phone</label>
-                            <input type="text" name="investment_capital" id="" class="form-control"
-                                value="{{ $phone }}">
-                        </div>
-                        <div class="form-group">
-                            <label>Address</label>
-                            <input type="text" name="investment_capital" id="" class="form-control"
-                                value="{{ $address }}">
-                        </div>
+
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">

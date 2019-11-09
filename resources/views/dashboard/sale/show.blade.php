@@ -74,7 +74,7 @@
             <div class="card-header p-4" style="border: 1px solid #dee2e6;">
                 <img src="{{ asset('/uploads/settings/'.$logo) }}" style="width:200px;" alt="" srcset="">
                 <div class="float-right">
-                    <h3 class="mb-0">Installation Reseux et centrale telephonique electrice</h3>
+                    <h3 class="mb-0">{{ $activity }}</h3>
                     Date: {{ date_format($sales->created_at,"d/m/Y") }}
                 </div>
             </div>
@@ -97,12 +97,14 @@
                         <tbody>
                             <tr>
                                 <th>Client Name :
-                                    {{ $store_name }}<br>N° Registre Commerce
+                                    {{ $store_name }}<br>Address : {{ $address }} <br>Phone : {{ $phone }} <br> N°
+                                    Registre Commerce
                                     : {{ $rc }}<br>N°Article : {{ $article }}<br>NIF : {{ $nif }}<br>NIS :
                                     {{ $nis }}
                                 </th>
 
-                                <th>Client Name : {{ $sales->client->client_name }}<br>N° Registre Commerce :
+                                <th>Client Name : {{ $sales->client->client_name }}<br>Address : {{ $address }}
+                                    <br>Phone : {{ $phone }} <br> N° Registre Commerce :
                                     {{ $sales->client->rc }}<br>N°Article : {{ $sales->client->article }}<br>NIF :
                                     {{ $sales->client->nif }}<br>NIS : {{ $sales->client->nis }}
                                 </th>
