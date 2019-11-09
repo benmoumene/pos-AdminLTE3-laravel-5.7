@@ -39,15 +39,14 @@ General Settings
                                 value="{{ $investment_capital }}">
                         </div>
                         <div class="form-group">
-                            <div class="custom-file">
-                                <input type="file" name="image" class="form-control image custom-file-input"
-                                    id="customFile">
-                                <label class="custom-file-label" for="customFile">Choose Logo for your Store</label>
-                            </div>
+                            <label>Phone</label>
+                            <input type="text" name="investment_capital" id="" class="form-control"
+                                value="{{ $phone }}">
                         </div>
                         <div class="form-group">
-                            <img src="{{ asset('/uploads/settings/'.$logo) }}" style="width:200px;"
-                                class="img-circle img-thumbnail img-preview">
+                            <label>Address</label>
+                            <input type="text" name="investment_capital" id="" class="form-control"
+                                value="{{ $address }}">
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -66,6 +65,17 @@ General Settings
                         <div class="form-group">
                             <label>NIS</label>
                             <input type="number" name="nis" id="" class="form-control" value="{{ $nis }}">
+                        </div>
+                        <div class="form-group">
+                            <div class="custom-file">
+                                <input type="file" name="image" class="form-control image custom-file-input"
+                                    id="customFile">
+                                <label class="custom-file-label" for="customFile">Choose Logo for your Store</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <img src="{{ asset('/uploads/settings/'.$logo) }}" style="width:200px;"
+                                class="img-circle img-thumbnail img-preview">
                         </div>
                     </div>
                 </div>

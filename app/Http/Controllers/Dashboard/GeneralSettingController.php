@@ -45,6 +45,9 @@ class GeneralSettingController extends Controller
     {
         $request->validate([
             'store_name' => 'required',
+            'activity' =>'required',
+            'phone'=>'required',
+            'address' => 'required',
             'start_day' => 'required',
             'image' => 'image',
             'investment_capital' => 'required',

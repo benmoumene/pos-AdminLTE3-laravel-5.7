@@ -16,6 +16,9 @@ class CreateGeneralSettingsTable extends Migration
         Schema::create('general_settings', function (Blueprint $table) {
             $table->increments('id');
             $table->string('store_name');
+            $table->string('activity');
+            $table->integer('phone');
+            $table->string('address');
             $table->date('start_day');
             $table->string('image');
             $table->double('investment_capital');

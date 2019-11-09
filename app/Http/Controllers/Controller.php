@@ -19,6 +19,9 @@ class Controller extends BaseController
         foreach ($general_settings as $key => $general_setting) {
             $store_id = $general_setting->id;
             $store_name = $general_setting->store_name;
+            $activity = $general_setting->activity;
+            $phone = $general_setting->phone;
+            $address = $general_setting->address;
             $start_day = $general_setting->start_day;
             $logo = $general_setting->image;
             $investment_capital = $general_setting->investment_capital;
@@ -30,6 +33,9 @@ class Controller extends BaseController
         // Sharing is caring
         View::share('store_id', $store_id);
         View::share('store_name', $store_name);
+        View::share('activity', $activity);
+        View::share('phone', $phone);
+        View::share('address', $address);
         View::share('start_day', $start_day);
         View::share('logo', $logo);
         View::share('investment_capital', $investment_capital);
