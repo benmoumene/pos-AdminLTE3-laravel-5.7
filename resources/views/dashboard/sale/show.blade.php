@@ -62,6 +62,32 @@
             border-color: #454d55;
         }
 
+        table.table-bordered {
+            border: 2px solid #000000;
+        }
+
+        .table-bordered>thead>tr>th,
+        .table-bordered>tbody>tr>th,
+        .table-bordered>tfoot>tr>th,
+        .table-bordered>thead>tr>td,
+        .table-bordered>tbody>tr>td,
+        .table-bordered>tfoot>tr>td {
+            border: 2px solid #000000;
+        }
+
+        @media print {
+
+            .table thead tr td,
+            .table tbody tr td,
+            .table thead tr th,
+            .table tbody tr th {
+                border-width: 1px !important;
+                border-style: solid !important;
+                border-color: black !important;
+                -webkit-print-color-adjust: exact;
+            }
+        }
+
     </style>
 
     <!-- Google Font: Source Sans Pro -->
@@ -71,7 +97,7 @@
 <body>
     <div class="offset-xl-2 col-xl-8 col-lg-12 col-md-12 col-sm-12 col-12 padding">
         <div class="card">
-            <div class="card-header p-4" style="border: 1px solid #dee2e6;">
+            <div class="card-header p-4" style="border: 1px solid #000000;">
                 <img src="{{ asset('/uploads/settings/'.$logo) }}" style="width:200px;" alt="" srcset="">
                 <div class="float-right">
                     <h3 class="mb-0">{{ $activity }}</h3>
