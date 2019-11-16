@@ -100,15 +100,7 @@
                     </a>
                 </li>
                 @endif
-
-                <li class="nav-item">
-                    <a href="{{ url('/report') }}" class="nav-link">
-                        <i class="nav-icon fas fa-chart-pie"></i>
-                        <p>
-                            Reports
-                        </p>
-                    </a>
-                </li>
+                @if (auth()->user()->hasPermission('read_moneybox'))
                 <li class="nav-item">
                     <a href="{{ url('/moneybox') }}" class="nav-link">
                         <i class="nav-icon fas fa-cash-register"></i>
@@ -117,6 +109,7 @@
                         </p>
                     </a>
                 </li>
+                @endif
                 @if (auth()->user()->hasPermission('read_users'))
                 <li class="nav-item">
                     <a href="{{ url('/moderator') }}" class="nav-link">
@@ -127,6 +120,7 @@
                     </a>
                 </li>
                 @endif
+                @if (auth()->user()->hasPermission('read_generalsetting'))
                 <li class="nav-item">
                     <a href="{{ url('/generalsetting')  }}" class="nav-link">
                         <i class="nav-icon fas fa-cog"></i>
@@ -135,6 +129,7 @@
                         </p>
                     </a>
                 </li>
+                @endif
             </ul>
             </li>
 

@@ -22,12 +22,24 @@ class DashboardController extends Controller
         $products = Product::all();
         // Sale for every today
         $today = Carbon::today();
-        $salesproducts = Sale::whereDate('updated_at','=',$today)->get(); 
-        
-        dd($salesproducts);
+        // $salesproducts = Sale::whereDate('updated_at','=',$today)->get();
+        // foreach ($salesproducts as $key => $salesproduct) {
+        //     $product_sales = $salesproduct->products;
+        //     $sp_quantity = $salesproduct->pivot->quantity;
+        //     dd($sp_quantity);
+        // }
+        // Best product that sale
+$salesproducts= Product::join('product_sale', 'products.id','=','product_sale.product_id')
+           ->selectRaw('products.*, SUM(product_sale.quantity) AS qty')
+           ->groupBy('products.id')
+           ->orderBy('qty', 'desc')
+           ->get();
+        //dd($salesproducts);
+        // Product with min stock
+        $stock_alerts = DB::table('products')->where('stock','<=','min_stock')->get();
 
-        
-        return view('dashboard.index', compact('moderator', 'categories', 'products', 'sumprofit','salesproducts'));
+        //dd($stock_alerts);
+        return view('dashboard.index', compact('moderator', 'categories', 'products', 'sumprofit','salesproducts','stock_alerts'));
     }
     public function pos()
     {
