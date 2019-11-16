@@ -115,14 +115,16 @@ class SaleController extends Controller
     public function show(Sale $sale)
     {
         $product_sales = $sale->products;
+        $client_sales =$sale->client;
         // foreach ($product_sales as $key => $product_sale) {
         //     dd($product_sale->quantity);
         // }
         $sales = Sale::findorfail($sale)->first();
+        //dd($sale);
         $i = 0;
 
 
-        return view('dashboard.sale.showtwo', compact('product_sales', 'sales', 'i'));
+        return view('dashboard.sale.showtwo', compact('product_sales','client_sales', 'sale', 'i'));
     }
 
     /**

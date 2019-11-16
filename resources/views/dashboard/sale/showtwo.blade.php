@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Facture | {{ $sales->number_sale }}</title>
+    <title>Facture | {{ $sale->number_sale }}</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Theme style -->
@@ -196,12 +196,12 @@
             </div>
             <div class="card-body" style="padding: 0;">
                 <div class="text-center too-border">
-                    <h4>Facture : {{ $sales->number_sale }}</h4>
+                    <h4>Facture : {{ $sale->number_sale }}</h4>
                 </div>
                 <div class="row">
                     <div class="col-md-6 col-print-6 text-center">
                         <div class="too-border">
-                            <h4> Date: <span style="font-size:15px">{{ date_format($sales->created_at,"d/m/Y") }}</span>
+                            <h4> Date: <span style="font-size:15px">{{ date_format($sale->created_at,"d/m/Y") }}</span>
                             </h4>
 
                             <h4>Votre Commercial : <span style="font-size:15px">{{ Auth::user()->first_name }}
@@ -213,10 +213,10 @@
                             <h4>Client Information</h4>
                         </div>
                         <div class="too-border">
-                            Client Name : {{ $sales->client->client_name }}<br>Address : {{ $address }}
-                            <br>Phone : {{ $phone }} <br> N° Registre Commerce :
-                            {{ $sales->client->rc }}<br>N°Article : {{ $sales->client->article }}<br>NIF :
-                            {{ $sales->client->nif }}<br>NIS : {{ $sales->client->nis }}
+                            Client Name : {{ $client_sales->client_name }}<br>Address : {{ $client_sales->address }}
+                            <br>Phone : {{ $client_sales->phone }} <br> N° Registre Commerce :
+                            {{ $client_sales->rc }}<br>N°Article : {{ $client_sales->article }}<br>NIF :
+                            {{ $client_sales->nif }}<br>NIS : {{ $client_sales->nis }}
                         </div>
                     </div>
                 </div>
@@ -248,20 +248,20 @@
                     </table>
                     <div class="float-right text-center" style="width:12%">
                         <div style=" border: 2px solid #000000;border-radius: 10px;margin: 5px 0;">
-                            <p style="margin-bottom:0;"><strong>{{ number_format($sales->total,2) }}</strong></p>
+                            <p style="margin-bottom:0;"><strong>{{ number_format($sale->total,2) }}</strong></p>
                         </div>
                         <div style=" border: 2px solid #000000;border-radius: 10px;margin: 5px 0;">
-                            <p style="margin-bottom:0;"><strong>{{ number_format($sales->discount,2) }}</strong></p>
+                            <p style="margin-bottom:0;"><strong>{{ number_format($sale->discount,2) }}</strong></p>
                         </div>
                         <div style=" border: 2px solid #000000;border-radius: 10px;margin: 5px 0;">
-                            <p style="margin-bottom:0;"><strong>{{ number_format($sales->total_amount,2) }}</strong></p>
+                            <p style="margin-bottom:0;"><strong>{{ number_format($sale->total_amount,2) }}</strong></p>
                         </div>
                         <div style=" border: 2px solid #000000;border-radius: 10px;margin: 5px 0;">
-                            <p style="margin-bottom:0;"><strong>{{ number_format($sales->paid,2) }}</strong></p>
+                            <p style="margin-bottom:0;"><strong>{{ number_format($sale->paid,2) }}</strong></p>
                         </div>
                         <div style=" border: 2px solid #000000;border-radius: 10px;margin: 5px 0;">
                             <p style="margin-bottom:0;">
-                                <strong>{{ number_format($sales->total_amount - $sales->paid,2) }}</strong></p>
+                                <strong>{{ number_format($sale->total_amount - $sale->paid,2) }}</strong></p>
                         </div>
                     </div>
                     <div class="float-right text-center" style="width:12%">
@@ -289,7 +289,7 @@
     </div>
     <div class="too-footer offset-xl-2 col-xl-8 col-lg-12 col-md-12 col-sm-12 col-12 padding">
         <div class="too-border text-center">
-            <p class="mb-0">{{ $activity }} {{ $store_name }} {{ $sales->created_at }} Designed by TouwfiQ Meghlaoui</p>
+            <p class="mb-0">{{ $activity }} {{ $store_name }} {{ $sale->created_at }} Designed by TouwfiQ Meghlaoui</p>
         </div>
     </div>
     {{--  <script type="text/javascript">

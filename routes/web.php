@@ -20,7 +20,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/dashboard', 'Dashboard\DashboardController@index')->name(
         'dashboard'
     );
-
     Route::resource('/moderator', 'Dashboard\ModeratorController')->except([
         'show'
     ]);
