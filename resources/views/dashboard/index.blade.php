@@ -7,129 +7,176 @@ Dashboard
 @section('content')
 
 
+<div class="col-md-12">
+    <div class="row">
+        <div class="col-md-3 col-sm-6 col-12">
+            <div class="info-box">
+                <span class="info-box-icon bg-info"><i class="nav-icon fas fa-list-alt"></i></span>
 
-<div class="col-lg-3 col-6">
-    <!-- small box -->
-    <div class="small-box bg-info">
-        <div class="inner">
-            <h3>{{ $moderator->count()-1 }}</h3>
+                <div class="info-box-content">
+                    <span class="info-box-text">Category</span>
+                    <span class="info-box-number">{{ $categories->count() }}</span>
+                </div>
+                <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+        <div class="col-md-3 col-sm-6 col-12">
+            <div class="info-box">
+                <span class="info-box-icon bg-success"><i class="nav-icon fas fa-archive"></i></span>
 
-            <p>Mederators</p>
+                <div class="info-box-content">
+                    <span class="info-box-text">Products</span>
+                    <span class="info-box-number">{{ $products->count() }}</span>
+                </div>
+                <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
         </div>
-        <div class="icon">
-            <i class="ion ion-bag"></i>
-        </div>
-        <a href="{{ route('moderator.index') }}" class="small-box-footer">More info <i
-                class="fa fa-arrow-circle-right"></i></a>
-    </div>
-</div>
-<!-- ./col -->
-<div class="col-lg-3 col-6">
-    <!-- small box -->
-    <div class="small-box bg-success">
-        <div class="inner">
-            <h3>{{ $categories->count() }}</h3>
+        <!-- /.col -->
+        <div class="col-md-3 col-sm-6 col-12">
+            <div class="info-box">
+                <span class="info-box-icon bg-warning"><i class="nav-icon fas fa-cart-plus"></i></span>
 
-            <p>All Category</p>
+                <div class="info-box-content">
+                    <span class="info-box-text">Sales</span>
+                    <span class="info-box-number">{{ $sales->count() }}</span>
+                </div>
+                <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
         </div>
-        <div class="icon">
-            <i class="ion ion-stats-bars"></i>
-        </div>
-        <a href="{{ route('category.index') }}" class="small-box-footer">More info <i
-                class="fa fa-arrow-circle-right"></i></a>
-    </div>
-</div>
-<!-- ./col -->
-<div class="col-lg-3 col-6">
-    <!-- small box -->
-    <div class="small-box bg-warning">
-        <div class="inner">
-            <h3>{{ $products->count() }} All Products</h3>
-            <p>{{ $totalVolume = $products->sum(function ($product) {
-                return $product->sale_price - $product->purchase_price;
-                } )}} Total Profit</p>
+        <!-- /.col -->
+        <div class="col-md-3 col-sm-6 col-12">
+            <div class="info-box">
+                <span class="info-box-icon bg-danger"><i class="nav-icon fas fa-cart-arrow-down"></i></span>
 
+                <div class="info-box-content">
+                    <span class="info-box-text">Purchase</span>
+                    <span class="info-box-number">{{ $purchases->count() }}</span>
+                </div>
+                <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
         </div>
-        <div class="icon">
-            <i class="ion ion-person-add"></i>
-        </div>
-        <a href="{{ route('product.index') }}" class="small-box-footer">More info <i
-                class="fa fa-arrow-circle-right"></i></a>
+        <!-- /.col -->
     </div>
-</div>
-<!-- ./col -->
-<div class="col-lg-3 col-6">
-    <!-- small box -->
-    <div class="small-box bg-danger">
-        <div class="inner">
-            <h3>65</h3>
+    <div class="row">
+        <div class="col-md-3 col-sm-6 col-12">
+            <div class="info-box">
+                <span class="info-box-icon bg-info"><i class="nav-icon fas fa-list-alt"></i></span>
 
-            <p>Unique Visitors</p>
+                <div class="info-box-content">
+                    <span class="info-box-text">Spending Money</span>
+                    <span class="info-box-number">{{ $totalspendmoneys }}</span>
+                </div>
+                <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
         </div>
-        <div class="icon">
-            <i class="ion ion-pie-graph"></i>
+        <!-- /.col -->
+        <div class="col-md-3 col-sm-6 col-12">
+            <div class="info-box">
+                <span class="info-box-icon bg-success"><i class="nav-icon fas fa-archive"></i></span>
+
+                <div class="info-box-content">
+                    <span class="info-box-text">all profit</span>
+                    <span class="info-box-number">{{ $sumprofit }}</span>
+                </div>
+                <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
         </div>
-        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+        <!-- /.col -->
+        <div class="col-md-3 col-sm-6 col-12">
+            <div class="info-box">
+                <span class="info-box-icon bg-warning"><i class="nav-icon fas fa-cart-plus"></i></span>
+
+                <div class="info-box-content">
+                    <span class="info-box-text">Sales Today</span>
+                    <span class="info-box-number">{{ $sales_today->count() }}</span>
+                </div>
+                <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+        <div class="col-md-3 col-sm-6 col-12">
+            <div class="info-box">
+                <span class="info-box-icon bg-danger"><i class="nav-icon fas fa-cart-arrow-down"></i></span>
+
+                <div class="info-box-content">
+                    <span class="info-box-text">Purchase</span>
+                    <span class="info-box-number">{{ $purchases_today->count() }}</span>
+                </div>
+                <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
     </div>
-</div>
-<!-- ./col -->
-<div class="col-md-6">
-    <div class="card">
-        <div class="card-header">
-            <h3 class="card-title">Product That sale today</h3>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Product That sale today</h3>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th style="width: 10px">#</th>
+                                <th>Product name</th>
+                                <th>Quantity that sale</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($salesproducts as $item)
+                            <tr>
+                                <td>#</td>
+                                <td>{{ $item->product_name }}</td>
+                                <td>{{ $item->qty }}</td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
         </div>
-        <!-- /.card-header -->
-        <div class="card-body">
-            <table class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th style="width: 10px">#</th>
-                        <th>Product name</th>
-                        <th>Quantity that sale</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($salesproducts as $item)
-                    <tr>
-                        <td>#</td>
-                        <td>{{ $item->product_name }}</td>
-                        <td>{{ $item->qty }}</td>
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Stock alerts</h3>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body p-0">
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Product name</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($stock_alerts as $stock_alert)
+                            <tr>
+                                <td>#</td>
+                                <td>{{ $stock_alert->product_name }}</td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
         </div>
-        <!-- /.card-body -->
     </div>
-    <!-- /.card -->
-</div>
-<div class="col-md-6">
-    <div class="card">
-        <div class="card-header">
-            <h3 class="card-title">Stock alerts</h3>
-        </div>
-        <!-- /.card-header -->
-        <div class="card-body p-0">
-            <table class="table table-condensed">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Product name</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($stock_alerts as $stock_alert)
-                    <tr>
-                        <td>#</td>
-                        <td>{{ $stock_alert->product_name }}</td>
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
-        </div>
-        <!-- /.card-body -->
-    </div>
-    <!-- /.card -->
+
 </div>
 
 @stop

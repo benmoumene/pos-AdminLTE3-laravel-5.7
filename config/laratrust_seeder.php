@@ -11,6 +11,8 @@ return [
             'clients' => 'c,r,u,d',
             'providers' => 'c,r,u,d',
             'spendings' => 'c,r,u,d',
+            'moneybox' => 'c,r,u,d',
+            'generalsetting' => 'c,r,u,d',
         ],
         'employer' => []
     ],
