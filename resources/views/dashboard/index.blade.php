@@ -24,7 +24,7 @@ Dashboard
         <!-- /.col -->
         <div class="col-md-3 col-sm-6 col-12">
             <div class="info-box">
-                <span class="info-box-icon bg-success"><i class="nav-icon fas fa-archive"></i></span>
+                <span class="info-box-icon bg-info"><i class="nav-icon fas fa-archive"></i></span>
 
                 <div class="info-box-content">
                     <span class="info-box-text">All Products</span>
@@ -37,7 +37,7 @@ Dashboard
         <!-- /.col -->
         <div class="col-md-3 col-sm-6 col-12">
             <div class="info-box">
-                <span class="info-box-icon bg-warning"><i class="nav-icon fas fa-cart-plus"></i></span>
+                <span class="info-box-icon bg-success"><i class="nav-icon fas fa-cart-plus"></i></span>
 
                 <div class="info-box-content">
                     <span class="info-box-text">All Sales</span>
@@ -50,7 +50,7 @@ Dashboard
         <!-- /.col -->
         <div class="col-md-3 col-sm-6 col-12">
             <div class="info-box">
-                <span class="info-box-icon bg-danger"><i class="nav-icon fas fa-cart-arrow-down"></i></span>
+                <span class="info-box-icon bg-warning"><i class="nav-icon fas fa-cart-arrow-down"></i></span>
 
                 <div class="info-box-content">
                     <span class="info-box-text">All Purchase</span>
@@ -63,20 +63,6 @@ Dashboard
         <!-- /.col -->
     </div>
     <div class="row">
-        <div class="col-md-3 col-sm-6 col-12">
-            <div class="info-box">
-                <span class="info-box-icon bg-info"><i class="nav-icon fas fa-money-check-alt"></i></span>
-
-                <div class="info-box-content">
-                    <span class="info-box-text">Spending Money</span>
-                    <span class="info-box-number">{{ $totalspendmoneys }}</span>
-                </div>
-                <span class="info-box-icon"><i class="nav-icon fas fa-arrow-down" style="color: #e3342f ;"></i></span>
-                <!-- /.info-box-content -->
-            </div>
-            <!-- /.info-box -->
-        </div>
-        <!-- /.col -->
         <div class="col-md-3 col-sm-6 col-12">
             <div class="info-box">
                 <span class="info-box-icon bg-success"><i class="nav-icon fas fa-dollar-sign"></i></span>
@@ -93,7 +79,7 @@ Dashboard
         <!-- /.col -->
         <div class="col-md-3 col-sm-6 col-12">
             <div class="info-box">
-                <span class="info-box-icon bg-warning"><i class="nav-icon fas fa-cart-plus"></i></span>
+                <span class="info-box-icon bg-success"><i class="nav-icon fas fa-cart-plus"></i></span>
 
                 <div class="info-box-content">
                     <span class="info-box-text">Sales Today</span>
@@ -108,14 +94,28 @@ Dashboard
         <!-- /.col -->
         <div class="col-md-3 col-sm-6 col-12">
             <div class="info-box">
-                <span class="info-box-icon bg-danger"><i class="nav-icon fas fa-cart-arrow-down"></i></span>
+                <span class="info-box-icon bg-danger"><i class="nav-icon fas fa-money-check-alt"></i></span>
+
+                <div class="info-box-content">
+                    <span class="info-box-text">Spending Money</span>
+                    <span class="info-box-number">{{ $totalspendmoneys }}</span>
+                </div>
+                <span class="info-box-icon"><i class="nav-icon fas fa-arrow-down" style="color: #e3342f ;"></i></span>
+                <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+        <div class="col-md-3 col-sm-6 col-12">
+            <div class="info-box">
+                <span class="info-box-icon bg-warning"><i class="nav-icon fas fa-cart-arrow-down"></i></span>
 
                 <div class="info-box-content">
                     <span class="info-box-text">Purchase Today</span>
                     <span class="info-box-number">{{ $purchases_today->count() }}</span>
                 </div>
                 <span class="info-box-icon"><i class="nav-icon fas fa-angle-double-down"
-                        style="color: #e3342f ;"></i></span>
+                        style="color: #ffed4a ;"></i></span>
                 <!-- /.info-box-content -->
             </div>
             <!-- /.info-box -->
@@ -139,9 +139,9 @@ Dashboard
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($salesproducts as $item)
+                            @foreach ($salesproducts as $index => $item)
                             <tr>
-                                <td>#</td>
+                                <td>{{ $index + 1 }}</td>
                                 <td>{{ $item->product_name }}</td>
                                 <td>{{ $item->qty }}</td>
                             </tr>
@@ -159,18 +159,18 @@ Dashboard
                     <h3 class="card-title">Stock alerts</h3>
                 </div>
                 <!-- /.card-header -->
-                <div class="card-body p-0">
-                    <table class="table table-condensed">
+                <div class="card-body">
+                    <table class="table table-bordered">
                         <thead>
                             <tr>
-                                <th>#</th>
+                                <th style="width: 10px">#</th>
                                 <th>Product name</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($stock_alerts as $stock_alert)
+                            @foreach ($stock_alerts as $index => $stock_alert)
                             <tr>
-                                <td>#</td>
+                                <td>{{ $index + 1 }}</td>
                                 <td>{{ $stock_alert->product_name }}</td>
                             </tr>
                             @endforeach

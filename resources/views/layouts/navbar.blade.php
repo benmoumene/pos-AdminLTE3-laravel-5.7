@@ -40,12 +40,15 @@
                 <i class="fas fa-bell"></i> <span>9</span>
             </a>
         </li>
-        <li class="dropdown user user-menu" style="font-size: 1.3em;padding: 5px>
-            <a href=" #" class="dropdown-toggle user-panel" style="text-decoration: none;" data-toggle="dropdown">
-            <img src="{{ auth()->user()->image_path }}" style="width:40px;" class="user-image img-circle"
-                alt="User Image">
-            <span class="hidden-xs">{{ auth()->user()->first_name }}
-                {{ auth()->user()->last_name }}</span>
+        <li class="dropdown user user-menu" style="font-size: 1.3em;padding: 5px">
+            <a href=" #" class="user-panel d-flex" style="text-decoration: none;" data-toggle="dropdown">
+                <div class="image">
+                    <img src="{{ auth()->user()->image_path }}" class="img-circle elevation-2" alt="User Image">
+                </div>
+                <div class="info">
+                    <span class="d-block">{{ auth()->user()->first_name }}
+                        {{ auth()->user()->last_name }}</span>
+                </div>
             </a>
             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right text-center">
                 <img src="{{ auth()->user()->image_path }}" style="width:150px;" class="img-thumbnail dropdown-item"

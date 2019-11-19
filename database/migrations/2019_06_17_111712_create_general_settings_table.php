@@ -17,7 +17,7 @@ class CreateGeneralSettingsTable extends Migration
             $table->increments('id');
             $table->string('store_name');
             $table->string('activity');
-            $table->integer('phone');
+            $table->string('phone');
             $table->string('address');
             $table->date('start_day');
             $table->string('image');
