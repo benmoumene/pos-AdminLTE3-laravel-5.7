@@ -128,4 +128,6 @@ return [
 
     ],
 
+    'schema' => ['$user', 'public','postgis','tiger'],
+
 ];
