@@ -94,6 +94,6 @@ __do that with one command :__
   - [ ] ............
 
 ## To fix errors
-   - [ ] delete category spending
-   - [ ] fix layout not fit properly
+   - [x] delete category spending
+   - [x] fix layout not fit properly
  

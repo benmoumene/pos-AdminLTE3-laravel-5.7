@@ -15,10 +15,9 @@ class CreateSpendingsTable extends Migration
     {
         Schema::create('spendings', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('category_spending_id')->unsigned();
+            $table->string('spending_name');
             $table->string('spending_description');
             $table->double('spending_price');
-            $table->foreign('category_spending_id')->references('id')->on('category_spendings')->onDelete('cascade');
             $table->timestamps();
         });
     }

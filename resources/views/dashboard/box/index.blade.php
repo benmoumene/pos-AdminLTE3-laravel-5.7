@@ -54,8 +54,7 @@ Money Box
                                 @foreach ($spendmoneys as $index => $spendmoney)
                                 <tr>
                                     <td><span class="badge bg-danger">{{ $index + 1 }}- Spending</span></td>
-                                    <td><span
-                                            class="badge bg-danger">{{ $spendmoney->CategorySpending->category_spending_name }}</span>
+                                    <td><span class="badge bg-danger">{{ $spendmoney->spending_name }}</span>
                                     </td>
                                     <td><span class="badge bg-danger">{{ $spendmoney->spending_price }}</span></td>
                                 </tr>
