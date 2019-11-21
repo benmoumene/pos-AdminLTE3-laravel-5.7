@@ -37,13 +37,24 @@ Update Moderators
                         </div>
                     </div>
                     <div class="col-md-6">
+                        <label for="">employee photo</label>
+                        <div class="form-group">
+                            <label>Moderator Photo</label>
+                            <input type="file" name="image" id="" class="form-control image">
+                        </div>
+                        <div class="form-group">
+                            <img src="{{ $moderator->image_path }}" style="width:200px;"
+                                class="img-circle img-thumbnail img-preview" alt="" srcset="">
+                        </div>
+                    </div>
+                    <div class="col-md-12">
                         <div class="form-group">
                             <div class="card">
                                 <div class="card-header d-flex p-0">
                                     <h3 class="card-title p-3">Moderator Permission</h3>
                                     @php
                                     $models =
-                                    ['users','categories','products','clients','providers','sales','purchases'];
+                                    ['users','categories','products','clients','providers','sales','purchases','spendings','moneybox','generalsetting'];
                                     $maps = ['create', 'read', 'update', 'delete'];
                                     @endphp
                                     <ul class="nav nav-pills ml-auto p-2">
@@ -71,14 +82,6 @@ Update Moderators
                                     <!-- /.tab-content -->
                                 </div><!-- /.card-body -->
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label>Moderator Photo</label>
-                            <input type="file" name="image" id="" class="form-control image">
-                        </div>
-                        <div class="form-group">
-                            <img src="{{ $moderator->image_path }}" style="width:200px;"
-                                class="img-circle img-thumbnail img-preview" alt="" srcset="">
                         </div>
                     </div>
                 </div>
