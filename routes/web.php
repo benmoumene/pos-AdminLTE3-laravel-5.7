@@ -11,12 +11,19 @@
 |
  */
 
-Route::get('/', function () {
-    return view('auth.login');
-});
 
-Auth::routes(['register' => false]);
-Route::group(['middleware' => 'auth'], function () {
+ Route::group([
+     'prefix' => LaravelLocalization::setLocale(),
+      'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
+    ], 
+function()
+{
+    /** ADD ALL LOCALIZED ROUTES INSIDE THIS GROUP **/
+    Route::get('/', function () {
+    return view('auth.login');
+    });
+    Auth::routes(['register' => false]);
+    Route::group(['middleware' => 'auth'], function () {
     Route::get('/dashboard', 'Dashboard\DashboardController@index')->name(
         'dashboard'
     );
@@ -82,4 +89,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('/generalsetting', 'Dashboard\GeneralSettingController')->except([
         'show', 'update', 'destroy', 'create', 'edit'
     ]);
+});
+	
 });

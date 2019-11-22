@@ -77,6 +77,7 @@ __do that with one command :__
 
 ## Packages used on this Project
   -  [___Laratrust___](https://github.com/santigarcor/laratrust) (Laravel 5 Package)
+  -  [___laravel-localization___](https://github.com/mcamara/laravel-localization) Easy localization for Laravel by mcamara
   -  [___SweetAlert2___](https://github.com/realrashid/sweet-alert) for Laravel 5.x by Rashid Ali
   -  [___Intervention Image___](http://image.intervention.io/getting_started/installation)  PHP image handling and manipulation
   -  __.....__

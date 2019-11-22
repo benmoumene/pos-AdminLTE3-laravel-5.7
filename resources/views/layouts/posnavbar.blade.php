@@ -15,24 +15,37 @@
             </a>
         </li>
     </ul>
-    <div class="mx-auto">
-        <ul class="navbar-nav">
-            <li class="nav-item" style="display:inline-block;">
-                <div class="font-weight-bold" id='date-part' style="font-size: 1.2em;padding: 5px;"></div>
-            </li>
-            <li c                           lass="nav-item" style="display:inline-block;">
-                <div class="font-weight-bold" id='time-part' style="font-size: 1.3em;padding: 5px;"></div>
-            </li>
-        </ul>
-    </div>
+    <ul class="navbar-nav mx-auto">
+        <li class="nav-item" style="display:inline-block;">
+            <div class="font-weight-bold" id='date-part' style="font-size: 1.2em;padding: 5px;"></div>
+        </li>
+        <li class="nav-item" style="display:inline-block;">
+            <div class="font-weight-bold" id='time-part' style="font-size: 1.3em;padding: 5px;"></div>
+        </li>
+    </ul>
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
-        <li class="dropdown user user-menu" style="font-size: 1.3em;padding: 5px>
-            <a href=" #" class="dropdown-toggle user-panel"
-            style="text-decoration: none;" data-toggle="dropdown">
-            <img src="{{ auth()->user()->image_path }}" style="width:40px;" class="user-image img-circle" alt="User Image">
-            <span class="hidden-xs">{{ auth()->user()->first_name }}
-                {{ auth()->user()->last_name }}</span>
+        <li class="nav-item dropdown">
+           <a class="nav-link dropdown-toggle" id="dropdown09" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              {{ LaravelLocalization::getCurrentLocaleName() }}
+           </a>
+           <div class="dropdown-menu" aria-labelledby="dropdown09">
+               @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                <a class="dropdown-item"rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                    {{ $properties['native'] }}
+                </a>
+                @endforeach
+           </div>                 
+        </li>
+        <li class="dropdown user user-menu" style="font-size: 1.3em;padding: 5px">
+            <a href=" #" class="user-panel d-flex" style="text-decoration: none;" data-toggle="dropdown">
+                <div class="image">
+                    <img src="{{ auth()->user()->image_path }}" class="img-circle elevation-2" alt="User Image">
+                </div>
+                <div class="info">
+                    <span class="d-block">{{ auth()->user()->first_name }}
+                        {{ auth()->user()->last_name }}</span>
+                </div>
             </a>
             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right text-center">
                 <img src="{{ auth()->user()->image_path }}" style="width:150px;" class="img-thumbnail dropdown-item"
