@@ -115,7 +115,7 @@
                     <a href="{{ url('/moderator') }}" class="nav-link">
                         <i class="nav-icon fas fa-users-cog"></i>
                         <p>
-                            @lang('site.moderator')Moderator
+                            @lang('site.moderator')
                         </p>
                     </a>
                 </li>

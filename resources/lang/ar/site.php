@@ -3,17 +3,17 @@
 
 return [
     //aside view translate to arabic
-    'dashboard' => "",
-    'category' => "",
-    'product' => "",
-    'sale' => "",
-    'purchase' => "",
-    'provider' => "",
-    'client' => "",
-    'spending' => "",
-    'boxmoney' => "",
-    'moderator' => "",
-    'setting' => "",
+    'dashboard' => "الرئيسية",
+    'category' => "الاقسام",
+    'product' => "منتجات",
+    'sale' => "مبيعات",
+    'purchase' => "المشتريات",
+    'provider' => "موردين",
+    'client' => "الزبائن",
+    'spending' => "مصاريف",
+    'boxmoney' => "صندوق المال",
+    'moderator' => "مشرفين",
+    'setting' => "إعدادات",
     //spending view translate to arabic
-    'spending' => "مصاريف"
+
 ];
