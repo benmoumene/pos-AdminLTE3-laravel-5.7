@@ -26,7 +26,7 @@
                     <a href="{{ url('/dashboard') }}" class="nav-link">
                         <i class="nav-icon fas fa-tachometer-alt" style="color:red"></i>
                         <p>
-                            Dashboard
+                            @lang('site.dashboard')
                         </p>
                     </a>
                 </li>
@@ -35,7 +35,7 @@
                     <a href="{{ url('/category') }}" class="nav-link">
                         <i class="nav-icon fas fa-list-alt"></i>
                         <p>
-                            Category
+                            @lang('site.category')
                         </p>
                     </a>
                 </li>
@@ -45,7 +45,7 @@
                     <a href="{{ url('/product') }}" class="nav-link">
                         <i class="nav-icon fas fa-archive"></i>
                         <p>
-                            Products
+                            @lang('site.product')
                         </p>
                     </a>
                 </li>
@@ -55,7 +55,7 @@
                     <a href="{{ url('/sale') }}" class="nav-link">
                         <i class="nav-icon fas fa-cart-plus"></i>
                         <p>
-                            Sales
+                            @lang('site.sale')
                         </p>
                     </a>
                 </li>
@@ -65,7 +65,7 @@
                     <a href="{{ url('/purchase') }}" class="nav-link">
                         <i class="nav-icon fas fa-cart-arrow-down"></i>
                         <p>
-                            Purchases
+                            @lang('site.purchase')
                         </p>
                     </a>
                 </li>
@@ -75,7 +75,7 @@
                     <a href="{{ url('/provider') }}" class="nav-link">
                         <i class="nav-icon fas fa-truck"></i>
                         <p>
-                            Provider
+                            @lang('site.provider')
                         </p>
                     </a>
                 </li>
@@ -85,7 +85,7 @@
                     <a href="{{ url('/client') }}" class="nav-link">
                         <i class="nav-icon fas fa-users"></i>
                         <p>
-                            Clients
+                            @lang('site.client')
                         </p>
                     </a>
                 </li>
@@ -95,7 +95,7 @@
                     <a href="{{ url('/spending') }}" class="nav-link">
                         <i class="nav-icon fas fa-money-check-alt"></i>
                         <p>
-                            Spendings
+                            @lang('site.spending')
                         </p>
                     </a>
                 </li>
@@ -105,7 +105,7 @@
                     <a href="{{ url('/moneybox') }}" class="nav-link">
                         <i class="nav-icon fas fa-cash-register"></i>
                         <p>
-                            Box Money
+                            @lang('site.boxmoney')
                         </p>
                     </a>
                 </li>
@@ -115,7 +115,7 @@
                     <a href="{{ url('/moderator') }}" class="nav-link">
                         <i class="nav-icon fas fa-users-cog"></i>
                         <p>
-                            Moderator
+                            @lang('site.moderator')Moderator
                         </p>
                     </a>
                 </li>
@@ -125,7 +125,7 @@
                     <a href="{{ url('/generalsetting')  }}" class="nav-link">
                         <i class="nav-icon fas fa-cog"></i>
                         <p>
-                            Settings
+                            @lang('site.setting')
                         </p>
                     </a>
                 </li>

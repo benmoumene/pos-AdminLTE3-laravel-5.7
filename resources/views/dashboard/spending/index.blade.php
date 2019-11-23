@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('page')
-Spendings page
+@lang('site.spending')
 @endsection
 
 
