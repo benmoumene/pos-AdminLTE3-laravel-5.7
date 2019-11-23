@@ -10,27 +10,22 @@
                 {{ $store_name }}</div>
         </li>
     </ul>
-    <ul class="navbar-nav mx-auto">
-        <li class="nav-item">
-            <div class="font-weight-bold" id='date-part' style="font-size: 1.2em;padding: 5px;"></div>
-        </li>
-        <li class="nav-item">
-            <div class="font-weight-bold" id='time-part' style="font-size: 1.3em;padding: 5px;"></div>
-        </li>
-    </ul>
+
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
-<li class="nav-item dropdown">
-           <a class="nav-link dropdown-toggle" style="color: #000000;cursor:pointer"  id="dropdown09" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              {{ LaravelLocalization::getCurrentLocaleNative() }}
-           </a>
-           <div class="dropdown-menu" aria-labelledby="dropdown09">
-               @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
-                <a class="dropdown-item"rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" style="color: #000000;cursor:pointer" id="dropdown09"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                {{ LaravelLocalization::getCurrentLocaleNative() }}
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdown09">
+                @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                <a class="dropdown-item" rel="alternate" hreflang="{{ $localeCode }}"
+                    href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
                     {{ $properties['native'] }}
                 </a>
                 @endforeach
-           </div>                 
+            </div>
         </li>
         <li class="nav-item" style="font-size: 1.3em;padding: 5px;">
             <a href="" title="" data-toggle="tooltip" data-placement="bottom"

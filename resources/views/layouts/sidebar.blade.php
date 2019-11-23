@@ -23,8 +23,9 @@
                with font-awesome or any other icon font library -->
 
                 <li class="nav-item">
-                    <a href="{{ url('/dashboard') }}" class="nav-link">
-                        <i class="nav-icon fas fa-tachometer-alt" style="color:red"></i>
+                    <a href="{{ url('/dashboard') }}"
+                        class="nav-link {{ (request()->segment(2) == 'dashboard') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             @lang('site.dashboard')
                         </p>
@@ -32,7 +33,8 @@
                 </li>
                 @if (auth()->user()->hasPermission('read_categories'))
                 <li class="nav-item">
-                    <a href="{{ url('/category') }}" class="nav-link">
+                    <a href="{{ url('/category') }}" class="nav-link
+                       {{ (request()->segment(2) == 'category') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-list-alt"></i>
                         <p>
                             @lang('site.category')
@@ -42,7 +44,8 @@
                 @endif
                 @if (auth()->user()->hasPermission('read_products'))
                 <li class="nav-item">
-                    <a href="{{ url('/product') }}" class="nav-link">
+                    <a href="{{ url('/product') }}"
+                        class="nav-link {{ (request()->segment(2) == 'product') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-archive"></i>
                         <p>
                             @lang('site.product')
@@ -52,7 +55,8 @@
                 @endif
                 @if (auth()->user()->hasPermission('read_sales'))
                 <li class="nav-item">
-                    <a href="{{ url('/sale') }}" class="nav-link">
+                    <a href="{{ url('/sale') }}"
+                        class="nav-link {{ (request()->segment(2) == 'sale') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-cart-plus"></i>
                         <p>
                             @lang('site.sale')
@@ -62,7 +66,8 @@
                 @endif
                 @if (auth()->user()->hasPermission('read_purchases'))
                 <li class="nav-item">
-                    <a href="{{ url('/purchase') }}" class="nav-link">
+                    <a href="{{ url('/purchase') }}"
+                        class="nav-link {{ (request()->segment(2) == 'purchase') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-cart-arrow-down"></i>
                         <p>
                             @lang('site.purchase')
@@ -72,7 +77,8 @@
                 @endif
                 @if (auth()->user()->hasPermission('read_providers'))
                 <li class="nav-item">
-                    <a href="{{ url('/provider') }}" class="nav-link">
+                    <a href="{{ url('/provider') }}"
+                        class="nav-link {{ (request()->segment(2) == 'provider') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-truck"></i>
                         <p>
                             @lang('site.provider')
@@ -82,7 +88,8 @@
                 @endif
                 @if (auth()->user()->hasPermission('read_clients'))
                 <li class="nav-item">
-                    <a href="{{ url('/client') }}" class="nav-link">
+                    <a href="{{ url('/client') }}"
+                        class="nav-link {{ (request()->segment(2) == 'client') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-users"></i>
                         <p>
                             @lang('site.client')
@@ -92,7 +99,8 @@
                 @endif
                 @if (auth()->user()->hasPermission('read_spendings'))
                 <li class="nav-item">
-                    <a href="{{ url('/spending') }}" class="nav-link">
+                    <a href="{{ url('/spending') }}"
+                        class="nav-link {{ (request()->segment(2) == 'spending') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-money-check-alt"></i>
                         <p>
                             @lang('site.spending')
@@ -102,7 +110,8 @@
                 @endif
                 @if (auth()->user()->hasPermission('read_moneybox'))
                 <li class="nav-item">
-                    <a href="{{ url('/moneybox') }}" class="nav-link">
+                    <a href="{{ url('/moneybox') }}"
+                        class="nav-link {{ (request()->segment(2) == 'moneybox') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-cash-register"></i>
                         <p>
                             @lang('site.boxmoney')
@@ -112,7 +121,8 @@
                 @endif
                 @if (auth()->user()->hasPermission('read_users'))
                 <li class="nav-item">
-                    <a href="{{ url('/moderator') }}" class="nav-link">
+                    <a href="{{ url('/moderator') }}"
+                        class="nav-link {{ (request()->segment(2) == 'moderator') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-users-cog"></i>
                         <p>
                             @lang('site.moderator')
@@ -122,7 +132,8 @@
                 @endif
                 @if (auth()->user()->hasPermission('read_generalsetting'))
                 <li class="nav-item">
-                    <a href="{{ url('/generalsetting')  }}" class="nav-link">
+                    <a href="{{ url('/generalsetting')  }}"
+                        class="nav-link {{ (request()->segment(2) == 'generalsetting') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-cog"></i>
                         <p>
                             @lang('site.setting')
