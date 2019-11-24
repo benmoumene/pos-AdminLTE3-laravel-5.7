@@ -44,6 +44,12 @@ return [
     'totalcreditclientmoney' => " مجموع ديون الزبائن",
     'totalspendingmoney' => "مجموع المصاريف",
     'totalboxmoney' => "مجموع في صندوق المال",
-
+    //category view translate to frensh
+    'createcategory' => "إنشاء قسم جديدة",
+    'categoryname' => "اسم القسم",
+    'brandname' => "اسم العلامة التجارية",
+    'newcategory' => "إضافة قسم جديدة",
+    'editcategory' => "تحرير القسم",
+    'updatecategory' => "تحديث القسم",
 
 ];

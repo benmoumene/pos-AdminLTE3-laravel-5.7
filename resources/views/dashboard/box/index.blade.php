@@ -1,8 +1,5 @@
 @extends('layouts.main')
 
-@section('page')
-Money Box
-@stop
 
 @section('content')
 @include('sweet::alert')

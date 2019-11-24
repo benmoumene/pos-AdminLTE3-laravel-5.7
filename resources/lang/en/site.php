@@ -44,6 +44,13 @@ return [
     'totalcreditclientmoney' => "Total Customers debts",
     'totalspendingmoney' => "Total Spendings",
     'totalboxmoney' => "Total in cashbox",
+    //category view translate to frensh
+    'createcategory' => "create new category",
+    'categoryname' => "Category Name",
+    'brandname' => "Brand Name",
+    'newcategory' => "Add new category",
+    'editcategory' => "Edit Category",
+    'updatecategory' => "Update Category",
 
 
 ];

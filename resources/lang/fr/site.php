@@ -31,7 +31,7 @@ return [
     'stockalert' => "Alertes de stock",
     'productname' => "Nom du produit",
     'quantitysale' => "Quantité vendue",
-    //cachbox view translate to arabic
+    //cachbox view translate to frensh
     'sale' => "Vente",
     'purchase' => "Achat",
     'spending' => "Frais",
@@ -44,5 +44,12 @@ return [
     'totalcreditclientmoney' => "Total Clients dette",
     'totalspendingmoney' => "Total Frais",
     'totalboxmoney' => "Total en caisse",
+    //category view translate to frensh
+    'createcategory' => "créer une nouvelle catégorie",
+    'categoryname' => "Nom de catégorie",
+    'brandname' => "Nom de marque",
+    'newcategory' => "Ajouter une nouvelle catégorie",
+    'editcategory' => "Modifier la catégorie",
+    'updatecategory' => "Mettre à jour la catégorie",
 
 ];

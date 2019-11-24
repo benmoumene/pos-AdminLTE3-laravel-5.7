@@ -1,9 +1,5 @@
 @extends('layouts.main')
 
-@section('page')
-Update Category
-@stop
-
 @section('content')
 
 <div class="col-md-12">
@@ -22,12 +18,14 @@ Update Category
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label>category name</label>
-                            <input type="text" name="category_name" id="" class="form-control" value="{{ $category->category_name }}">
+                            <label>@lang('site.categoryname')</label>
+                            <input type="text" name="category_name" id="" class="form-control"
+                                value="{{ $category->category_name }}">
                         </div>
                         <div class="form-group">
-                            <label>brand name</label>
-                            <input type="text" name="brand_name" id="" class="form-control" value="{{ $category->brand_name }}">
+                            <label>@lang('site.brandname')</label>
+                            <input type="text" name="brand_name" id="" class="form-control"
+                                value="{{ $category->brand_name }}">
                         </div>
 
                     </div>

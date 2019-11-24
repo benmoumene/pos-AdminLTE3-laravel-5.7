@@ -1,15 +1,12 @@
 @extends('layouts.main')
 
-@section('page')
-Create Moderators
-@stop
 
 @section('content')
 
 <div class="col-md-12">
     <div class="card card-primary">
         <div class="card-header with-border">
-            <h3 class="card-title">Create a new Moderator</h3>
+            <h3 class="card-title">@lang('site.createcategory')</h3>
         </div>
 
         <!-- /.card-header -->
@@ -23,19 +20,22 @@ Create Moderators
 
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label>Category name</label>
-                            <input type="text" name="category_name" id="" class="form-control" value="{{ old('category_name') }}">
+                            <label>@lang('site.categoryname')</label>
+                            <input type="text" name="category_name" id="" class="form-control"
+                                value="{{ old('category_name') }}">
                         </div>
                         <div class="form-group">
-                            <label>Brand name</label>
-                            <input type="text" name="brand_name" id="" class="form-control" value="{{ old('brand_name') }}">
+                            <label>@lang('site.brandname')</label>
+                            <input type="text" name="brand_name" id="" class="form-control"
+                                value="{{ old('brand_name') }}">
                         </div>
 
                     </div>
                 </div>
                 <div class="modal-footer form-group">
-                    <button type="submit" class="btn btn-success" href="{{ route('category.store') }}"><i class="fas fa-user-plus"></i>
-                        Add new category</button>
+                    <button type="submit" class="btn btn-success" href="{{ route('category.store') }}"><i
+                            class="fas fa-user-plus"></i>
+                        @lang('site.newcategory')</button>
                 </div>
             </form>
 
