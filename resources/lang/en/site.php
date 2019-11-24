@@ -51,6 +51,10 @@ return [
     'newcategory' => "Add new category",
     'editcategory' => "Edit Category",
     'updatecategory' => "Update Category",
+    'relatedproduct' => "Related Product",
+    'action' => "Action",
+    'edit' => "ُEdit",
+    'delete' => "Delete",
 
 
 ];

@@ -45,11 +45,14 @@ return [
     'totalspendingmoney' => "مجموع المصاريف",
     'totalboxmoney' => "مجموع في صندوق المال",
     //category view translate to frensh
-    'createcategory' => "إنشاء صنف جديدة",
+    'createcategory' => "إنشاء صنف جديد",
     'categoryname' => "اسم الصنف",
     'brandname' => "اسم العلامة التجارية",
     'newcategory' => "إضافة صنف جديدة",
     'editcategory' => "تحرير الصنف",
     'updatecategory' => "تحديث الصنف",
-
+    'relatedproduct' => "المنتجات ذات الصلة",
+    'action' => "فعل",
+    'edit' => "تحرير",
+    'delete' => "حدف",
 ];

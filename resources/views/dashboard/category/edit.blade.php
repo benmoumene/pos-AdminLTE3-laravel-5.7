@@ -5,7 +5,7 @@
 <div class="col-md-12">
     <div class="card card-primary">
         <div class="card-header with-border">
-            <h3 class="card-title">Update a Category</h3>
+            <h3 class="card-title">@lang('site.editcategory')</h3>
         </div>
 
         <!-- /.card-header -->
@@ -31,7 +31,8 @@
                     </div>
                 </div>
                 <div class="modal-footer form-group">
-                    <button type="submit" class="btn btn-primary"><i class="fas fa-edit"></i> Update Category</button>
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-edit"></i>
+                        @lang('site.updatecategory')</button>
                 </div>
             </form>
 

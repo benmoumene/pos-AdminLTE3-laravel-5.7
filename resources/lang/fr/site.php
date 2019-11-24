@@ -51,5 +51,9 @@ return [
     'newcategory' => "Ajouter une nouvelle catégorie",
     'editcategory' => "Modifier la catégorie",
     'updatecategory' => "Mettre à jour la catégorie",
+    'relatedproduct' => "Produit connexe",
+    'action' => "Action",
+    'edit' => "modifier",
+    'delete' => "supprimer",
 
 ];
