@@ -8,16 +8,16 @@ return [
     'logout' => "Exit",
     //aside view translate to English
     'dashboard' => "Dashboard",
-    'category' => "Categories",
-    'product' => "Products",
-    'sale' => "Sales",
-    'purchase' => "Purchases",
-    'provider' => "Suppliers",
-    'client' => "Customers",
-    'spending' => "Spendings",
+    'categories' => "Categories",
+    'products' => "Products",
+    'sales' => "Sales",
+    'purchases' => "Purchases",
+    'providers' => "Suppliers",
+    'clients' => "Customers",
+    'spendings' => "Spendings",
     'boxmoney' => "Cashbox",
-    'moderator' => "Supervisors",
-    'setting' => "Settings",
+    'moderators' => "Supervisors",
+    'settings' => "Settings",
     //Dashboard view translate to English
     'allcategory' => "All Categories",
     'allproduct' => "All Products",
@@ -31,8 +31,19 @@ return [
     'stockalert' => "Stock Alerts",
     'productname' => "Product Name",
     'quantitysale' => "Quantity sold",
+    //cachbox view translate to arabic
+    'sale' => "Sale",
+    'purchase' => "Purchase",
+    'spending' => "spending",
+    'transactionname' => "Transaction Name",
+    'transactiontype' => "Transaction Type",
+    'inputoutput' => "Input and Output",
+    'totalsalemoney' => "Total sale funds",
+    'totalpurchasemoney' => "Total purchase funds",
+    'totalcreditprovidermoney' => "Total Debt Suppliers",
+    'totalcreditclientmoney' => "Total Customers debts",
+    'totalspendingmoney' => "Total Spendings",
+    'totalboxmoney' => "Total in cashbox",
 
-
-    //spending language page
 
 ];

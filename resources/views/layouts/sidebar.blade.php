@@ -37,7 +37,7 @@
                        {{ (request()->segment(2) == 'category') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-list-alt"></i>
                         <p>
-                            @lang('site.category')
+                            @lang('site.categories')
                         </p>
                     </a>
                 </li>
@@ -48,7 +48,7 @@
                         class="nav-link {{ (request()->segment(2) == 'product') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-archive"></i>
                         <p>
-                            @lang('site.product')
+                            @lang('site.products')
                         </p>
                     </a>
                 </li>
@@ -59,7 +59,7 @@
                         class="nav-link {{ (request()->segment(2) == 'sale') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-cart-plus"></i>
                         <p>
-                            @lang('site.sale')
+                            @lang('site.sales')
                         </p>
                     </a>
                 </li>
@@ -70,7 +70,7 @@
                         class="nav-link {{ (request()->segment(2) == 'purchase') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-cart-arrow-down"></i>
                         <p>
-                            @lang('site.purchase')
+                            @lang('site.purchases')
                         </p>
                     </a>
                 </li>
@@ -81,7 +81,7 @@
                         class="nav-link {{ (request()->segment(2) == 'provider') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-truck"></i>
                         <p>
-                            @lang('site.provider')
+                            @lang('site.providers')
                         </p>
                     </a>
                 </li>
@@ -92,7 +92,7 @@
                         class="nav-link {{ (request()->segment(2) == 'client') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-users"></i>
                         <p>
-                            @lang('site.client')
+                            @lang('site.clients')
                         </p>
                     </a>
                 </li>
@@ -103,7 +103,7 @@
                         class="nav-link {{ (request()->segment(2) == 'spending') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-money-check-alt"></i>
                         <p>
-                            @lang('site.spending')
+                            @lang('site.spendings')
                         </p>
                     </a>
                 </li>
@@ -125,7 +125,7 @@
                         class="nav-link {{ (request()->segment(2) == 'moderator') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-users-cog"></i>
                         <p>
-                            @lang('site.moderator')
+                            @lang('site.moderators')
                         </p>
                     </a>
                 </li>
@@ -136,7 +136,7 @@
                         class="nav-link {{ (request()->segment(2) == 'generalsetting') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-cog"></i>
                         <p>
-                            @lang('site.setting')
+                            @lang('site.settings')
                         </p>
                     </a>
                 </li>

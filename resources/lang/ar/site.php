@@ -8,16 +8,16 @@ return [
     'logout' => "خروج",
     //aside view translate to arabic
     'dashboard' => "الرئيسية",
-    'category' => "الاقسام",
-    'product' => "منتجات",
-    'sale' => "المبيعات",
-    'purchase' => "المشتريات",
-    'provider' => "موردين",
-    'client' => "الزبائن",
-    'spending' => "مصاريف",
+    'categories' => "الاقسام",
+    'products' => "منتجات",
+    'sales' => "المبيعات",
+    'purchases' => "المشتريات",
+    'providers' => "موردين",
+    'clients' => "الزبائن",
+    'spendings' => "مصاريف",
     'boxmoney' => "صندوق المال",
-    'moderator' => "مشرفين",
-    'setting' => "إعدادات",
+    'moderators' => "مشرفين",
+    'settings' => "إعدادات",
     //Dashboard view translate to arabic
     'allcategory' => "جميع الاقسام",
     'allproduct' => "جميع المنتجات",
@@ -31,6 +31,19 @@ return [
     'stockalert' => "تنبيهات المخزون",
     'productname' => "اسم المنتج",
     'quantitysale' => "الكمية المباعة",
-    //spending view translate to arabic
+    //cachbox view translate to arabic
+    'sale' => "بيع",
+    'purchase' => "شراء",
+    'spending' => "مصروف",
+    'transactionname' => "اسم المعاملة",
+    'transactiontype' => "نوع المعاملة",
+    'inputoutput' => "المدخلات والمخرجات",
+    'totalsalemoney' => "مجموع اموال البيع",
+    'totalpurchasemoney' => "مجموع اموال الشراء",
+    'totalcreditprovidermoney' => "مجموع ديون الموردين",
+    'totalcreditclientmoney' => " مجموع ديون الزبائن",
+    'totalspendingmoney' => "مجموع المصاريف",
+    'totalboxmoney' => "مجموع في صندوق المال",
+
 
 ];
