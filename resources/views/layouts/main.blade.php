@@ -29,6 +29,7 @@
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
+            <div class="container-fluid">
             <div class="row justify-content-center">
                 <div class="col-md-4">
                     <div style="position: relative;display: flex;padding: 0.5rem;">
@@ -37,6 +38,7 @@
                     </div>
                 </div><!-- /.col -->
             </div><!-- /.row -->
+            </div><!-- /.container-fluid -->
             <!-- /.content-header -->
             <!-- Main content -->
             <div class="content">
