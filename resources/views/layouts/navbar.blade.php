@@ -6,8 +6,7 @@
             <a class="nav-link" data-widget="pushmenu" href="#"><i class="fa fa-bars"></i></a>
         </li>
         <li class="nav-item">
-            <div class="font-weight-bold" style="font-size: 1.2em;padding: 5px;">Welcome to your Store :
-                {{ $store_name }}</div>
+            <div class="font-weight-bold" style="font-size: 1.2em;padding: 5px;">@lang('site.welcome')</div>
         </li>
     </ul>
 
@@ -30,7 +29,7 @@
         <li class="nav-item" style="font-size: 1.3em;padding: 5px;">
             <a href="" title="" data-toggle="tooltip" data-placement="bottom"
                 class="btn btn-primary btn-flat pull-left m-8 hidden-xs btn-sm mt-10" data-original-title="Money Box">
-                <strong><i class="fas fa-cash-register"></i> &nbsp; Money Box</strong>
+                <strong><i class="fas fa-cash-register"></i> &nbsp; @lang('site.boxmoney')</strong>
             </a>
         </li>
         <li class="nav-item" style="font-size: 1.3em;padding: 5px;">
@@ -56,18 +55,20 @@
                 </div>
             </a>
             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right text-center">
-                <img src="{{ auth()->user()->image_path }}" style="width:150px;" class="img-thumbnail dropdown-item"
-                    alt="User Image">
+                <div class="text-center">
+                    <img src="{{ auth()->user()->image_path }}" style="width:150px;"
+                        class="img img-thumbnail dropdown-item mx-auto d-block" alt="User Image">
+                </div>
                 <div class="dropdown-divider"></div>
                 <span class="dropdown-item dropdown-header">{{ auth()->user()->first_name }}
                     {{ auth()->user()->last_name }}</span>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item dropdown-header"><i class="fas fa-user-circle"></i> Profile</a>
+                <a class="dropdown-item dropdown-header"><i class="fas fa-user-circle"></i> @lang('site.profile')</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item dropdown-header" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();"><i
                         class="fas fa-power-off"></i>
-                    {{ __('Logout') }}
+                    @lang('site.logout')
                 </a>
 
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

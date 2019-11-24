@@ -1,11 +1,6 @@
 @extends('layouts.main')
 
-@section('page')
-Dashboard
-@stop
-
 @section('content')
-
 
 <div class="col-md-12">
     <div class="row">
@@ -14,7 +9,7 @@ Dashboard
                 <span class="info-box-icon bg-info"><i class="nav-icon fas fa-list-alt"></i></span>
 
                 <div class="info-box-content">
-                    <span class="info-box-text">All Category</span>
+                    <span class="info-box-text">@lang('site.allcategory')</span>
                     <span class="info-box-number">{{ $categories->count() }}</span>
                 </div>
                 <!-- /.info-box-content -->
@@ -27,7 +22,7 @@ Dashboard
                 <span class="info-box-icon bg-info"><i class="nav-icon fas fa-archive"></i></span>
 
                 <div class="info-box-content">
-                    <span class="info-box-text">All Products</span>
+                    <span class="info-box-text">@lang('site.allproduct')</span>
                     <span class="info-box-number">{{ $products->count() }}</span>
                 </div>
                 <!-- /.info-box-content -->
@@ -40,7 +35,7 @@ Dashboard
                 <span class="info-box-icon bg-success"><i class="nav-icon fas fa-cart-plus"></i></span>
 
                 <div class="info-box-content">
-                    <span class="info-box-text">All Sales</span>
+                    <span class="info-box-text">@lang('site.allsale')</span>
                     <span class="info-box-number">{{ $sales->count() }}</span>
                 </div>
                 <!-- /.info-box-content -->
@@ -53,7 +48,7 @@ Dashboard
                 <span class="info-box-icon bg-warning"><i class="nav-icon fas fa-cart-arrow-down"></i></span>
 
                 <div class="info-box-content">
-                    <span class="info-box-text">All Purchase</span>
+                    <span class="info-box-text">@lang('site.allpurchase')</span>
                     <span class="info-box-number">{{ $purchases->count() }}</span>
                 </div>
                 <!-- /.info-box-content -->
@@ -68,7 +63,7 @@ Dashboard
                 <span class="info-box-icon bg-success"><i class="nav-icon fas fa-dollar-sign"></i></span>
 
                 <div class="info-box-content">
-                    <span class="info-box-text">all profit</span>
+                    <span class="info-box-text">@lang('site.allprofit')</span>
                     <span class="info-box-number">{{ $sumprofit }}</span>
                 </div>
                 <span class="info-box-icon"><i class="nav-icon fas fa-arrow-up" style="color: #38c172;"></i></span>
@@ -82,7 +77,7 @@ Dashboard
                 <span class="info-box-icon bg-success"><i class="nav-icon fas fa-cart-plus"></i></span>
 
                 <div class="info-box-content">
-                    <span class="info-box-text">Sales Today</span>
+                    <span class="info-box-text">@lang('site.saletoday')</span>
                     <span class="info-box-number">{{ $sales_today->count() }}</span>
                 </div>
                 <span class="info-box-icon"><i class="nav-icon fas fa-angle-double-up"
@@ -97,7 +92,7 @@ Dashboard
                 <span class="info-box-icon bg-danger"><i class="nav-icon fas fa-money-check-alt"></i></span>
 
                 <div class="info-box-content">
-                    <span class="info-box-text">Spending Money</span>
+                    <span class="info-box-text">@lang('site.spendingmoney')</span>
                     <span class="info-box-number">{{ $totalspendmoneys }}</span>
                 </div>
                 <span class="info-box-icon"><i class="nav-icon fas fa-arrow-down" style="color: #e3342f ;"></i></span>
@@ -111,7 +106,7 @@ Dashboard
                 <span class="info-box-icon bg-warning"><i class="nav-icon fas fa-cart-arrow-down"></i></span>
 
                 <div class="info-box-content">
-                    <span class="info-box-text">Purchase Today</span>
+                    <span class="info-box-text">@lang('site.purchasetoday')</span>
                     <span class="info-box-number">{{ $purchases_today->count() }}</span>
                 </div>
                 <span class="info-box-icon"><i class="nav-icon fas fa-angle-double-down"
@@ -126,7 +121,7 @@ Dashboard
         <div class="col-md-6">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Product That sale today</h3>
+                    <h3 class="card-title">@lang('site.productsale')</h3>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
@@ -134,8 +129,8 @@ Dashboard
                         <thead>
                             <tr>
                                 <th style="width: 10px">#</th>
-                                <th>Product name</th>
-                                <th>Quantity that sale</th>
+                                <th>@lang('site.productname')</th>
+                                <th>@lang('site.quantitysale')</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -156,7 +151,7 @@ Dashboard
         <div class="col-md-6">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Stock alerts</h3>
+                    <h3 class="card-title">@lang('site.stockalert')</h3>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
@@ -164,7 +159,7 @@ Dashboard
                         <thead>
                             <tr>
                                 <th style="width: 10px">#</th>
-                                <th>Product name</th>
+                                <th>@lang('site.productname')</th>
                             </tr>
                         </thead>
                         <tbody>
