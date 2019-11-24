@@ -44,7 +44,7 @@ return [
     'totalcreditclientmoney' => " مجموع ديون الزبائن",
     'totalspendingmoney' => "مجموع المصاريف",
     'totalboxmoney' => "مجموع في صندوق المال",
-    //category view translate to frensh
+    //category view translate to arabic
     'createcategory' => "إنشاء صنف جديد",
     'categoryname' => "اسم الصنف",
     'brandname' => "اسم العلامة التجارية",
@@ -52,6 +52,26 @@ return [
     'editcategory' => "تحرير الصنف",
     'updatecategory' => "تحديث الصنف",
     'relatedproduct' => "المنتجات ذات الصلة",
+    //client view translate to arabic
+    'createclient' => "إنشاء زبون جديد",
+    'clientname' => "اسم الزبون",
+    'editclient' => "تحرير الزبون",
+    'updateclient' => "تحديث الزبون",
+
+    //provider view translate to arabic
+    'createprovider' => "إنشاء مورد جديد",
+    'providername' => "اسم المورد",
+    'editprovider' => "تحرير المورد",
+    'updateprovider' => "تحديث المورد",
+
+    'phone' => "هاتف",
+    'address' => "عنوان",
+    'description' => "وصف",
+    'numeroregistrecommerce' => "رقم السجل التجاري",
+    'numeroarticle' => "numéro article",
+    'nif' => "NIF",
+    'nis' => "NIS",
+
     'action' => "فعل",
     'edit' => "تحرير",
     'delete' => "حدف",

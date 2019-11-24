@@ -52,6 +52,29 @@ return [
     'editcategory' => "Modifier la catégorie",
     'updatecategory' => "Mettre à jour la catégorie",
     'relatedproduct' => "Produit connexe",
+
+    //client view translate to frensh
+    'createclient' => "ِCreate Client",
+    'clientname' => "Client Name",
+    'editclient' => "Edit Client",
+    'updateclient' => "Update Client",
+
+    //Suppliers view translate to frensh
+    'createprovider' => "ِCreate Fournisseur",
+    'providername' => "Fournisseur Name",
+    'editprovider' => "Edit Fournisseur",
+    'updatecprovider' => "Update Fournisseur",
+
+    'phone' => "Phone",
+    'address' => "Address",
+    'description' => "Description",
+    'numeroregistrecommerce' => "Numéro register commerce",
+    'numeroarticle' => "Numéro article",
+    'nif' => "NIF",
+    'nis' => "NIS",
+
+
+
     'action' => "Action",
     'edit' => "modifier",
     'delete' => "supprimer",
