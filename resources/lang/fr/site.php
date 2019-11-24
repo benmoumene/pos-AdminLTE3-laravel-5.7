@@ -2,7 +2,7 @@
 
 
 return [
-    //navbar viex translate to french
+    //navbar view translate to french
     'welcome' => "BIENVENUE",
     'profile' => "Profil",
     'logout' => "Sortie",

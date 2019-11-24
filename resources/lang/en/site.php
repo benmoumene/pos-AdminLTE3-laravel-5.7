@@ -2,7 +2,7 @@
 
 
 return [
-    //navbar viex translate to english
+    //navbar view translate to english
     'welcome' => "WELCOME",
     'profile' => "Profile",
     'logout' => "Exit",

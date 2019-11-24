@@ -2,13 +2,13 @@
 
 
 return [
-    //navbar viex translate to arabic
+    //navbar view translate to arabic
     'welcome' => "مرحبا",
     'profile' => "حساب",
     'logout' => "خروج",
     //aside view translate to arabic
     'dashboard' => "الرئيسية",
-    'categories' => "الاقسام",
+    'categories' => "الاصناف",
     'products' => "منتجات",
     'sales' => "المبيعات",
     'purchases' => "المشتريات",
@@ -19,7 +19,7 @@ return [
     'moderators' => "مشرفين",
     'settings' => "إعدادات",
     //Dashboard view translate to arabic
-    'allcategory' => "جميع الاقسام",
+    'allcategory' => "جميع الاصناف",
     'allproduct' => "جميع المنتجات",
     'allsale' => "جميع المبيعات",
     'allpurchase' => "جميع المشتريات",
@@ -45,11 +45,11 @@ return [
     'totalspendingmoney' => "مجموع المصاريف",
     'totalboxmoney' => "مجموع في صندوق المال",
     //category view translate to frensh
-    'createcategory' => "إنشاء قسم جديدة",
-    'categoryname' => "اسم القسم",
+    'createcategory' => "إنشاء صنف جديدة",
+    'categoryname' => "اسم الصنف",
     'brandname' => "اسم العلامة التجارية",
-    'newcategory' => "إضافة قسم جديدة",
-    'editcategory' => "تحرير القسم",
-    'updatecategory' => "تحديث القسم",
+    'newcategory' => "إضافة صنف جديدة",
+    'editcategory' => "تحرير الصنف",
+    'updatecategory' => "تحديث الصنف",
 
 ];
