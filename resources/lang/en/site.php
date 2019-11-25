@@ -78,6 +78,15 @@ return [
     'search' => "Search",
     'photo' => "Photo",
 
+    //spending view translate to english
+    'createspending' => "Create Spending",
+    'spendingname' => "Spending Name",
+    'spendingprice' => "Spending Price",
+    'editspending' => "Edit Spending",
+    'updatespending' => "Update Spending",
+    'close' => "Close",
+    'save' => "Save",
+
     'phone' => "Phone",
     'address' => "Address",
     'description' => "Description",

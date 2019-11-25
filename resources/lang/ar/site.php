@@ -77,6 +77,15 @@ return [
     'search' => "بحث",
     'photo' => "صورة",
 
+    //spending view translate to arabic
+    'createspending' => "إنشاء مصروف جديد",
+    'spendingname' => "اسم المصروف",
+    'spendingprice' => "سعر المصروف",
+    'editspending' => "تحرير المصروف",
+    'updatespending' => "تحديث المصروف",
+    'close' => "اغلاق",
+    'save' => "حفظ",
+
     'phone' => "هاتف",
     'address' => "عنوان",
     'description' => "وصف",

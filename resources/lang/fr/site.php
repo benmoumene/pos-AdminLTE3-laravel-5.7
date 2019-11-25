@@ -78,6 +78,15 @@ return [
     'search' => "Chercher",
     'photo' => "Photo",
 
+    //spending view translate to frensh
+    'createspending' => "Créer des dépenses",
+    'spendingname' => "Nom de dépense",
+    'spendingprice' => "Prix de dépense",
+    'editspending' => "Modifier les dépenses",
+    'updatespending' => "Mise à jour des dépenses",
+    'close' => "Fermer",
+    'save' => "Enregistrer",
+
     'phone' => "Phone",
     'address' => "Address",
     'description' => "Description",

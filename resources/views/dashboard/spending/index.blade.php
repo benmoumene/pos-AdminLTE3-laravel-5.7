@@ -12,17 +12,18 @@
     <div class="card card-primary">
         <div class="card-header with-border">
             <div class="row">
-                <h3 class="card-title">Spendings</h3>
+                <h3 class="card-title">@lang('site.spendings')</h3>
                 {{--  create new spending  --}}
-                <button class="btn btn-success ml-auto" data-toggle="modal" data-target=".newspend">create
-                    spending</button>
+                <button class="btn btn-success ml-auto" data-toggle="modal"
+                    data-target=".newspend">@lang('site.createspending')</button>
                 <div class="modal fade newspend" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
                     aria-hidden="true">
                     <div class="modal-dialog modal-lg">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title text-dark" id="exampleModalLongTitle">Create
-                                    new Spending</h5>
+                                <h5 class="modal-title text-dark" id="exampleModalLongTitle">
+                                    @lang('site.createspending')
+                                </h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -34,23 +35,24 @@
                                 <div class="modal-body">
                                     <div class="col-md-8 text-dark">
                                         <div class="form-group row">
-                                            <label class="col-sm-6 col-form-label">Spending Name: </label>
+                                            <label class="col-sm-6 col-form-label">@lang('site.spendingname')</label>
                                             <input type="text" name="spending_name" class="form-control col-sm-6">
                                         </div>
                                         <div class="form-group row">
-                                            <label class="col-sm-6 col-form-label"> Description : </label>
+                                            <label class="col-sm-6 col-form-label">@lang('site.description')</label>
                                             <textarea name="spending_description"
                                                 class="form-control col-sm-6 "></textarea>
                                         </div>
                                         <div class="form-group row">
-                                            <label class="col-sm-6 col-form-label">Total Amount Spending : </label>
+                                            <label class="col-sm-6 col-form-label">@lang('site.spendingprice')</label>
                                             <input type="number" name="spending_price" class="form-control col-sm-6">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="submit" class="btn btn-primary">Save</button>
+                                    <button type="button" class="btn btn-secondary"
+                                        data-dismiss="modal">@lang('site.close')</button>
+                                    <button type="submit" class="btn btn-primary">@lang('site.save')</button>
                                 </div>
                             </form>
                         </div>
@@ -75,16 +77,16 @@
                                     <th style="display:none;"></th>
                                     <th class="sorting" tabindex="0" aria-controls="category_table" rowspan="1"
                                         colspan="1" aria-label="Browser: activate to sort column ascending"
-                                        style="width: 359px;">Spending Name</th>
+                                        style="width: 359px;">@lang('site.spendingname')</th>
                                     <th class="sorting" tabindex="0" aria-controls="category_table" rowspan="1"
                                         colspan="1" aria-label="Platform(s): activate to sort column ascending"
-                                        style="width: 320px;">Description</th>
+                                        style="width: 320px;">@lang('site.description')</th>
                                     <th class="sorting" tabindex="0" aria-controls="category_table" rowspan="1"
                                         colspan="1" aria-label="Platform(s): activate to sort column ascending"
-                                        style="width: 320px;">Spending price</th>
+                                        style="width: 320px;">@lang('site.spendingprice')</th>
                                     <th class="sorting" tabindex="0" aria-controls="category_table" rowspan="1"
                                         colspan="1" aria-label="Engine version: activate to sort column ascending"
-                                        style="width: 243px;">Action</th>
+                                        style="width: 243px;">@lang('site.action')</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -99,14 +101,15 @@
                                     <td>
                                         @if (auth()->user()->hasPermission('update_spendings'))
                                         <button class="btn btn-warning btn-sm editspend"><i
-                                                class="fas fa-edit"></i>update</button>
+                                                class="fas fa-edit"></i>@lang('site.edit')</button>
                                         @else
-                                        <a class="btn btn-warning btn-sm disabled"><i class="fas fa-edit"></i>update</a>
+                                        <a class="btn btn-warning btn-sm disabled"><i
+                                                class="fas fa-edit"></i>@lang('site.edit')</a>
                                         @endif
                                         @if (auth()->user()->hasPermission('delete_spendings'))
                                         <button id="delete" onclick="deletemoderator({{ $spending->id }})"
                                             class="btn btn-danger btn-sm"><i class="fas fa-trash"></i>
-                                            delete</button>
+                                            @lang('site.delete')</button>
                                         <form id="form-delete-{{ $spending->id }}"
                                             action="{{ route('spending.destroy', $spending->id) }}" method="post"
                                             style="display:inline-block;">
@@ -116,7 +119,7 @@
                                         @else
                                         <button type="submit" class="btn btn-danger btn-sm disabled"><i
                                                 class="fas fa-trash"></i>
-                                            delete</button>
+                                            @lang('site.delete')</button>
                                         @endif
 
                                     </td>
@@ -128,10 +131,10 @@
                                 <tr>
                                     <th rowspan="1" colspan="1">No</th>
                                     <th style="display:none;"></th>
-                                    <th rowspan="1" colspan="1">Spending Name</th>
-                                    <th rowspan="1" colspan="1">Description</th>
-                                    <th rowspan="1" colspan="1">Spending price</th>
-                                    <th rowspan="1" colspan="1">Action</th>
+                                    <th rowspan="1" colspan="1">@lang('site.spendingname')</th>
+                                    <th rowspan="1" colspan="1">@lang('site.description')</th>
+                                    <th rowspan="1" colspan="1">@lang('site.spendingprice')</th>
+                                    <th rowspan="1" colspan="1">@lang('site.action')</th>
                                 </tr>
                             </tfoot>
                         </table>
@@ -146,7 +149,7 @@
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title text-dark" id="exampleModalLongTitle">
-                                Update Spending</h5>
+                                @lang('site.editspending')</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -159,27 +162,26 @@
                                 <div class="col-md-8 text-dark">
                                     <input type="hidden" id="idspend" name="idspend">
                                     <div class="form-group row">
-                                        <label class="col-sm-6 col-form-label">Spending Name: </label>
+                                        <label class="col-sm-6 col-form-label">@lang('site.spendingname')</label>
                                         <input type="text" id="spending_name" name="spending_name"
                                             class="form-control col-sm-6">
                                     </div>
                                     <div class="form-group row">
-                                        <label class="col-sm-6 col-form-label"> Description
-                                            : </label>
+                                        <label class="col-sm-6 col-form-label">@lang('site.description')</label>
                                         <textarea name="spending_description" id="spending_description"
                                             class="form-control col-sm-6"></textarea>
                                     </div>
                                     <div class="form-group row">
-                                        <label class="col-sm-6 col-form-label">Total Amount
-                                            Spending : </label>
+                                        <label class="col-sm-6 col-form-label">@lang('site.spendingprice')</label>
                                         <input type="number" id="spending_price" name="spending_price"
                                             class="form-control col-sm-6">
                                     </div>
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-primary">Save updates</button>
+                                <button type="button" class="btn btn-secondary"
+                                    data-dismiss="modal">@lang('site.close')</button>
+                                <button type="submit" class="btn btn-primary">@lang('site.save')</button>
                             </div>
                         </form>
                     </div>
@@ -193,7 +195,7 @@
     <div class="card card-primary">
         <div class="card-header with-border">
             <div class="row">
-                <h3 class="card-title">Total Amount Spendings</h3>
+                <h3 class="card-title">@lang('site.totalspendingmoney')</h3>
                 <div class="ml-auto">
                     <input type="number" readonly class="form-control text-center" value="{{ $totalspendings }}">
                 </div>
