@@ -68,7 +68,7 @@ return [
     'address' => "عنوان",
     'description' => "وصف",
     'numeroregistrecommerce' => "رقم السجل التجاري",
-    'numeroarticle' => "numéro article",
+    'numeroarticle' => "رقم المادة",
     'nif' => "NIF",
     'nis' => "NIS",
 

@@ -1,15 +1,12 @@
 @extends('layouts.main')
 
-@section('page')
-Update Client
-@stop
 
 @section('content')
 
 <div class="col-md-12">
     <div class="card card-primary">
         <div class="card-header with-border">
-            <h3 class="card-title">Update a Client</h3>
+            <h3 class="card-title">@lang('site.editclient')</h3>
         </div>
 
         <!-- /.card-header -->
@@ -22,47 +19,48 @@ Update Client
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label>Client name</label>
+                            <label>@lang('site.clientname')</label>
                             <input type="text" name="client_name" id="" class="form-control"
                                 value="{{ $client->client_name }}">
                         </div>
                         <div class="form-group">
-                            <label>phone</label>
+                            <label>@lang('site.phone')</label>
                             <input type="text" name="phone" id="" class="form-control" value="{{ $client->phone }}">
                         </div>
                         <div class="form-group">
-                            <label>Address</label>
+                            <label>@lang('site.address')</label>
                             <textarea type="text" name="address" id=""
                                 class="form-control">{{ $client->address }}</textarea>
                         </div>
                         <div class="form-group">
-                            <label>Description</label>
+                            <label>@lang('site.description')</label>
                             <textarea type="text" name="description" id=""
                                 class="form-control">{{ $client->description }}</textarea>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label>Numero Registre Commerce </label>
+                            <label>@lang('site.numeroregistrecommerce')</label>
                             <input type="text" name="rc" id="" class="form-control" value="{{ $client->rc }}">
                         </div>
                         <div class="form-group">
-                            <label>Numero Article</label>
+                            <label>@lang('site.numeroarticle')</label>
                             <input type="number" name="article" id="" class="form-control"
                                 value="{{ $client->article }}">
                         </div>
                         <div class="form-group">
-                            <label>NIF</label>
+                            <label>@lang('site.nif')</label>
                             <input type="number" name="nif" id="" class="form-control" value="{{ $client->nif }}">
                         </div>
                         <div class="form-group">
-                            <label>NIS</label>
+                            <label>@lang('site.nis')</label>
                             <input type="number" name="nis" id="" class="form-control" value="{{ $client->nis }}">
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer form-group">
-                    <button type="submit" class="btn btn-primary"><i class="fas fa-edit"></i> Update Client</button>
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-edit"></i>
+                        @lang('site.updateclient')</button>
                 </div>
             </form>
 

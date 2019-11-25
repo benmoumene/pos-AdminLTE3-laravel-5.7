@@ -1,8 +1,5 @@
 @extends('layouts.main')
 
-@section('page')
-clients Page
-@stop
 
 @section('content')
 @include('sweet::alert')
@@ -14,19 +11,17 @@ clients Page
 
                 <div class="row no-gutters">
                     <div class="col-12 col-sm-6 col-md-8">
-                        <h3 class="card-title">List clients</h3>
+                        <h3 class="card-title">@lang('site.clients')</h3>
                     </div>
                     <div class="col-6 col-md-4">
                         @if (auth()->user()->hasPermission('create_clients'))
                         <a type="" class="btn btn-success btn float-right" style=""
                             href="{{ route('client.create') }}"><i class="fas fa-user-plus"></i>
-                            add new client</a>
+                            @lang('site.createclient')</a>
                         @else
                         <a type="" class="btn btn-success disabled btn float-right" href="#"><i
                                 class="fas fa-user-plus"></i>
-                            add
-                            new
-                            client</a>
+                            @lang('site.createclient')</a>
                         @endif
                     </div>
                 </div>
@@ -48,29 +43,28 @@ clients Page
                                         style="width: 283px;">No</th>
                                     <th class="sorting" tabindex="0" aria-controls="client_table" rowspan="1"
                                         colspan="1" aria-label="Browser: activate to sort column ascending"
-                                        style="width: 359px;">client
-                                        name</th>
+                                        style="width: 359px;">@lang('site.clientname')</th>
                                     <th class="sorting" tabindex="0" aria-controls="client_table" rowspan="1"
                                         colspan="1" aria-label="Platform(s): activate to sort column ascending"
-                                        style="width: 250px;">phone</th>
+                                        style="width: 250px;">@lang('site.phone')</th>
                                     <th class="sorting" tabindex="0" aria-controls="client_table" rowspan="1"
                                         colspan="1" aria-label="Platform(s): activate to sort column ascending"
-                                        style="width: 250px;">Address</th>
+                                        style="width: 250px;">@lang('site.address')</th>
                                     <th class="sorting" tabindex="0" aria-controls="client_table" rowspan="1"
                                         colspan="1" aria-label="Platform(s): activate to sort column ascending"
-                                        style="width: 250px;">No: RC</th>
+                                        style="width: 250px;">@lang('site.numeroregistrecommerce')</th>
                                     <th class="sorting" tabindex="0" aria-controls="client_table" rowspan="1"
                                         colspan="1" aria-label="Platform(s): activate to sort column ascending"
-                                        style="width: 250px;">No: Article</th>
+                                        style="width: 250px;">@lang('site.numeroarticle')</th>
                                     <th class="sorting" tabindex="0" aria-controls="client_table" rowspan="1"
                                         colspan="1" aria-label="Platform(s): activate to sort column ascending"
-                                        style="width: 250px;">NIF</th>
+                                        style="width: 250px;">@lang('site.nif')</th>
                                     <th class="sorting" tabindex="0" aria-controls="client_table" rowspan="1"
                                         colspan="1" aria-label="Platform(s): activate to sort column ascending"
-                                        style="width: 250px;">NIS</th>
+                                        style="width: 250px;">@lang('site.nis')</th>
                                     <th class="sorting" tabindex="0" aria-controls="client_table" rowspan="1"
                                         colspan="1" aria-label="Engine version: activate to sort column ascending"
-                                        style="width: 243px;">Action</th>
+                                        style="width: 243px;">@lang('site.action')</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -90,16 +84,16 @@ clients Page
                                         @if (auth()->user()->hasPermission('update_clients'))
                                         <a class="btn btn-warning btn-sm"
                                             href="{{ route('client.edit', $client->id) }}"><i class="fas fa-edit"></i>
-                                            update</a>
+                                            @lang('site.edit')</a>
                                         @else
                                         <a class="btn btn-warning btn-sm disabled"
                                             href="{{ route('client.edit', $client->id) }}"><i class="fas fa-edit"></i>
-                                            update</a>
+                                            @lang('site.edit')</a>
                                         @endif
                                         @if (auth()->user()->hasPermission('delete_clients'))
                                         <button id="delete" onclick="deletemoderator({{ $client->id }})"
                                             class="btn btn-danger btn-sm"><i class="fas fa-trash"></i>
-                                            delete</button>
+                                            @lang('site.delete')</button>
                                         <form id="form-delete-{{ $client->id }}"
                                             action="{{ route('client.destroy', $client->id) }}" method="post"
                                             style="display:inline-block;">
@@ -109,7 +103,7 @@ clients Page
                                         @else
                                         <button type="submit" class="btn btn-danger btn-sm disabled"><i
                                                 class="fas fa-trash"></i>
-                                            delete</button>
+                                            @lang('site.delete')</button>
                                         @endif
 
                                     </td>
@@ -120,14 +114,14 @@ clients Page
                             <tfoot>
                                 <tr>
                                     <th rowspan="1" colspan="1">No</th>
-                                    <th rowspan="1" colspan="1">client name</th>
-                                    <th rowspan="1" colspan="1">Phone</th>
-                                    <th rowspan="1" colspan="1">Address</th>
-                                    <th rowspan="1" colspan="1">No: RC</th>
-                                    <th rowspan="1" colspan="1">No: article</th>
-                                    <th rowspan="1" colspan="1">NIF</th>
-                                    <th rowspan="1" colspan="1">NIS</th>
-                                    <th rowspan="1" colspan="1">Action</th>
+                                    <th rowspan="1" colspan="1">@lang('site.clientname')</th>
+                                    <th rowspan="1" colspan="1">@lang('site.phone')</th>
+                                    <th rowspan="1" colspan="1">@lang('site.address')</th>
+                                    <th rowspan="1" colspan="1">@lang('site.numeroregistrecommerce')</th>
+                                    <th rowspan="1" colspan="1">@lang('site.numeroarticle')</th>
+                                    <th rowspan="1" colspan="1">@lang('site.nif')</th>
+                                    <th rowspan="1" colspan="1">@lang('site.nis')</th>
+                                    <th rowspan="1" colspan="1">@lang('site.action')</th>
                                 </tr>
                             </tfoot>
                         </table>
