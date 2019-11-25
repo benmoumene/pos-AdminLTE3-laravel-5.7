@@ -87,6 +87,18 @@ return [
     'close' => "Close",
     'save' => "Save",
 
+    //moderator view translate to english
+    'createmoderator' => "Create Supervisor",
+    'firstname' => "First Name",
+    'lastname' => "Last Name",
+    'email' => "Email",
+    'password' => "Password",
+    'passwordconfirmation' => "Password Conformation",
+    'moderatorpermission' => "Supervisor Permission",
+    'editmoderator' => "Edit Supervisor",
+    'updatemoderator' => "Update Supervisor",
+    'users' => "Supervisor",
+
     'phone' => "Phone",
     'address' => "Address",
     'description' => "Description",
@@ -98,6 +110,10 @@ return [
     'action' => "Action",
     'edit' => "Edit",
     'delete' => "Delete",
+    'read' => "Read",
+    'create' => "Create",
+    'update' => "Update",
+
 
 
 ];

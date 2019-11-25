@@ -1,15 +1,12 @@
 @extends('layouts.main')
 
-@section('page')
-Create Moderators
-@stop
 
 @section('content')
 
 <div class="col-md-12">
     <div class="card card-primary">
         <div class="card-header with-border">
-            <h3 class="card-title">Create a new Moderator</h3>
+            <h3 class="card-title">@lang('site.createmoderator')</h3>
         </div>
 
         <!-- /.card-header -->
@@ -23,36 +20,36 @@ Create Moderators
 
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label>first name</label>
+                            <label>@lang('site.firstname')</label>
                             <input type="text" name="first_name" id="" class="form-control"
                                 value="{{ old('first_name') }}" required>
                         </div>
                         <div class="form-group">
-                            <label>last name</label>
+                            <label>@lang('site.lastname')</label>
                             <input type="text" name="last_name" id="" class="form-control"
                                 value="{{ old('last_name') }}" required>
                         </div>
                         <div class="form-group">
-                            <label>Email</label>
+                            <label>@lang('site.email')</label>
                             <input type="email" name="email" id="" class="form-control" value="{{ old('email') }}"
                                 required>
                         </div>
                         <div class="form-group">
-                            <label>Password</label>
+                            <label>@lang('site.password')</label>
                             <input type="password" name="password" id="" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label>Password Confirmation</label>
+                            <label>@lang('site.passwordconfirmation')</label>
                             <input type="password" name="password_confirmation" id="" class="form-control" required>
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <label for="">employee photo</label>
+                        <label for="">@lang('site.photo')</label>
                         <div class="form-group">
                             <div class="custom-file">
                                 <input type="file" name="image" class="form-control image custom-file-input"
                                     id="customFile">
-                                <label class="custom-file-label" for="customFile">Choose Moderator Photo</label>
+                                <label class="custom-file-label" for="customFile">@lang('site.choosephoto')</label>
                             </div>
                         </div>
                         <div class="form-group">
@@ -64,7 +61,7 @@ Create Moderators
                         <div class="form-group">
                             <div class="card">
                                 <div class="card-header d-flex p-0">
-                                    <h3 class="card-title p-3">Moderator Permission</h3>
+                                    <h3 class="card-title p-3">@lang('site.moderatorpermission')</h3>
                                     @php
                                     $models =
                                     ['users','categories','products','clients','providers','sales','purchases','spendings','moneybox','generalsetting'];
@@ -102,7 +99,7 @@ Create Moderators
                 <div class="modal-footer form-group">
                     <button type="submit" class="btn btn-success" href="{{ route('moderator.store') }}"><i
                             class="fas fa-user-plus"></i>
-                        Add new moderator</button>
+                        @lang('site.createmoderator')</button>
                 </div>
             </form>
 

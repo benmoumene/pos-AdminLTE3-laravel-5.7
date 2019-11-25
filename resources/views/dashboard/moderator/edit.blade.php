@@ -1,17 +1,13 @@
 @extends('layouts.main')
 
-@section('page')
-Update Moderators
-@stop
 
 @section('content')
 
 <div class="col-md-12">
     <div class="card card-primary">
         <div class="card-header with-border">
-            <h3 class="card-title">Update a Moderator</h3>
+            <h3 class="card-title">@lang('site.editmoderator')</h3>
         </div>
-
         <!-- /.card-header -->
         <div class="card-body">
 
@@ -22,24 +18,24 @@ Update Moderators
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label>first name</label>
+                            <label>@lang('site.firstname')</label>
                             <input type="text" name="first_name" id="" class="form-control"
                                 value="{{ $moderator->first_name }}">
                         </div>
                         <div class="form-group">
-                            <label>last name</label>
+                            <label>@lang('site.lastname')</label>
                             <input type="text" name="last_name" id="" class="form-control"
                                 value="{{ $moderator->last_name }}">
                         </div>
                         <div class="form-group">
-                            <label>Email</label>
+                            <label>@lang('site.email')</label>
                             <input type="email" name="email" id="" class="form-control" value="{{ $moderator->email }}">
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <label for="">employee photo</label>
+                        <label for="">@lang('site.photo')</label>
                         <div class="form-group">
-                            <label>Moderator Photo</label>
+                            <label>@lang('site.photo')</label>
                             <input type="file" name="image" id="" class="form-control image">
                         </div>
                         <div class="form-group">
@@ -51,7 +47,7 @@ Update Moderators
                         <div class="form-group">
                             <div class="card">
                                 <div class="card-header d-flex p-0">
-                                    <h3 class="card-title p-3">Moderator Permission</h3>
+                                    <h3 class="card-title p-3">@lang('site.moderatorpermission')</h3>
                                     @php
                                     $models =
                                     ['users','categories','products','clients','providers','sales','purchases','spendings','moneybox','generalsetting'];
@@ -86,8 +82,7 @@ Update Moderators
                     </div>
                 </div>
                 <div class="modal-footer form-group">
-                    <button type="submit" class="btn btn-success"><i class="fas fa-user-edit"></i> Update a
-                        moderator</button>
+                    <button type="submit" class="btn btn-success"><i class="fas fa-user-edit"></i> @lang('site.updatemoderator')</button>
                 </div>
             </form>
 

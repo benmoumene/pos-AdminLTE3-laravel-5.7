@@ -1,8 +1,5 @@
 @extends('layouts.main')
 
-@section('page')
-Moderators Page
-@stop
 
 @section('content')
 @include('sweet::alert')
@@ -14,18 +11,16 @@ Moderators Page
 
                 <div class="row no-gutters">
                     <div class="col-12 col-sm-6 col-md-8">
-                        <h3 class="card-title">List Moderators</h3>
+                        <h3 class="card-title">@lang('site.moderators')</h3>
                     </div>
                     <div class="col-6 col-md-4">
                         @if (auth()->user()->hasPermission('create_users'))
                         <a type="" class="btn btn-success btn float-right" style="" href="{{ route('moderator.create') }}"><i
                                 class="fas fa-user-plus"></i>
-                            add new moderator</a>
+                            @lang('site.createmoderator')</a>
                         @else
                         <a type="" class="btn btn-success disabled btn float-right" href="#"><i class="fas fa-user-plus"></i>
-                            add
-                            new
-                            moderator</a>
+                            @lang('site.createmoderator')</a>
                         @endif
                     </div>
                 </div>
@@ -45,17 +40,15 @@ Moderators Page
                                         colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending"
                                         style="width: 283px;">No</th>
                                     <th class="sorting" tabindex="0" aria-controls="category_table" rowspan="1" colspan="1"
-                                        aria-label="Browser: activate to sort column ascending" style="width: 359px;">First
-                                        name</th>
+                                        aria-label="Browser: activate to sort column ascending" style="width: 359px;">@lang('site.firstname')</th>
                                     <th class="sorting" tabindex="0" aria-controls="category_table" rowspan="1" colspan="1"
-                                        aria-label="Platform(s): activate to sort column ascending" style="width: 320px;">Last
-                                        name</th>
+                                        aria-label="Platform(s): activate to sort column ascending" style="width: 320px;">@lang('site.lastname')</th>
                                     <th class="sorting" tabindex="0" aria-controls="category_table" rowspan="1" colspan="1"
-                                        aria-label="Platform(s): activate to sort column ascending" style="width: 320px;">Email</th>
+                                        aria-label="Platform(s): activate to sort column ascending" style="width: 320px;">@lang('site.email')</th>
                                     <th class="sorting" tabindex="0" aria-controls="category_table" rowspan="1" colspan="1"
-                                        aria-label="Platform(s): activate to sort column ascending" style="width: 320px;">Image</th>
+                                        aria-label="Platform(s): activate to sort column ascending" style="width: 320px;">@lang('site.photo')</th>
                                     <th class="sorting" tabindex="0" aria-controls="category_table" rowspan="1" colspan="1"
-                                        aria-label="Engine version: activate to sort column ascending" style="width: 243px;">Action</th>
+                                        aria-label="Engine version: activate to sort column ascending" style="width: 243px;">@lang('site.action')</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -72,16 +65,16 @@ Moderators Page
                                         @if (auth()->user()->hasPermission('update_users'))
                                         <a class="btn btn-warning btn-sm" href="{{ route('moderator.edit', $moderators->id) }}"><i
                                                 class="fas fa-user-edit"></i>
-                                            update</a>
+                                            @lang('site.edit')</a>
                                         @else
                                         <a class="btn btn-warning btn-sm disabled" href="{{ route('moderator.edit', $moderators->id) }}"><i
                                                 class="fas fa-user-edit"></i>
-                                            update</a>
+                                            @lang('site.edit')</a>
                                         @endif
                                         @if (auth()->user()->hasPermission('delete_users'))
                                         <button id="delete" onclick="deletemoderator({{ $moderators->id }})" class="btn btn-danger btn-sm"><i
                                                 class="fas fa-user-times"></i>
-                                            delete</button>
+                                            @lang('site.delete')</button>
                                         <form id="form-delete-{{ $moderators->id }}" action="{{ route('moderator.destroy', $moderators->id) }}"
                                             method="post" style="display:inline-block;">
                                             {{ csrf_field() }}
@@ -89,7 +82,7 @@ Moderators Page
                                         </form>
                                         @else
                                         <button type="submit" class="btn btn-danger btn-sm disabled"><i class="fas fa-user-times"></i>
-                                            delete</button>
+                                            @lang('site.delete')</button>
                                         @endif
 
                                     </td>
@@ -99,11 +92,11 @@ Moderators Page
                             <tfoot>
                                 <tr>
                                     <th rowspan="1" colspan="1">No</th>
-                                    <th rowspan="1" colspan="1">First name</th>
-                                    <th rowspan="1" colspan="1">First name</th>
-                                    <th rowspan="1" colspan="1">Email</th>
-                                    <th rowspan="1" colspan="1">Image</th>
-                                    <th rowspan="1" colspan="1">Action</th>
+                                    <th rowspan="1" colspan="1">@lang('site.firstname')</th>
+                                    <th rowspan="1" colspan="1">@lang('site.lastname')</th>
+                                    <th rowspan="1" colspan="1">@lang('site.email')</th>
+                                    <th rowspan="1" colspan="1">@lang('site.photo')</th>
+                                    <th rowspan="1" colspan="1">@lang('site.action')</th>
                                 </tr>
                             </tfoot>
                         </table>

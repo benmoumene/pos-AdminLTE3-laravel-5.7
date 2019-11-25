@@ -87,6 +87,18 @@ return [
     'close' => "Fermer",
     'save' => "Enregistrer",
 
+    //moderator view translate to frensh
+    'createmoderator' => "Créer un superviseur",
+    'firstname' => "Prénom",
+    'lastname' => "Nom de famille",
+    'email' => "Email",
+    'password' => "Mot de passe",
+    'passwordconfirmation' => "Confirmation mot de passe",
+    'moderatorpermission' => "Superviseur permission",
+    'editmoderator' => "Modifier superviseur",
+    'updatemoderator' => "Mise à jour superviseur",
+    'users' => "superviseur",
+
     'phone' => "Phone",
     'address' => "Address",
     'description' => "Description",
@@ -98,7 +110,10 @@ return [
 
 
     'action' => "Action",
-    'edit' => "modifier",
-    'delete' => "supprimer",
+    'edit' => "Modifier",
+    'delete' => "Supprimer",
+    'read' => "Lecture",
+    'create' => "Créer",
+    'update' => "Mise à jour",
 
 ];

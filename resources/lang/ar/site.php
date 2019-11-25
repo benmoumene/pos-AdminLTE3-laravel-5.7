@@ -66,8 +66,8 @@ return [
 
     //product view translate to arabic
     'createproduct' => "إنشاء منتج جديد",
-    'codebar' => "codebar",
-    'generatecodebar' => "codebar",
+    'codebar' => "كود بار",
+    'generatecodebar' => "كود بار",
     'productname' => "اسم المنتج",
     'purchaseprice' => "سعر الشراء",
     'saleprice' => "سعر البيع",
@@ -86,6 +86,18 @@ return [
     'close' => "اغلاق",
     'save' => "حفظ",
 
+    //moderator view translate to arabic
+    'createmoderator' => "إنشاء مشرف جديد",
+    'firstname' => "الاسم",
+    'lastname' => "اللقب",
+    'email' => "البريد الإلكتروني",
+    'password' => "كلمه السر",
+    'passwordconfirmation' => "تأكيد كلمة المرور",
+    'moderatorpermission' => "صلاحيات المشرف",
+    'editmoderator' => "تحرير المشرف",
+    'updatemoderator' => "تحديث المشرف",
+    'users' => "مشرف",
+
     'phone' => "هاتف",
     'address' => "عنوان",
     'description' => "وصف",
@@ -95,6 +107,9 @@ return [
     'nis' => "NIS",
 
     'action' => "فعل",
+    'read' => "قراءة",
+    'create' => "إنشاء",
+    'update' => "تحديث",
     'edit' => "تحرير",
     'delete' => "حدف",
 ];
