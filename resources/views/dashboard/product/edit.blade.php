@@ -1,15 +1,12 @@
 @extends('layouts.main')
 
-@section('page')
-Procuct Update
-@stop
 
 @section('content')
 
 <div class="col-md-12">
     <div class="card card-primary">
         <div class="card-header with-border">
-            <h3 class="card-title">Update a Product</h3>
+            <h3 class="card-title">@lang('site.editproduct')</h3>
         </div>
 
         <!-- /.card-header -->
@@ -22,9 +19,9 @@ Procuct Update
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label>Categories</label>
+                            <label>@lang('site.categories')</label>
                             <select name="category_id" class="form-control">
-                                <option value="">All Categorie</option>
+                                <option value="">@lang('site.categories')</option>
                                 @foreach ($categories as $category)
                                 <option value="{{ $category->id }}"
                                     {{ $product->category_id == $category->id ? 'selected' : ''}}>{{
@@ -34,42 +31,42 @@ Procuct Update
                             </select>
                         </div>
                         <div class="form-group">
-                            <label>Codebar</label>
+                            <label>@lang('site.codebar')</label>
                             <div style="display: flex;">
                                 <input type="text" name="codebar" id="bar" class="form-control bar"
                                     value="{{ $product->codebar }}">
-                                <button type="button" id="button_barcode" class="btn btn-primary float-right">Generate
-                                    a codebar</button>
+                                <button type="button" id="button_barcode"
+                                    class="btn btn-primary float-right">@lang('site.generatecodebar')</button>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label>Product name</label>
+                            <label>@lang('site.productname')</label>
                             <input type="text" name="product_name" id="" class="form-control"
                                 value="{{ $product->product_name }}">
                         </div>
                         <div class="form-group">
-                            <label>Description</label>
+                            <label>@lang('site.description')</label>
                             <input type="textarea" name="description" id="" class="form-control"
                                 value="{{ $product->description }}" required>
                         </div>
                         <div class="form-group">
-                            <label>Purchase Price</label>
+                            <label>@lang('site.purchaseprice')</label>
                             <input type="number" name="purchase_price" id="" class="form-control"
                                 value="{{ $product->purchase_price }}" required>
                         </div>
                         <div class="form-group">
-                            <label>Sale Price</label>
+                            <label>@lang('site.saleprice')</label>
                             <input type="number" name="sale_price" id="" class="form-control"
                                 value="{{ $product->sale_price }}">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label>Stock</label>
+                            <label>@lang('site.stock')</label>
                             <input type="number" name="stock" id="" class="form-control" value="{{ $product->stock }}">
                         </div>
                         <div class="form-group">
-                            <label>Min on Stock</label>
+                            <label>@lang('site.minstock')</label>
                             <input type="number" name="min_stock" id="" class="form-control"
                                 value="{{ $product->min_stock }}">
                         </div>
@@ -77,7 +74,7 @@ Procuct Update
                             <div class="custom-file">
                                 <input type="file" name="image" class="form-control image custom-file-input"
                                     id="customFile">
-                                <label class="custom-file-label" for="customFile">Choose product Photo</label>
+                                <label class="custom-file-label" for="customFile">@lang('site.choosephoto')</label>
                             </div>
                         </div>
                         <div class="form-group">
@@ -87,8 +84,8 @@ Procuct Update
                     </div>
                 </div>
                 <div class="modal-footer form-group">
-                    <button type="submit" class="btn btn-primary"><i class="fas fa-edit"></i> Update a
-                        moderator</button>
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-edit"></i>
+                        @lang('site.updateproduct')</button>
                 </div>
             </form>
 

@@ -65,6 +65,19 @@ return [
     'editprovider' => "Edit Fournisseur",
     'updatecprovider' => "Update Fournisseur",
 
+    //product view translate to frensh
+    'createproduct' => "Créer un produit",
+    'codebar' => "code à barre",
+    'generatecodebar' => "Générer un code à barres",
+    'productname' => "Nom du produit",
+    'purchaseprice' => "prix d'achat",
+    'saleprice' => "prix de vente",
+    'stock' => "Stock",
+    'minstock' => "Stock minimum",
+    'choosephoto' => "choisir une photo",
+    'search' => "Chercher",
+    'photo' => "Photo",
+
     'phone' => "Phone",
     'address' => "Address",
     'description' => "Description",

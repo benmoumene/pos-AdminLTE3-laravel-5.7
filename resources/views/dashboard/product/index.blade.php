@@ -1,8 +1,5 @@
 @extends('layouts.main')
 
-@section('page')
-Products Page
-@stop
 
 @section('content')
 @include('sweet::alert')
@@ -14,30 +11,28 @@ Products Page
 
                 <div class="row no-gutters">
                     <div class="col-12 col-sm-6 col-md-8">
-                        <h3 class="card-title">List Products</h3>
+                        <h3 class="card-title">@lang('site.products')</h3>
                     </div>
                     <div class="col-6 col-md-4">
                         @if (auth()->user()->hasPermission('create_products'))
                         <a type="" class="btn btn-success btn float-right" style=""
                             href="{{ route('product.create') }}"><i class="fas fa-user-plus"></i>
-                            add new product</a>
+                            @lang('site.createproduct')</a>
                         @else
                         <a type="" class="btn btn-success disabled btn float-right" href="#"><i
                                 class="fas fa-user-plus"></i>
-                            add
-                            new
-                            product</a>
+                            @lang('site.createproduct')</a>
                         @endif
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-4 form-group">
-                        <input type="text" name="search" class="form-control" placeholder="search"
+                        <input type="text" name="search" class="form-control" placeholder="@lang('site.search')"
                             value="{{ request()->search }}">
                     </div>
                     <div class="col-md-4 form-group">
                         <select name="category_id" class="form-control">
-                            <option value="">All Categorie</option>
+                            <option value="">@lang('site.categories')</option>
                             @foreach ($categories as $category)
                             <option value="{{ $category->id }}"
                                 {{ request()->category_id == $category->id ? 'selected' : ''}}>{{
@@ -48,7 +43,7 @@ Products Page
                     </div>
                     <div class="col-md-4 form-group">
                         <button type="submit" class="btn btn-success float-left"><i class="fas fa-search"></i>
-                            Search</button>
+                            @lang('site.search') </button>
                     </div>
 
 
@@ -73,31 +68,28 @@ Products Page
                                     style="width: 283px;">No</th>
                                 <th class="sorting" tabindex="0" aria-controls="product_table" rowspan="1" colspan="1"
                                     aria-label="Browser: activate to sort column ascending" style="width: 359px;">
-                                    Codebar</th>
+                                    @lang('site.codebar')</th>
                                 <th class="sorting" tabindex="0" aria-controls="product_table" rowspan="1" colspan="1"
                                     aria-label="Platform(s): activate to sort column ascending" style="width: 283px;">
-                                    Product
-                                    name</th>
+                                    @lang('site.productname')</th>
                                 <th class="sorting" tabindex="0" aria-controls="product_table" rowspan="1" colspan="1"
                                     aria-label="Platform(s): activate to sort column ascending" style="width: 283px;">
-                                    Description</th>
+                                    @lang('site.description')</th>
                                 <th class="sorting" tabindex="0" aria-controls="product_table" rowspan="1" colspan="1"
                                     aria-label="Platform(s): activate to sort column ascending" style="width: 283px;">
-                                    Purchase
-                                    Price</th>
+                                    @lang('site.purchaseprice')</th>
                                 <th class="sorting" tabindex="0" aria-controls="product_table" rowspan="1" colspan="1"
                                     aria-label="Platform(s): activate to sort column ascending" style="width: 283px;">
-                                    Sale
-                                    Price</th>
+                                    @lang('site.saleprice')</th>
                                 <th class="sorting" tabindex="0" aria-controls="product_table" rowspan="1" colspan="1"
                                     aria-label="Platform(s): activate to sort column ascending" style="width: 283px;">
-                                    Stock</th>
+                                    @lang('site.stock')</th>
                                 <th class="sorting" tabindex="0" aria-controls="product_table" rowspan="1" colspan="1"
                                     aria-label="Platform(s): activate to sort column ascending" style="width: 320px;">
-                                    Image</th>
+                                    @lang('site.photo')</th>
                                 <th class="sorting" tabindex="0" aria-controls="product_table" rowspan="1" colspan="1"
                                     aria-label="Engine version: activate to sort column ascending"
-                                    style="width: 359px;">Action</th>
+                                    style="width: 359px;">@lang('site.action')</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -118,16 +110,16 @@ Products Page
                                     @if (auth()->user()->hasPermission('update_categories'))
                                     <a class="btn btn-warning btn-sm"
                                         href="{{ route('product.edit', $product->id) }}"><i class="fas fa-edit"></i>
-                                        update</a>
+                                        @lang('site.edit')</a>
                                     @else
                                     <a class="btn btn-warning btn-sm disabled"
                                         href="{{ route('product.edit', $product->id) }}"><i class="fas fa-edit"></i></i>
-                                        update</a>
+                                        @lang('site.edit')</a>
                                     @endif
                                     @if (auth()->user()->hasPermission('delete_products'))
                                     <button id="delete" onclick="deletemoderator({{ $product->id }})"
                                         class="btn btn-danger btn-sm"><i class="fas fa-trash"></i>
-                                        delete</button>
+                                        @lang('site.delete')</button>
                                     <form id="form-delete-{{ $product->id }}"
                                         action="{{ route('product.destroy', $product->id) }}" method="post"
                                         style="display:inline-block;">
@@ -137,7 +129,7 @@ Products Page
                                     @else
                                     <button type="submit" class="btn btn-danger btn-sm disabled"><i
                                             class="fas fa-trash"></i>
-                                        delete</button>
+                                        @lang('site.delete')</button>
                                     @endif
 
                                 </td>
@@ -148,14 +140,14 @@ Products Page
                         <tfoot>
                             <tr>
                                 <th rowspan="1" colspan="1">No</th>
-                                <th rowspan="1" colspan="1">Codebar</th>
-                                <th rowspan="1" colspan="1">Product name</th>
-                                <th rowspan="1" colspan="1">Description</th>
-                                <th rowspan="1" colspan="1">Purchase Price</th>
-                                <th rowspan="1" colspan="1">Sale Price</th>
-                                <th rowspan="1" colspan="1">Stock</th>
-                                <th rowspan="1" colspan="1">Image</th>
-                                <th rowspan="1" colspan="1">Action</th>
+                                <th rowspan="1" colspan="1">@lang('site.codebar')</th>
+                                <th rowspan="1" colspan="1">@lang('site.productname')</th>
+                                <th rowspan="1" colspan="1">@lang('site.description')</th>
+                                <th rowspan="1" colspan="1">@lang('site.purchaseprice')</th>
+                                <th rowspan="1" colspan="1">@lang('site.saleprice')</th>
+                                <th rowspan="1" colspan="1">@lang('site.stock')</th>
+                                <th rowspan="1" colspan="1">@lang('site.photo')</th>
+                                <th rowspan="1" colspan="1">@lang('site.action')</th>
                             </tr>
                         </tfoot>
                     </table>

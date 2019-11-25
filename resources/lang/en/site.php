@@ -65,6 +65,19 @@ return [
     'editprovider' => "Edit Supplier",
     'updateprovider' => "Update Supplier",
 
+    //product view translate to English
+    'createproduct' => "Create Product",
+    'codebar' => "Barcode",
+    'generatecodebar' => "Generate Barcode",
+    'productname' => "Product Name",
+    'purchaseprice' => "Purchase Price",
+    'saleprice' => "Sale Price",
+    'stock' => "Stock",
+    'minstock' => "Minimum Stock",
+    'choosephoto' => "Choose Photo",
+    'search' => "Search",
+    'photo' => "Photo",
+
     'phone' => "Phone",
     'address' => "Address",
     'description' => "Description",

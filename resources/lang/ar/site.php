@@ -28,7 +28,7 @@ return [
     'purchasetoday' => "مشتريات اليوم",
     'spendingmoney' => "كل النفقات",
     'productsale' => "أفضل المنتجات المباعة",
-    'stockalert' => "تنبيهات المخزون",
+    'stockalert' => "تنبيهات المخزن",
     'productname' => "اسم المنتج",
     'quantitysale' => "الكمية المباعة",
     //cachbox view translate to arabic
@@ -63,6 +63,19 @@ return [
     'providername' => "اسم المورد",
     'editprovider' => "تحرير المورد",
     'updateprovider' => "تحديث المورد",
+
+    //product view translate to arabic
+    'createproduct' => "إنشاء منتج جديد",
+    'codebar' => "codebar",
+    'generatecodebar' => "codebar",
+    'productname' => "اسم المنتج",
+    'purchaseprice' => "سعر الشراء",
+    'saleprice' => "سعر البيع",
+    'stock' => "المخزن",
+    'minstock' => "الحد الأدنى للمخزن",
+    'choosephoto' => "اختر صورة",
+    'search' => "بحث",
+    'photo' => "صورة",
 
     'phone' => "هاتف",
     'address' => "عنوان",
