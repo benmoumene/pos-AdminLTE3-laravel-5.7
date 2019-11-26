@@ -109,6 +109,18 @@ return [
     //Sale view translate to english
     'createsale' => "Create Sale",
     'numbersale' => "Number Sale",
+    'selectclient' => "Select customer",
+    'addclient' => "Add customer",
+    'paymenttype' => "Payment type",
+    'productssale' => "Products sale",
+    'addproducttosalewithbarcode' => "Add product to sale by barcode",
+    'searchforproductbynameorcategory' => "Search for product by name or category",
+    'thereisnoproductforsale' => "There is no product for sale",
+    'scanbarcode' => "Scan barcode",
+    'searchforproduct' => "Search for product",
+
+
+
     //Purchase view translate to english
     'createpurchase' => "Create Purchase",
     'numberpurchase' => "Number Purchase",

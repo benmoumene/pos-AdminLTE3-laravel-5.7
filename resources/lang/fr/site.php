@@ -109,6 +109,15 @@ return [
     //Sale view translate to frensh
     'createsale' => "Créer un vente",
     'numbersale' => "Nombre de vente",
+    'selectclient' => "Choisir un client",
+    'addclient' => "Créer client",
+    'paymenttype' => "Paiement type",
+    'productssale' => "Produits vente",
+    'addproducttosalewithbarcode' => "Crée produit à vendre par code à barres",
+    'searchforproductbynameorcategory' => "Rechercher un produit par nom ou par catégorie",
+    'thereisnoproductforsale' => "Il n'y a pas de produit à vendre",
+    'scanbarcode' => "Scan code à barres",
+    'searchforproduct' => "Rechercher un produit",
     //Purchase view translate to frensh
     'createpurchase' => "Créer un achat",
     'numberpurchase' => "Nombre de achat",

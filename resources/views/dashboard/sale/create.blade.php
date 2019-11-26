@@ -19,7 +19,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div id="client" class="form-group">
-                            <label for="">Select Client</label>
+                            <label for="">@lang('site.selectclient')</label>
                             <div class="row">
                                 <div class="col-md-8">
                                     <select name="client_id" class="form-control">
@@ -33,14 +33,14 @@
                                 <div class="col-md-4">
 
                                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal"
-                                        data-target=".bd-example-modal-lg-client">Add Client</button>
+                                        data-target=".bd-example-modal-lg-client">@lang('site.addclient')</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label> Referance Sale Numder : </label>
+                            <label>@lang('site.numbersale') : </label>
                             <input type="text" name="number_sale" class="form-control text-center" readonly
                                 value="{{ $sale_number }}">
                         </div>
@@ -50,10 +50,10 @@
                     <table id="sale" class="table table-sm table-bordered">
                         <thead>
                             <tr>
-                                <th>Product</th>
-                                <th>Quntite</th>
-                                <th>Price</th>
-                                <th style="width: 25px;"> X</th>
+                                <th>@lang('site.productname')</th>
+                                <th>@lang('site.quantitysale')</th>
+                                <th>@lang('site.saleprice')</th>
+                                <th style="width: 25px;">@lang('site.delete')</th>
                             </tr>
                         </thead>
 
@@ -68,40 +68,40 @@
                     <div class="row">
                         <div class="col-md-5 offset-md-6">
                             <div class="form-group row">
-                                <label class="col-sm-6 col-form-label">Total : </label>
+                                <label class="col-sm-6 col-form-label">@lang('site.total') : </label>
                                 <input type="number" name="total" class="form-control  col-sm-6 total-price" min="0"
                                     readonly value="0">
                             </div>
                             <div class="form-group row">
-                                <label class="col-sm-6 col-form-label">Discount : </label>
+                                <label class="col-sm-6 col-form-label">@lang('site.discount') : </label>
                                 <input type="number" id="discount" name="discount"
                                     class="form-control col-sm-6 discount" min="0" value="0">
                             </div>
                             <div class="form-group row">
-                                <label class="col-sm-6 col-form-label">Total Amount : </label>
+                                <label class="col-sm-6 col-form-label">@lang('site.totalamount') : </label>
                                 <input type="number" id="total-amount" name="total_amount"
                                     class="form-control col-sm-6 total-amount" readonly min="0" value="0">
                             </div>
                             <div>
                                 <div class="form-group row">
-                                    <label class="col-sm-6 col-form-label">Payment Method : </label>
+                                    <label class="col-sm-6 col-form-label">@lang('site.paymenttype') : </label>
                                     <select id="select" class="form-control col-sm-6" name="status">
-                                        <option value="paid">paid</option>
-                                        <option value="nopaid">nopaid</option>
-                                        <option value="debt">debt</option>
+                                        <option value="paid">@lang('site.paid')</option>
+                                        <option value="nopaid">@lang('site.nopaid')</option>
+                                        <option value="debt">@lang('site.due')</option>
                                     </select>
                                 </div>
                             </div>
                             <div>
                                 <div class="form-group row">
-                                    <label class="col-sm-6 col-form-label">Paid : </label>
+                                    <label class="col-sm-6 col-form-label">@lang('site.paid') : </label>
                                     <input id="paid" type="number" name="paid" class="form-control col-sm-6 paid"
                                         value="0"></input>
                                 </div>
                             </div>
                             <div>
                                 <div class="form-group row">
-                                    <label class="col-sm-6 col-form-label">Due(credit) : </label>
+                                    <label class="col-sm-6 col-form-label">@lang('site.due') : </label>
                                     <input id="credit" type="number" name="credit" class="form-control col-sm-6 credit"
                                         readonly value="0"></input>
                                 </div>
@@ -111,7 +111,7 @@
                     <div class="modal-footer form-group">
                         <button type="submit" class="btn btn-success" href="{{ route('sale.store') }}"><i
                                 class="fas fa-user-plus"></i>
-                            Add new sale</button>
+                            @lang('site.save')</button>
                     </div>
                 </div>
             </form>
@@ -120,8 +120,7 @@
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLongTitle">Create
-                                new Client</h5>
+                            <h5 class="modal-title" id="exampleModalLongTitle">@lang('site.createclient')</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -134,22 +133,22 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <label>Client name</label>
+                                            <label>@lang('site.clientname')</label>
                                             <input type="text" name="client_name" id="client_name" class="form-control"
                                                 value="">
                                         </div>
                                         <div class="form-group">
-                                            <label>phone</label>
+                                            <label>@lang('site.phone')</label>
                                             <input type="text" name="phone" id="phone" class="form-control" value="">
                                         </div>
                                         <div class="form-group">
-                                            <label>Address</label>
+                                            <label>@lang('site.address')</label>
                                             <textarea type="text" name="address" id="address"
                                                 class="form-control"></textarea>
 
                                         </div>
                                         <div class="form-group">
-                                            <label>Description</label>
+                                            <label>@lang('site.description')</label>
                                             <textarea type="text" name="description" id="description"
                                                 class="form-control"></textarea>
                                         </div>
@@ -157,8 +156,9 @@
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-primary">Save</button>
+                                <button type="button" class="btn btn-secondary"
+                                    data-dismiss="modal">@lang('site.close')</button>
+                                <button type="submit" class="btn btn-primary">@lang('site.save')</button>
                             </div>
                         </form>
                     </div>
@@ -170,22 +170,22 @@
 <div class="col-md-7">
     <div class="card card-primary card-outline" style="height:80vh;">
         <div class="card-header">
-            <h3 class="card-title">List Of Sales Products</h3>
+            <h3 class="card-title">@lang('site.allproduct')</h3>
         </div> <!-- /.card-body -->
         <div class="card-body" style="overflow-y:scroll;">
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="">add product to sale with barcode</label>
+                        <label for="">@lang('site.addproducttosalewithbarcode')</label>
                         <input id="addbarcode" class="form-control" type="text" name="addbarcode"
-                            placeholder="Scan Barcode" autocomplete="off">
+                            placeholder="@lang('site.scanbarcode')" autocomplete="off">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="">Search for Product by name or category</label>
+                        <label for="">@lang('site.searchforproductbynameorcategory')</label>
                         <input id="searchsale" class="form-control" type="text" name="product"
-                            placeholder="Search For Product" autocomplete="off">
+                            placeholder="@lang('site.searchforproduct')" autocomplete="off">
                     </div>
                 </div>
             </div>
@@ -213,7 +213,7 @@
                 @else
                 <div class="lam">
                     <div class="centered">
-                        <h5>There is no product for sale</h5>
+                        <h5>@lang('site.thereisnoproductforsale')</h5>
                     </div>
                 </div>
 

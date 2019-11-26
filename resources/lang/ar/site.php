@@ -108,6 +108,15 @@ return [
     //Sale view translate to arabic
     'createsale' => "إنشاء بيع جديد",
     'numbersale' => "رقم البيع",
+    'selectclient' => "اختيار زبون",
+    'addclient' => "إنشاء عميل",
+    'paymenttype' => "نوع الدفع",
+    'productssale' => "بيع المنتجات",
+    'addproducttosalewithbarcode' => "إضافة منتج للبيع  بالباركود",
+    'searchforproductbynameorcategory' => "البحث عن المنتج بالاسم أو الفئة",
+    'thereisnoproductforsale' => "لا يوجد منتج للبيع",
+    'scanbarcode' => "مسح الباركود",
+    'searchforproduct' => "البحث عن المنتج",
     //Sale view translate to arabic
     'createsale' => "إنشاء شراء جديد",
     'numbersale' => "رقم الشراء",
@@ -117,6 +126,7 @@ return [
     'totalamount' => "المبلغ الإجمالي",
     'paid' => "مدفوع",
     'due' => "القرض",
+    'nopaid' => "غير مدفوع",
     'paiddue' =>  "القرض المدفوع",
     'paymentdue' => "دفع القرض",
 
