@@ -99,6 +99,13 @@ return [
     'updatemoderator' => "Mise à jour superviseur",
     'users' => "superviseur",
 
+    //general setting view translate to frensh
+    'storename' => "Nom du magasin",
+    'activity' => "Activité",
+    'startday' => "Commence jour",
+    'investmentcapital' => "Capital d'investissement",
+    'updatesetting' => "Mettre à jour les paramètres",
+
     'phone' => "Phone",
     'address' => "Address",
     'description' => "Description",

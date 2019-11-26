@@ -99,6 +99,13 @@ return [
     'updatemoderator' => "Update Supervisor",
     'users' => "Supervisor",
 
+    //general setting view translate to english
+    'storename' => "Store Name",
+    'activity' => "Activity",
+    'startday' => "Start day",
+    'investmentcapital' => "Investment Capital",
+    'updatesetting' => "Update Setting",
+
     'phone' => "Phone",
     'address' => "Address",
     'description' => "Description",

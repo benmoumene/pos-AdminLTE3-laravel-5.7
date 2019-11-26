@@ -98,6 +98,13 @@ return [
     'updatemoderator' => "تحديث المشرف",
     'users' => "مشرف",
 
+    //general setting view translate to arabic
+    'storename' => "اسم المتجر",
+    'activity' => "نشاط",
+    'startday' => "يوم البداية",
+    'investmentcapital' => "رأس المال",
+    'updatesetting' => "تحديث الاعدادات",
+
     'phone' => "هاتف",
     'address' => "عنوان",
     'description' => "وصف",

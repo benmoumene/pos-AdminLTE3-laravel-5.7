@@ -1,8 +1,5 @@
 @extends('layouts.main')
 
-@section('page')
-General Settings
-@stop
 
 @section('content')
 @include('sweet::alert')
@@ -10,7 +7,7 @@ General Settings
     {{--  Start General Settings card  --}}
     <div class="card card-primary">
         <div class="card-header with-border">
-            <h2>General Settings</h2>
+            <h2>@lang('site.settings')</h2>
         </div>
 
         <!-- /.card-header -->
@@ -25,28 +22,28 @@ General Settings
                     <div class="col-md-6">
                         <input id="setting_id" type="hidden" name="id" value="{{ $store_id }}">
                         <div class="form-group">
-                            <label>Store Name</label>
+                            <label>@lang('site.storename')</label>
                             <input type="text" name="store_name" id="" class="form-control" value="{{ $store_name }}">
                         </div>
                         <div class="form-group">
-                            <label>Activity</label>
+                            <label>@lang('site.activity')</label>
                             <input type="text" name="activity" id="" class="form-control" value="{{ $activity }}">
                         </div>
                         <div class="form-group">
-                            <label>Phone</label>
+                            <label>@lang('site.phone')</label>
                             <input type="text" name="phone" id="" class="form-control" value="{{ $phone }}">
                         </div>
                         <div class="form-group">
-                            <label>Address</label>
+                            <label>@lang('site.address')</label>
                             <input type="text" name="address" id="" class="form-control" value="{{ $address }}">
                         </div>
                         <div class="form-group">
-                            <label>Start Day</label>
+                            <label>@lang('site.startday')</label>
                             <input type="date" name="start_day" class="form-control datepicker"
                                 data-provide="datepicker" value="{{ $start_day }}">
                         </div>
                         <div class="form-group">
-                            <label>Investment Capital</label>
+                            <label>@lang('site.investmentcapital')</label>
                             <input type="text" name="investment_capital" id="" class="form-control"
                                 value="{{ $investment_capital }}">
                         </div>
@@ -54,26 +51,26 @@ General Settings
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label>Numero Registre Commerce </label>
+                            <label>@lang('site.numeroregistrecommerce')</label>
                             <input type="text" name="rc" id="" class="form-control" value="{{ $rc }}">
                         </div>
                         <div class="form-group">
-                            <label>Numero Article</label>
+                            <label>@lang('site.numeroarticle')</label>
                             <input type="number" name="article" id="" class="form-control" value="{{ $article }}">
                         </div>
                         <div class="form-group">
-                            <label>NIF</label>
+                            <label>@lang('site.nif')</label>
                             <input type="number" name="nif" id="" class="form-control" value="{{ $nif }}">
                         </div>
                         <div class="form-group">
-                            <label>NIS</label>
+                            <label>@lang('site.nis')</label>
                             <input type="number" name="nis" id="" class="form-control" value="{{ $nis }}">
                         </div>
                         <div class="form-group">
                             <div class="custom-file">
                                 <input type="file" name="image" class="form-control image custom-file-input"
                                     id="customFile">
-                                <label class="custom-file-label" for="customFile">Choose Logo for your Store</label>
+                                <label class="custom-file-label" for="customFile">@lang('site.choosephoto')</label>
                             </div>
                         </div>
                         <div class="form-group">
@@ -83,7 +80,7 @@ General Settings
                     </div>
                 </div>
                 <div class="modal-footer form-group">
-                    <button type="submit" class="btn btn-success">General Settigs Update</button>
+                    <button type="submit" class="btn btn-success">@lang('site.updatesetting')</button>
                 </div>
 
 
