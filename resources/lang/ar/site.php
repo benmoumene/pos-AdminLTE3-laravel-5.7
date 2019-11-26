@@ -105,6 +105,21 @@ return [
     'investmentcapital' => "رأس المال",
     'updatesetting' => "تحديث الاعدادات",
 
+    //Sale view translate to arabic
+    'createsale' => "إنشاء بيع جديد",
+    'numbersale' => "رقم البيع",
+    //Sale view translate to arabic
+    'createsale' => "إنشاء شراء جديد",
+    'numbersale' => "رقم الشراء",
+
+    'total' => "مجموع",
+    'discount' => "خصم",
+    'totalamount' => "المبلغ الإجمالي",
+    'paid' => "مدفوع",
+    'due' => "القرض",
+    'paiddue' =>  "القرض المدفوع",
+    'paymentdue' => "دفع القرض",
+
     'phone' => "هاتف",
     'address' => "عنوان",
     'description' => "وصف",

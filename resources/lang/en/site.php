@@ -106,6 +106,21 @@ return [
     'investmentcapital' => "Investment Capital",
     'updatesetting' => "Update Setting",
 
+    //Sale view translate to english
+    'createsale' => "Create Sale",
+    'numbersale' => "Number Sale",
+    //Purchase view translate to english
+    'createpurchase' => "Create Purchase",
+    'numberpurchase' => "Number Purchase",
+
+    'total' => "Total",
+    'discount' => "Discount",
+    'totalamount' => "Total Amount",
+    'paid' => "Paid",
+    'due' => "Debt",
+    'paiddue' => "Paid Debt",
+    'paymentdue' => "Payment Debt",
+
     'phone' => "Phone",
     'address' => "Address",
     'description' => "Description",

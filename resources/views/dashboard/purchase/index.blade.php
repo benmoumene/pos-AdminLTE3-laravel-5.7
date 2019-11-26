@@ -1,11 +1,7 @@
 @extends('layouts.main')
 
-@section('page')
-List Of Purchases
-@stop
 
 @section('content')
-
 @include('sweet::alert')
 <div class="col-md-12">
     <div class="card card-primary">
@@ -15,17 +11,17 @@ List Of Purchases
 
                 <div class="row no-gutters">
                     <div class="col-12 col-sm-6 col-md-8">
-                        <h3 class="card-title">List Purchases</h3>
+                        <h3 class="card-title">@lang('site.purchases')</h3>
                     </div>
                     <div class="col-6 col-md-4">
                         @if (auth()->user()->hasPermission('create_purchases'))
                         <a type="" class="btn btn-success btn float-right" style=""
                             href="{{ route('purchase.create') }}"><i class="fas fa-user-plus"></i>
-                            Make new Purchase</a>
+                            @lang('site.createpurchase')</a>
                         @else
                         <a type="" class="btn btn-success disabled btn float-right" href="#"><i
                                 class="fas fa-user-plus"></i>
-                            Make new Purchase
+                            @lang('site.createpurchase')
                         </a>
                         @endif
                     </div>
@@ -48,25 +44,25 @@ List Of Purchases
                                         style="width: 283px;">No</th>
                                     <th class="sorting" tabindex="0" aria-controls="category_table" rowspan="1"
                                         colspan="1" aria-label="Browser: activate to sort column ascending"
-                                        style="width: 359px;">Number Purchase</th>
+                                        style="width: 359px;">@lang('site.numberpurchase')</th>
                                     <th class="sorting" tabindex="0" aria-controls="category_table" rowspan="1"
                                         colspan="1" aria-label="Platform(s): activate to sort column ascending"
-                                        style="width: 320px;">Total</th>
+                                        style="width: 320px;">@lang('site.total')</th>
                                     <th class="sorting" tabindex="0" aria-controls="category_table" rowspan="1"
                                         colspan="1" aria-label="Platform(s): activate to sort column ascending"
-                                        style="width: 320px;">Discount</th>
+                                        style="width: 320px;">@lang('site.discount')</th>
                                     <th class="sorting" tabindex="0" aria-controls="category_table" rowspan="1"
                                         colspan="1" aria-label="Platform(s): activate to sort column ascending"
-                                        style="width: 320px;">Total Amount</th>
+                                        style="width: 320px;">@lang('site.totalamount')</th>
                                     <th class="sorting" tabindex="0" aria-controls="category_table" rowspan="1"
                                         colspan="1" aria-label="Platform(s): activate to sort column ascending"
-                                        style="width: 320px;">Paid</th>
+                                        style="width: 320px;">@lang('site.paid')</th>
                                     <th class="sorting" tabindex="0" aria-controls="category_table" rowspan="1"
                                         colspan="1" aria-label="Platform(s): activate to sort column ascending"
-                                        style="width: 320px;">due(credit)</th>
+                                        style="width: 320px;">@lang('site.due')</th>
                                     <th class="sorting" tabindex="0" aria-controls="category_table" rowspan="1"
                                         colspan="1" aria-label="Engine version: activate to sort column ascending"
-                                        style="width: 243px;">Action</th>
+                                        style="width: 243px;">@lang('site.action')</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -90,15 +86,17 @@ List Of Purchases
                                     <td>{{ $purchase->paid }}</td>
                                     <td>{{ $purchase->due }}</td>
                                     <td>
+                                        <a href="{{ route('sale.show', $sale->id) }}"
+                                            class="btn btn-primary btn-sm">@lang('site.print')</a>
                                         @if (auth()->user()->hasPermission('update_purchases'))
                                         @if ($purchase->due != 0)
-                                        <button class="btn btn-warning btn-sm pcredit">Payment of dues</button>
+                                        <button class="btn btn-warning btn-sm pcredit">@lang('site.paymentdue')</button>
                                         @endif
                                         @endif
                                         @if (auth()->user()->hasPermission('delete_categories'))
                                         <button id="delete" onclick="deletemoderator({{ $purchase->id }})"
                                             class="btn btn-danger btn-sm"><i class="fas fa-trash"></i>
-                                            delete</button>
+                                            @lang('site.delete')</button>
                                         <form id="form-delete-{{ $purchase->id }}"
                                             action="{{ route('purchase.destroy', $purchase->id) }}" method="post"
                                             style="display:inline-block;">
@@ -108,7 +106,7 @@ List Of Purchases
                                         @else
                                         <button type="submit" class="btn btn-danger btn-sm disabled"><i
                                                 class="fas fa-trash"></i>
-                                            delete</button>
+                                            @lang('site.delete')</button>
                                         @endif
 
                                     </td>
@@ -119,13 +117,13 @@ List Of Purchases
                             <tfoot>
                                 <tr>
                                     <th rowspan="1" colspan="1">No</th>
-                                    <th rowspan="1" colspan="1">Number Purchase</th>
-                                    <th rowspan="1" colspan="1">Total</th>
-                                    <th rowspan="1" colspan="1">Discount</th>
-                                    <th rowspan="1" colspan="1">Total Amount</th>
-                                    <th rowspan="1" colspan="1">Paid</th>
-                                    <th rowspan="1" colspan="1">due(credit)</th>
-                                    <th rowspan="1" colspan="1">Action</th>
+                                    <th rowspan="1" colspan="1">@lang('site.numberpurchase')</th>
+                                    <th rowspan="1" colspan="1">@lang('site.total')</th>
+                                    <th rowspan="1" colspan="1">@lang('site.discount')</th>
+                                    <th rowspan="1" colspan="1">@lang('site.totalamount')</th>
+                                    <th rowspan="1" colspan="1">@lang('site.paid')</th>
+                                    <th rowspan="1" colspan="1">@lang('site.due')</th>
+                                    <th rowspan="1" colspan="1">@lang('site.action')</th>
                                 </tr>
                             </tfoot>
                         </table>
@@ -139,7 +137,7 @@ List Of Purchases
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">Payment of dues</h5>
+                        <h5 class="modal-title" id="exampleModalLongTitle">@lang('site.paymentdue')</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -153,25 +151,25 @@ List Of Purchases
                                 <div class="col-md-12">
                                     <input type="hidden" id="id" name="id">
                                     <div class="form-group row">
-                                        <label class="col-sm-5 col-form-label">Referance Sale Numder : </label>
+                                        <label class="col-sm-5 col-form-label">@lang('site.numberpurchase')</label>
                                         <input type="text" id="number_sale" name="number_sale"
                                             class="form-control col-sm-6 text-center" readonly>
                                     </div>
                                     <div class="form-group row">
-                                        <label class="col-sm-5 col-form-label">Total Amount : </label>
+                                        <label class="col-sm-5 col-form-label">@lang('site.totalamount')</label>
                                         <input type="number" id="paid" name="paid"
                                             class="form-control col-sm-6 text-center" readonly>
                                     </div>
                                     <div>
                                         <div class="form-group row">
-                                            <label class="col-sm-5 col-form-label">Total Due(credit) : </label>
+                                            <label class="col-sm-5 col-form-label">@lang('site.due')</label>
                                             <input id="credit" type="number" name="credit"
                                                 class="form-control col-sm-6 text-center" readonly></input>
                                         </div>
                                     </div>
                                     <div>
                                         <div class="form-group row">
-                                            <label class="col-sm-5 col-form-label">Paid credit : </label>
+                                            <label class="col-sm-5 col-form-label">@lang('site.paiddue')</label>
                                             <input id="paidcredit" type="number" name="paidcredit"
                                                 class="form-control col-sm-6 text-center" value="0"></input>
                                         </div>
@@ -180,8 +178,9 @@ List Of Purchases
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary">Save Payment of dues</button>
+                            <button type="button" class="btn btn-secondary"
+                                data-dismiss="modal">@lang('site.close')</button>
+                            <button type="submit" class="btn btn-primary">@lang('site.save')</button>
                         </div>
                     </form>
                 </div>

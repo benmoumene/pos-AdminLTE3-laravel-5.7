@@ -1,15 +1,12 @@
 @extends('layouts.pos')
 
-@section('page')
-Point Of Sale Page
-@stop
 
 @section('content')
 
-<div class="col-md-7  col-sm-12">
+<div class="col-md-5">
     <div class="card card-primary card-outline" style="height:80vh;">
         <div class="card-header">
-            <h3 class="card-title">List Of Sales Products</h3>
+            <h3 class="card-title">@lang('site.productssale')</h3>
 
         </div> <!-- /.card-body -->
         <div class="card-body" style="overflow-y:scroll;">
@@ -35,9 +32,8 @@ Point Of Sale Page
                                 </div>
                                 <div class="col-md-4">
 
-                                    <button type="button" class="btn btn-primary" data-toggle="modal"
-                                        data-target=".bd-example-modal-lg-client"><i class="fas fa-plus"> Add
-                                            Client</i></button>
+                                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal"
+                                        data-target=".bd-example-modal-lg-client">Add Client</button>
                                 </div>
                             </div>
                         </div>
@@ -50,15 +46,14 @@ Point Of Sale Page
                         </div>
                     </div>
                 </div>
-                <div class="col-md-12 table-responsive">
-
-                    <table id="sale" class="table table-striped table-hover">
+                <div class="col-md-12">
+                    <table id="sale" class="table table-sm table-bordered">
                         <thead>
                             <tr>
                                 <th>Product</th>
                                 <th>Quntite</th>
                                 <th>Price</th>
-                                <th style="width: 25px;">Remove</th>
+                                <th style="width: 25px;"> X</th>
                             </tr>
                         </thead>
 
@@ -71,7 +66,7 @@ Point Of Sale Page
 
                     </table>
                     <div class="row">
-                        <div class="col-md-6 offset-md-4">
+                        <div class="col-md-5 offset-md-6">
                             <div class="form-group row">
                                 <label class="col-sm-6 col-form-label">Total : </label>
                                 <input type="number" name="total" class="form-control  col-sm-6 total-price" min="0"
@@ -172,23 +167,21 @@ Point Of Sale Page
         </div>
     </div><!-- /.card-body -->
 </div>
-<div class="col-md-5 col-sm-12">
+<div class="col-md-7">
     <div class="card card-primary card-outline" style="height:80vh;">
         <div class="card-header">
             <h3 class="card-title">List Of Sales Products</h3>
         </div> <!-- /.card-body -->
         <div class="card-body" style="overflow-y:scroll;">
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-6">
                     <div class="form-group">
                         <label for="">add product to sale with barcode</label>
                         <input id="addbarcode" class="form-control" type="text" name="addbarcode"
                             placeholder="Scan Barcode" autocomplete="off">
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-6">
                     <div class="form-group">
                         <label for="">Search for Product by name or category</label>
                         <input id="searchsale" class="form-control" type="text" name="product"

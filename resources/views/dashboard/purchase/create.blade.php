@@ -1,12 +1,9 @@
 @extends('layouts.pos')
 
-@section('page')
-Point Of Purchase Page
-@stop
 
 @section('content')
 
-<div class="col-md-7  col-sm-12 ">
+<div class="col-md-5">
     <div class="card card-primary card-outline" style="height:80vh;">
         <div class="card-header">
             <h3 class="card-title">List Of Purchases Products</h3>
@@ -35,9 +32,8 @@ Point Of Purchase Page
                                 </div>
                                 <div class="col-md-4">
 
-                                    <button type="button" class="btn btn-primary" data-toggle="modal"
-                                        data-target=".bd-example-modal-lg-provider"><i class="fas fa-plus"> Add
-                                            Provider</i></button>
+                                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal"
+                                        data-target=".bd-example-modal-lg-provider">Add Provider</i></button>
                                 </div>
                             </div>
                         </div>
@@ -54,15 +50,15 @@ Point Of Purchase Page
                         </div>
                     </div>
                 </div>
-                <div class="col-md-12 table-responsive">
+                <div class="col-md-12">
 
-                    <table class="table table-striped table-hover ">
+                    <table class="table table-sm table-bordered">
                         <thead>
                             <tr>
                                 <th>Product</th>
                                 <th>Quntite</th>
                                 <th>Price</th>
-                                <th style="width: 25px;">Remove</th>
+                                <th style="width: 25px;"> X</th>
                             </tr>
                         </thead>
 
@@ -73,7 +69,7 @@ Point Of Purchase Page
                         </tfoot>
                     </table>
                     <div class="row">
-                        <div class="col-md-6 offset-md-4">
+                        <div class="col-md-5 offset-md-6">
                             <div class="form-group row">
                                 <label class="col-sm-6 col-form-label">Total : </label>
                                 <input type="number" name="total" class="form-control  col-sm-6 total-price" min="0"
@@ -175,7 +171,7 @@ Point Of Purchase Page
         </div>
     </div><!-- /.card-body -->
 </div>
-<div class="col-md-5 col-sm-12">
+<div class="col-md-7">
     <div class="card card-primary card-outline" style="height:80vh;">
         <div class="card-header">
             <h3 class="card-title">List Of Purchases Products</h3>

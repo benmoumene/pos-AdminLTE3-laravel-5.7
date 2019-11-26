@@ -106,6 +106,21 @@ return [
     'investmentcapital' => "Capital d'investissement",
     'updatesetting' => "Mettre à jour les paramètres",
 
+    //Sale view translate to frensh
+    'createsale' => "Créer un vente",
+    'numbersale' => "Nombre de vente",
+    //Purchase view translate to frensh
+    'createpurchase' => "Créer un achat",
+    'numberpurchase' => "Nombre de achat",
+
+    'total' => "Total",
+    'discount' => "Remise",
+    'totalamount' => "Montant total",
+    'paid' => "Payé",
+    'due' => "Crédit",
+    'paiddue' => "Crédit payée",
+    'paymentdue' => "Paiement du prêt",
+
     'phone' => "Phone",
     'address' => "Address",
     'description' => "Description",
