@@ -119,11 +119,16 @@ return [
     'scanbarcode' => "Scan barcode",
     'searchforproduct' => "Search for product",
 
-
-
     //Purchase view translate to english
     'createpurchase' => "Create Purchase",
     'numberpurchase' => "Number Purchase",
+    'selectprovider' => "Select Supplier",
+    'addprovider' => "Add Supplier",
+    'paymenttype' => "Payment type",
+    'productspurchase' => "Products Purchase",
+    'addproducttopurchasewithbarcode' => "Add product to Purchase by barcode",
+    'searchforproductbynameorcategory' => "Search for product by name or category",
+    'thereisnoproductforpurchase' => "There is no product for Purchase",
 
     'total' => "Total",
     'discount' => "Discount",

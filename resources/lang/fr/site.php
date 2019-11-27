@@ -121,6 +121,14 @@ return [
     //Purchase view translate to frensh
     'createpurchase' => "Créer un achat",
     'numberpurchase' => "Nombre de achat",
+    'selectprovider' => "Choisir un Fournisseurs",
+    'addprovider' => "Créer Fournisseurs",
+    'paymenttype' => "Paiement type",
+    'productspurchase' => "Produits achat",
+    'addproducttopurchasewithbarcode' => "Crée produit à achat par code à barres",
+    'searchforproductbynameorcategory' => "Rechercher un produit par nom ou par catégorie",
+    'thereisnoproductforpurchase' => "Il n'y a pas de produit à achat",
+
 
     'total' => "Total",
     'discount' => "Remise",

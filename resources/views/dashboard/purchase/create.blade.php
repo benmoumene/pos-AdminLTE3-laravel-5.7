@@ -6,7 +6,7 @@
 <div class="col-md-6">
     <div class="card card-primary card-outline" style="height:80vh;">
         <div class="card-header">
-            <h3 class="card-title">List Of Purchases Products</h3>
+            <h3 class="card-title">@lang('site.productssale')</h3>
 
         </div> <!-- /.card-body -->
         <div class="card-body" style="overflow-y:scroll;">
@@ -19,7 +19,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div id="provider" class="form-group">
-                            <label for="">Select Provider </label>
+                            <label for="">@lang('site.createproduct') </label>
                             <div class="row">
                                 <div class="col-md-8">
                                     <select name="provider_id" class="form-control">
@@ -33,14 +33,14 @@
                                 <div class="col-md-4">
 
                                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal"
-                                        data-target=".bd-example-modal-lg-provider">Add Provider</i></button>
+                                        data-target=".bd-example-modal-lg-provider">@lang('site.addprovider')</i></button>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label> Referance Purchase Numder : </label>
+                            <label>@lang('site.numberpurchase') </label>
 
 
                             <input type="text" name="number_purchase" class="form-control text-center" readonly
@@ -55,10 +55,10 @@
                     <table class="table table-sm table-bordered">
                         <thead>
                             <tr>
-                                <th>Product</th>
-                                <th>Quntite</th>
-                                <th>Price</th>
-                                <th style="width: 25px;"> X</th>
+                                <th>@lang('site.productname')</th>
+                                <th>@lang('site.quantitysale')</th>
+                                <th>@lang('site.saleprice')</th>
+                                <th style="width: 25px;">@lang('site.delete')</th>
                             </tr>
                         </thead>
 
@@ -71,41 +71,41 @@
                     <div class="row">
                         <div class="col-md-5 offset-md-6">
                             <div class="form-group row">
-                                <label class="col-sm-6 col-form-label">Total : </label>
+                                <label class="col-sm-6 col-form-label">@lang('site.total') : </label>
                                 <input type="number" name="total" class="form-control  col-sm-6 total-price" min="0"
                                     readonly value="0">
                             </div>
                             <div class="form-group row">
-                                <label class="col-sm-6 col-form-label">Discount : </label>
+                                <label class="col-sm-6 col-form-label">@lang('site.discount') : </label>
                                 <input type="number" id="discount" name="discount"
                                     class="form-control col-sm-6 discount" min="0" value="0">
                             </div>
                             <div class="form-group row">
-                                <label class="col-sm-6 col-form-label">Total Amount : </label>
+                                <label class="col-sm-6 col-form-label">@lang('site.totalamount') : </label>
                                 <input type="number" id="total-amount" name="total_amount"
                                     class="form-control col-sm-6 total-amount" readonly min="0" value="0">
                             </div>
                             <div>
                                 <div class="form-group row">
-                                    <label class="col-sm-6 col-form-label">Payment Method : </label>
+                                    <label class="col-sm-6 col-form-label">@lang('site.paymenttype') : </label>
                                     <select id="select" class="form-control col-sm-6" name="status">
-                                        <option value="paid">paid</option>
-                                        <option value="nopaid">nopaid</option>
-                                        <option value="debt">debt</option>
+                                        <option value="paid">@lang('site.paid')</option>
+                                        <option value="nopaid">@lang('site.nopaid')</option>
+                                        <option value="debt">@lang('site.due')</option>
                                     </select>
 
                                 </div>
                             </div>
                             <div>
                                 <div class="form-group row">
-                                    <label class="col-sm-6 col-form-label">Paid : </label>
+                                    <label class="col-sm-6 col-form-label">@lang('site.paid') : </label>
                                     <input id="paid" type="number" name="paid" class="form-control col-sm-6 paid"
                                         value="0"></input>
                                 </div>
                             </div>
                             <div>
                                 <div class="form-group row">
-                                    <label class="col-sm-6 col-form-label">Due(credit) : </label>
+                                    <label class="col-sm-6 col-form-label">@lang('site.due') : </label>
                                     <input id="credit" type="number" name="credit" class="form-control col-sm-6 credit"
                                         readonly value="0"></input>
                                 </div>
@@ -115,7 +115,7 @@
                     <div class="modal-footer form-group">
                         <button type="submit" class="btn btn-success" href="{{ route('purchase.store') }}"><i
                                 class="fas fa-user-plus"></i>
-                            Add new purchase</button>
+                            @lang('site.save')</button>
                     </div>
                 </div>
             </form>
@@ -124,8 +124,7 @@
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLongTitle">Create
-                                new Provider</h5>
+                            <h5 class="modal-title" id="exampleModalLongTitle">@lang('site.createprovider')</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -138,22 +137,22 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <label>provider name</label>
+                                            <label>@lang('site.providername')</label>
                                             <input type="text" name="provider_name" id="provider_name"
                                                 class="form-control" value="">
                                         </div>
                                         <div class="form-group">
-                                            <label>phone</label>
+                                            <label>@lang('site.phone')</label>
                                             <input type="text" name="phone" id="phone" class="form-control" value="">
                                         </div>
                                         <div class="form-group">
-                                            <label>Address</label>
+                                            <label>@lang('site.address')</label>
                                             <textarea type="text" name="address" id="address"
                                                 class="form-control"></textarea>
 
                                         </div>
                                         <div class="form-group">
-                                            <label>Description</label>
+                                            <label>@lang('site.description')</label>
                                             <textarea type="text" name="description" id="description"
                                                 class="form-control"></textarea>
                                         </div>
@@ -161,8 +160,9 @@
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-primary">Save</button>
+                                <button type="button" class="btn btn-secondary"
+                                    data-dismiss="modal">@lang('site.close')</button>
+                                <button type="submit" class="btn btn-primary">@lang('site.save')</button>
                             </div>
                         </form>
                     </div>
@@ -174,28 +174,29 @@
 <div class="col-md-6">
     <div class="card card-primary card-outline" style="height:80vh;">
         <div class="card-header">
-            <h3 class="card-title">List Of Purchases Products</h3>
+            <h3 class="card-title">@lang('site.allproduct')</h3>
         </div> <!-- /.card-body -->
         <div id="proscroll" class="card-body" style="overflow-y:scroll;">
-            <label for="">Search Product by Name or codebar</label>
+            <label for="">@lang('site.searchforproductbynameorcategory')</label>
             <div class="row">
                 <div class="col-md-8">
                     <div class="form-group">
                         <input id="searchpurchase" class="form-control" type="text" name="product"
-                            placeholder="Search For Product" autocomplete="off">
+                            placeholder="@lang('site.searchforproduct')" autocomplete="off">
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="form-group">
                         <button type="button" class="btn btn-primary" data-toggle="modal"
-                            data-target=".bd-example-modal-lg">Create a new Product</button>
+                            data-target=".bd-example-modal-lg">@lang('site.createproduct')</button>
 
                         <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
                             aria-labelledby="myLargeModalLabel" aria-hidden="true">
                             <div class="modal-dialog modal-lg">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLongTitle">Create new Product</h5>
+                                        <h5 class="modal-title" id="exampleModalLongTitle">@lang('site.createproduct')
+                                        </h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
@@ -208,9 +209,9 @@
                                         <div class="modal-body">
                                             @include('partials._errors')
                                             <div class="form-group">
-                                                <label>Categories</label>
+                                                <label>@lang('site.categories')</label>
                                                 <select name="category_id" id="category_id" class="form-control">
-                                                    <option value="">All Categorie</option>
+                                                    <option value="">@lang('site.categories')</option>
                                                     @foreach ($categories as $category)
                                                     <option value="{{ $category->id }}"
                                                         {{ old('category_id') == $category->id ? 'selected' : ''}}>{{
@@ -220,12 +221,12 @@
                                                 </select>
                                             </div>
                                             <div class="form-group">
-                                                <label>Codebar</label>
+                                                <label>@lang('site.codebar')</label>
                                                 <input type="text" name="codebar" id="codebar" class="form-control bar"
                                                     value="">
                                             </div>
                                             <div class="form-group">
-                                                <label>Product name</label>
+                                                <label>@lang('site.productname')</label>
                                                 <input type="text" name="product_name" id="product_name"
                                                     class="form-control" value="">
                                             </div>
@@ -234,12 +235,12 @@
                                                     id="description" class="form-control" value=""></textarea>
                                             </div>
                                             <div class="form-group">
-                                                <label>Purchase Price</label>
+                                                <label>@lang('site.purchaseprice')</label>
                                                 <input type="number" name="purchase_price" id="purchase_price"
                                                     class="form-control" value="">
                                             </div>
                                             <div class="form-group">
-                                                <label>Sale Price</label>
+                                                <label>@lang('site.saleprice')</label>
                                                 <input type="number" name="sale_price" id="sale_price"
                                                     class="form-control" value="">
                                             </div>
@@ -249,14 +250,14 @@
                                             </div>
                                             <div class="form-group">
                                                 <input type="hidden" name="min_stock" id="min_stock"
-                                                    class="form-control" value="0">
+                                                    class="form-control" value="1">
                                             </div>
                                             <div class="form-group">
                                                 <div class="custom-file">
                                                     <input type="file" name="image"
                                                         class="form-control image custom-file-input" id="customFile">
-                                                    <label class="custom-file-label" for="customFile">Choose product
-                                                        Photo</label>
+                                                    <label class="custom-file-label"
+                                                        for="customFile">@lang('site.choosephoto')</label>
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -267,8 +268,8 @@
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary"
-                                                data-dismiss="modal">Close</button>
-                                            <button type="submit" class="btn btn-primary">Save</button>
+                                                data-dismiss="modal">@lang('site.close')</button>
+                                            <button type="submit" class="btn btn-primary">@lang('site.save')</button>
                                         </div>
                                     </form>
                                 </div>
@@ -301,7 +302,7 @@
                 @else
                 <div class="lam">
                     <div class="centered">
-                        <h5>There is no product for sale</h5>
+                        <h5>@lang('site.thereisnoproductforpurchase')</h5>
                     </div>
                 </div>
                 @endif

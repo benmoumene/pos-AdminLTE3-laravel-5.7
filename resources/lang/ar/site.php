@@ -108,8 +108,8 @@ return [
     //Sale view translate to arabic
     'createsale' => "إنشاء بيع جديد",
     'numbersale' => "رقم البيع",
-    'selectclient' => "اختيار زبون",
-    'addclient' => "إنشاء عميل",
+    'selectclient' => "اختيار الزبون",
+    'addclient' => "إنشاء زبون",
     'paymenttype' => "نوع الدفع",
     'productssale' => "بيع المنتجات",
     'addproducttosalewithbarcode' => "إضافة منتج للبيع  بالباركود",
@@ -118,8 +118,15 @@ return [
     'scanbarcode' => "مسح الباركود",
     'searchforproduct' => "البحث عن المنتج",
     //purchase view translate to arabic
-    'createsale' => "إنشاء شراء جديد",
-    'numbersale' => "رقم الشراء",
+    'createpurchase' => "إنشاء شراء جديد",
+    'numberpurchase' => "رقم الشراء",
+    'selectprovider' => "اختيار المورد",
+    'addprovider' => "إنشاء مورد",
+    'paymenttype' => "نوع الدفع",
+    'productspurchase' => "شراء المنتجات",
+    'addproducttopurchasewithbarcode' => "إضافة منتج للشراء  بالباركود",
+    'searchforproductbynameorcategory' => "البحث عن المنتج بالاسم أو الفئة",
+    'thereisnoproductforpurchase' => "لا يوجد منتج للشراء",
 
     'total' => "مجموع",
     'discount' => "خصم",
