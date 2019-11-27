@@ -3,7 +3,7 @@
 
 @section('content')
 
-<div class="col-md-5">
+<div class="col-md-6">
     <div class="card card-primary card-outline" style="height:80vh;">
         <div class="card-header">
             <h3 class="card-title">@lang('site.productssale')</h3>
@@ -167,7 +167,7 @@
         </div>
     </div><!-- /.card-body -->
 </div>
-<div class="col-md-7">
+<div class="col-md-6">
     <div class="card card-primary card-outline" style="height:80vh;">
         <div class="card-header">
             <h3 class="card-title">@lang('site.allproduct')</h3>

@@ -117,7 +117,7 @@ return [
     'thereisnoproductforsale' => "لا يوجد منتج للبيع",
     'scanbarcode' => "مسح الباركود",
     'searchforproduct' => "البحث عن المنتج",
-    //Sale view translate to arabic
+    //purchase view translate to arabic
     'createsale' => "إنشاء شراء جديد",
     'numbersale' => "رقم الشراء",
 
