@@ -293,7 +293,8 @@
                     mb-4
                     add-product-purchase">
                             <img class="img-fluid img-product" src="{{ $product -> image_path }}" alt="">
-                            <span class="mbr-gallery-title">{{ $product->product_name }}</span>
+                            <span class="mbr-gallery-title">{{ $product->product_name }}<br>Stock :
+                                {{ $product->stock }}</span>
                         </a>
                     </div>
                     @endforeach
@@ -327,7 +328,7 @@
             var formData = new FormData($(this)[0]);
             $.ajax({
                 type: "POST",
-                url: "/newproduct",
+                url: "{{ \LaravelLocalization::localizeURL('/newproduct') }}",
                 data: formData,
                 contentType: false,
                 processData: false,
@@ -372,7 +373,7 @@
             var formData = new FormData($(this)[0]);
             $.ajax({
                 type: "POST",
-                url: "/newprovider",
+                url: "{{ \LaravelLocalization::localizeURL('/newprovider') }}",
                 data: formData,
                 contentType: false,
                 processData: false,
