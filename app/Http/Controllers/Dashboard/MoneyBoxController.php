@@ -28,7 +28,7 @@ class MoneyBoxController extends Controller
         $totalpurchaseduemoneys = collect($purchasemoneys)->sum('due');
         $totalspendmoneys = collect($spendmoneys)->sum('spending_price');
         $investment_capital = collect($general_settings)->sum('investment_capital');
-        $totalboxmoneys = $investment_capital + $totalsalemoneys + $totalpurchasemoneys - $totalpurchasemoneys - $totalspendmoneys - $totalsaleduemoneys;
+        $totalboxmoneys = $investment_capital + $totalsalemoneys + $totalpurchaseduemoneys - $totalpurchasemoneys - $totalspendmoneys - $totalsaleduemoneys;
 
         return view('dashboard.box.index', compact('salemoneys', 'purchasemoneys', 'spendmoneys', 'productmoneys', 'totalsalemoneys', 'totalpurchasemoneys', 'totalsaleduemoneys', 'totalpurchaseduemoneys', 'totalspendmoneys', 'totalboxmoneys'));
     }
