@@ -128,6 +128,7 @@ return [
     'addproducttopurchasewithbarcode' => "Crée produit à achat par code à barres",
     'searchforproductbynameorcategory' => "Rechercher un produit par nom ou par catégorie",
     'thereisnoproductforpurchase' => "Il n'y a pas de produit à achat",
+    'quantitypurchase' => "Quantité d'achat",
 
 
     'total' => "Total",
@@ -154,5 +155,6 @@ return [
     'read' => "Lecture",
     'create' => "Créer",
     'update' => "Mise à jour",
+    'print' => "Imprimer",
 
 ];

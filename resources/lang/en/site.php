@@ -129,6 +129,7 @@ return [
     'addproducttopurchasewithbarcode' => "Add product to Purchase by barcode",
     'searchforproductbynameorcategory' => "Search for product by name or category",
     'thereisnoproductforpurchase' => "There is no product for Purchase",
+    'quantitypurchase' => "Purchase quantity",
 
     'total' => "Total",
     'discount' => "Discount",
@@ -152,6 +153,7 @@ return [
     'read' => "Read",
     'create' => "Create",
     'update' => "Update",
+    'print' => "Print",
 
 
 

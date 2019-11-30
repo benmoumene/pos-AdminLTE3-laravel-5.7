@@ -6,7 +6,7 @@
 <div class="col-md-6">
     <div class="card card-primary card-outline" style="height:80vh;">
         <div class="card-header">
-            <h3 class="card-title">@lang('site.productssale')</h3>
+            <h3 class="card-title">@lang('site.productspurchase')</h3>
 
         </div> <!-- /.card-body -->
         <div class="card-body" style="overflow-y:scroll;">
@@ -56,8 +56,8 @@
                         <thead>
                             <tr>
                                 <th>@lang('site.productname')</th>
-                                <th>@lang('site.quantitysale')</th>
-                                <th>@lang('site.saleprice')</th>
+                                <th>@lang('site.quantitypurchase')</th>
+                                <th>@lang('site.purchaseprice')</th>
                                 <th style="width: 25px;">@lang('site.delete')</th>
                             </tr>
                         </thead>

@@ -127,6 +127,7 @@ return [
     'addproducttopurchasewithbarcode' => "إضافة منتج للشراء  بالباركود",
     'searchforproductbynameorcategory' => "البحث عن المنتج بالاسم أو الفئة",
     'thereisnoproductforpurchase' => "لا يوجد منتج للشراء",
+    'quantitypurchase' => "كمية الشراء",
 
     'total' => "مجموع",
     'discount' => "خصم",
@@ -151,4 +152,5 @@ return [
     'update' => "تحديث",
     'edit' => "تحرير",
     'delete' => "حدف",
+    'print' => "طباعة",
 ];
