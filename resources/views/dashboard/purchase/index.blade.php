@@ -86,7 +86,7 @@
                                     <td>{{ $purchase->paid }}</td>
                                     <td>{{ $purchase->due }}</td>
                                     <td>
-                                        <a href="{{ route('sale.show', $sale->id) }}"
+                                        <a href="{{ route('purchase.show', $purchase->id) }}"
                                             class="btn btn-primary btn-sm">@lang('site.print')</a>
                                         @if (auth()->user()->hasPermission('update_purchases'))
                                         @if ($purchase->due != 0)
@@ -152,7 +152,7 @@
                                     <input type="hidden" id="id" name="id">
                                     <div class="form-group row">
                                         <label class="col-sm-5 col-form-label">@lang('site.numberpurchase')</label>
-                                        <input type="text" id="number_sale" name="number_sale"
+                                        <input type="text" id="number_purchase" name="number_purchase"
                                             class="form-control col-sm-6 text-center" readonly>
                                     </div>
                                     <div class="form-group row">
@@ -205,7 +205,7 @@
             }).get();
             console.log(data);
             $('#id').val(data[0]);
-            $('#number_sale').val(data[1]);
+            $('#number_purchase').val(data[1]);
             $('#paid').val(data[5]);
             $('#credit').val(data[6]);
             $('#paidcredit').val();

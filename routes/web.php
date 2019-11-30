@@ -43,9 +43,7 @@ Route::group(
             Route::put('/paymentdue/{id}', 'Dashboard\SaleController@paymentdue');
             Route::put('/paymentduep/{id}', 'Dashboard\purchaseController@paymentduep');
             Route::resource('/sale', 'Dashboard\SaleController');
-            Route::resource('/purchase', 'Dashboard\PurchaseController')->except([
-                'show'
-            ]);
+            Route::resource('/purchase', 'Dashboard\PurchaseController');
             Route::post('/newproduct', 'Dashboard\NewProductController@store');
             Route::resource('/newproduct', 'Dashboard\NewProductController')->except([
                 'show', 'index', 'update', 'destroy', 'create', 'edit'

@@ -113,7 +113,17 @@ class PurchaseController extends Controller
      */
     public function show(Purchase $purchase)
     {
-        //
+        $product_purchases = $purchase->products;
+        $provider_purchases = $purchase->provider;
+        // foreach ($product_sales as $key => $product_sale) {
+        //     dd($product_sale->quantity);
+        // }
+        $purchases = Purchase::findorfail($purchase)->first();
+        //dd($sale);
+        $i = 0;
+
+
+        return view('dashboard.purchase.showtwo', compact('product_purchases', 'provider_purchases', 'purchase', 'i'));
     }
 
     /**
