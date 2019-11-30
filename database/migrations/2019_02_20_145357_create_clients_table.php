@@ -19,10 +19,10 @@ class CreateClientsTable extends Migration
             $table->string('phone');
             $table->string('address');
             $table->string('description')->nullable();
-            $table->string('rc');
-            $table->integer('article');
-            $table->integer('nif');
-            $table->integer('nis');
+            $table->string('rc')->nullable();
+            $table->integer('article')->nullable();
+            $table->integer('nif')->nullable();
+            $table->integer('nis')->nullable();
             $table->timestamps();
         });
     }
