@@ -117,7 +117,7 @@ $(document).ready(function () {
         var id = $(this).data('id');
 
         $(this).closest('tr').remove();
-        $('#product-' + id).removeClass('btn-default disabled').addClass('btn-success');
+        //$('#product-' + id).removeClass('btn-default disabled').addClass('btn-success');
 
         //to calculate total price
         calculateTotal();
