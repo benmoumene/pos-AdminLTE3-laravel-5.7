@@ -407,21 +407,21 @@
         let old_content = $('#pds').html();
         $("#searchpurchase").keyup(function () {
             var pro = $("#searchpurchase").val();
-            if (pro != '') {
-                $.ajax({
-                    type: "GET",
-                    url: "/searchpurchase",
-                    data: 'pro=' + pro,
-                    dataType: 'json',
-                    success: function (data) {
-                        $('#pds').html(data.row_result);
-                        console.log(data)
+            // if (pro != '') {
+            $.ajax({
+                type: "GET",
+                url: "/searchpurchase",
+                data: 'pro=' + pro,
+                dataType: 'json',
+                success: function (data) {
+                    $('#pds').html(data.row_result);
+                    console.log(data)
 
-                    }
-                });
-            } else {
-                $('#pds').html(old_content);
-            }
+                }
+            });
+            // } else {
+            //     $('#pds').html(old_content);
+            // }
         });
         // Search for product to purchase by category id selected
         // not working perfectly i will fix it later

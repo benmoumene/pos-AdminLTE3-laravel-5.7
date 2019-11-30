@@ -184,7 +184,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="">@lang('site.searchforproductbynameorcategory')</label>
-                        <input id="searchsale" class="form-control" type="text" name="product"
+                        <input id="searchsale" class="form-control" type="text" name="searchproduct"
                             placeholder="@lang('site.searchforproduct')" autocomplete="off">
                     </div>
                 </div>
@@ -203,7 +203,8 @@
                             data-stock="{{ $product->stock }}" class="con d-block mb-4
                                 add-product-btn">
                             <img class="img-fluid img-product" src="{{ $product -> image_path }}" alt="">
-                            <span class="mbr-gallery-title">{{ $product->product_name }}</span>
+                            <span class="mbr-gallery-title">{{ $product->product_name }}<br>Stock :
+                                {{ $product->stock }}</span>
                         </a>
 
                     </div>
@@ -268,24 +269,24 @@
             });
         });
         // Search for product to sale by product name
-        let old_content = $('#pds').html();
+        //let old_content = $('#pds').html();
         $("#searchsale").keyup(function () {
             var pro = $("#searchsale").val();
-            if (pro != '') {
-                $.ajax({
-                    type: "GET",
-                    url: "/searchsale",
-                    data: 'pro=' + pro,
-                    dataType: 'json',
-                    success: function (data) {
-                        $('#pds').html(data.row_result);
-                        console.log(data)
+            // if (pro != '') {
+            $.ajax({
+                type: "GET",
+                url: "/searchsale",
+                data: 'pro=' + pro,
+                dataType: 'json',
+                success: function (data) {
+                    $('#pds').html(data.row_result);
+                    console.log(data)
 
-                    }
-                });
-            } else {
-                $('#pds').html(old_content);
-            }
+                }
+            });
+            // } else {
+            //     $('#pds').html(old_content);
+            // }
         });
 
         // Add product to sale by barcode

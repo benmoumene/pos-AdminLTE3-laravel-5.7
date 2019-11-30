@@ -65,7 +65,7 @@
     <script src="/js/app.js"></script>
     @yield('script')
     <script src="/js/select2.min.js"></script>
-    <script src="/js/jquery.bootstrap-touchspin.min.js"></script>
+    {{-- <script src="/js/jquery.bootstrap-touchspin.min.js"></script> --}}
     <script src="/js/moment.js"></script>
     <script src="/js/sale.js"></script>
     <script src="/js/img-preview.js"></script>

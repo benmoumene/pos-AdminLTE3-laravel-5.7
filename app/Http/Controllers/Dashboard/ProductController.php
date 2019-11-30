@@ -90,24 +90,22 @@ class ProductController extends Controller
     // search fuction for sale product
     public function searchsale(Request $request)
     {
-        $output = "";
-        $product = $request->pro;
-        $products = Product::where('product_name', 'like', '%' . $product . '%')->get();
-        foreach ($products as $product) {
-            $output .= '<div class="col-lg-3 col-md-4 col-6"><a href="" id="product" data-toggle="tooltip" title="' . $product->product_name . ' Price : ' . $product->sale_price . '"
+        if ($request->ajax()) {
+            $output = "";
+            $product = $request->pro;
+            $products = Product::where('product_name', 'like', '%' . $product . '%')->get();
+            foreach ($products as $product) {
+                $output .= '<div class="col-lg-3 col-md-4 col-6"><a href="" id="product" data-toggle="tooltip" title="' . $product->product_name . ' Price : ' . $product->sale_price . '"
                             data-placement="top" id="product-' . $product->id . '" +
                             data-name="' . $product->product_name . '" + data-id="' . $product->id . '" +
                             data-price="' . $product->sale_price . '" + data-stock="' . $product->stock . '" class="con d-block mb-4
                                 add-product-btn">
-                            <img class="img-fluid img-thumbnail" src="' . $product->image_path . '" alt="">
-                            <div class="overlay overlayFade text-center">
-                                <div class="text">
-                                    <h6>Stock Left</h6>
-                                    <h6 class="text-nowrap stock">' . $product->stock . '</h6>
-                                </div>
-                            </div>
+                            <img class="img-fluid img-product" src="' . $product->image_path . '" alt="">
+                             <span class="mbr-gallery-title">' . $product->product_name . '<br>Stock :
+                                ' . $product->stock . '</span>
                         </a>
                     </div>';
+            }
         }
 
         return $data = array('row_result' => $output,);
@@ -115,24 +113,22 @@ class ProductController extends Controller
     // search fuction for purchase product
     public function searchpurchase(Request $request)
     {
-        $output = "";
-        $product = $request->pro;
-        $products = Product::where('product_name', 'like', '%' . $product . '%')->get();
-        foreach ($products as $product) {
-            $output .= '<div class="col-lg-3 col-md-4 col-6"><a href="" id="product" data-toggle="tooltip" title="' . $product->product_name . ' Price : ' . $product->purchase_price . '"
+        if ($request->ajax()) {
+            $output = "";
+            $product = $request->pro;
+            $products = Product::where('product_name', 'like', '%' . $product . '%')->get();
+            foreach ($products as $product) {
+                $output .= '<div class="col-lg-3 col-md-4 col-6"><a href="" id="product" data-toggle="tooltip" title="' . $product->product_name . ' Price : ' . $product->purchase_price . '"
                             data-placement="top" id="product-' . $product->id . '" +
                             data-name="' . $product->product_name . '" + data-id="' . $product->id . '" +
                             data-price="' . $product->purchase_price . '" + data-stock="' . $product->stock . '" class="con d-block mb-4
                                 add-product-btn">
-                            <img class="img-fluid img-thumbnail" src="' . $product->image_path . '" alt="">
-                            <div class="overlay overlayFade text-center">
-                                <div class="text">
-                                    <h6>Stock Left</h6>
-                                    <h6 class="text-nowrap stock">' . $product->stock . '</h6>
-                                </div>
-                            </div>
+                            <img class="img-fluid img-product" src="' . $product->image_path . '" alt="">
+                            <span class="mbr-gallery-title">' . $product->product_name . '<br>Stock :
+                                ' . $product->stock . '</span>
                         </a>
                     </div>';
+            }
         }
 
         return $data = array('row_result' => $output,);
