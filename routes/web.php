@@ -63,15 +63,6 @@ Route::group(
                 'show'
             ]);
 
-            // category spending route
-
-            Route::post('/catspend', 'Dashboard\CategorySpendingController@store');
-            Route::put('/updatecatspend/{id}', 'Dashboard\CategorySpendingController@updatecatspend');
-            Route::get('/categoryspending/catdpenddelete', 'Dashboard\CategorySpendingController@catdpenddelete')->name('categoryspending.catdpenddelete');
-            Route::resource('/categoryspending', 'Dashboard\CategorySpendingController')->except([
-                'show'
-            ]);
-
             // spending route
 
             Route::post('/newspend', 'Dashboard\SpendingController@store');
