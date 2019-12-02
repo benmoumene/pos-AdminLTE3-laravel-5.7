@@ -136,6 +136,7 @@ return [
     'totalamount' => "Montant total",
     'paid' => "Payé",
     'due' => "Crédit",
+    'nopaid' => "Non payé",
     'paiddue' => "Crédit payée",
     'paymentdue' => "Paiement du prêt",
 

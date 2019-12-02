@@ -45,7 +45,9 @@ class ProviderController extends Controller
         ]);
         Provider::create($request->all());
         toast('Provider created Successfully', 'success', 'top-right');
-        return redirect()->route('provider.index');
+        if (!$request->ajax()) {
+            return redirect()->route('provider.index');
+        }
     }
 
     /**

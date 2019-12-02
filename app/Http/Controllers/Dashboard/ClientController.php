@@ -45,7 +45,9 @@ class ClientController extends Controller
         ]);
         Client::create($request->all());
         toast('Client created Successfully', 'success', 'top-right');
-        return redirect()->route('client.index');
+        if (!$request->ajax()) {
+            return redirect()->route('client.index');
+        }
     }
 
     /**

@@ -136,6 +136,7 @@ return [
     'totalamount' => "Total Amount",
     'paid' => "Paid",
     'due' => "Debt",
+    'nopaid' => "Unpaid",
     'paiddue' => "Paid Debt",
     'paymentdue' => "Payment Debt",
 

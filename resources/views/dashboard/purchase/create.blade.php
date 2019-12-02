@@ -327,7 +327,7 @@
             var formData = new FormData($(this)[0]);
             $.ajax({
                 type: "POST",
-                url: "{{ \LaravelLocalization::localizeURL('/newproduct') }}",
+                url: "{{ \LaravelLocalization::localizeURL('/product') }}",
                 data: formData,
                 contentType: false,
                 processData: false,
@@ -373,7 +373,7 @@
             var formData = new FormData($(this)[0]);
             $.ajax({
                 type: "POST",
-                url: "{{ \LaravelLocalization::localizeURL('/newprovider') }}",
+                url: "{{ \LaravelLocalization::localizeURL('/provider') }}",
                 data: formData,
                 contentType: false,
                 processData: false,

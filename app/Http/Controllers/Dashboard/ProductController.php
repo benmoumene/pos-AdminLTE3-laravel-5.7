@@ -74,7 +74,9 @@ class ProductController extends Controller
         }
         Product::create($request_data);
         toast('Created Successfully', 'success', 'top-right');
-        return redirect()->route('product.index');
+        if (!$request->ajax()) {
+            return redirect()->route('product.index');
+        }
     }
 
     /**
@@ -133,7 +135,7 @@ class ProductController extends Controller
 
         return $data = array('row_result' => $output,);
     }
-
+    // Scan barcode and add product to card sale
     public function addproduct(Request $request)
     {
         $out = "";

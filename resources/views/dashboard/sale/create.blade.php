@@ -237,7 +237,7 @@
             var formData = new FormData($(this)[0]);
             $.ajax({
                 type: "POST",
-                url: "{{ \LaravelLocalization::localizeURL('/newclient') }}",
+                url: "{{ \LaravelLocalization::localizeURL('/client') }}",
                 data: formData,
                 contentType: false,
                 processData: false,
