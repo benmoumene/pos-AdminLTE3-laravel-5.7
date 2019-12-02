@@ -66,6 +66,8 @@ return [
 
     //product view translate to arabic
     'createproduct' => "إنشاء منتج جديد",
+    'editproduct' => "تحرير المنتج",
+    'updateproduct' => "تحديث المنتج",
     'codebar' => "كود بار",
     'generatecodebar' => "كود بار",
     'productname' => "اسم المنتج",

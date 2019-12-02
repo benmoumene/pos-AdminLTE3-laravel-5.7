@@ -67,6 +67,8 @@ return [
 
     //product view translate to English
     'createproduct' => "Create Product",
+    'editproduct' => "Edit Product",
+    'updateproduct' => "Update Product",
     'codebar' => "Barcode",
     'generatecodebar' => "Generate Barcode",
     'productname' => "Product Name",

@@ -67,6 +67,8 @@ return [
 
     //product view translate to frensh
     'createproduct' => "Créer un produit",
+    'editproduct' => "Modifier le produit",
+    'updateproduct' => "Mise à jour du produit",
     'codebar' => "code à barre",
     'generatecodebar' => "Générer un code à barres",
     'productname' => "Nom du produit",
