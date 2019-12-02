@@ -61,7 +61,7 @@ $(document).ready(function () {
 
     });
     // Add product to purchase
-    $('.add-product-purchase').on('click', function (e) {
+    $('body').on('click', '.add-product-purchase', function (e) {
         e.preventDefault();
         var name = $(this).data('name');
         var id = $(this).data('id');

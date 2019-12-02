@@ -176,7 +176,7 @@
         <div class="card-header">
             <h3 class="card-title">@lang('site.allproduct')</h3>
         </div> <!-- /.card-body -->
-        <div id="proscroll" class="card-body" style="overflow-y:scroll;">
+        <div id="pronew" class="card-body">
             <label for="">@lang('site.searchforproductbynameorcategory')</label>
             <div class="row">
                 <div class="col-md-8">
@@ -281,17 +281,16 @@
 
             <div class="col-md-12">
                 @if ($products->count() > 0)
-                <div id="pds" class="row text-center text-lg-left containerItems">
+                <div class="row text-center text-lg-left containerItems">
 
                     @foreach ($products as $product)
 
-                    <div class="col-lg-3 col-md-4 col-6 prod">
+                    <div class="col-lg-3 col-md-4 col-6">
                         <a href="" id="product" data-toggle="tooltip" title="Price : {{ $product->purchase_price }}"
                             data-placement="top" id="product-{{ $product->id }}" +
                             data-name="{{ $product->product_name }}" + data-id="{{ $product->id }}" +
-                            data-price="{{ $product->purchase_price }}" + data-stock="{{ $product->stock }}" class="con d-block
-                    mb-4
-                    add-product-purchase">
+                            data-price="{{ $product->purchase_price }}" + data-stock="{{ $product->stock }}"
+                            class="con d-block mb-4 add-product-purchase">
                             <img class="img-fluid img-product" src="{{ $product -> image_path }}" alt="">
                             <span class="mbr-gallery-title">{{ $product->product_name }}<br>Stock :
                                 {{ $product->stock }}</span>
@@ -336,10 +335,11 @@
                     //alert(reponse)
                     //console.log(reponse)
                     $('.bd-example-modal-lg').modal('hide')
-                    $("#pds").load(" #pds");
-                    $("#proscroll").animate({
-                        scrollTop: $(document).height()
-                    }, 'slow');
+                    //$("#pds").load(" #pds");
+                    $("#pronew").load(" #pronew > *");
+                    // $("#proscroll").animate({
+                    //     scrollTop: $(document).height()
+                    // }, 'slow');
 
                     //alert("data saved");
                 },
