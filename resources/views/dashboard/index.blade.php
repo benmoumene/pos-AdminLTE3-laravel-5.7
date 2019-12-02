@@ -143,6 +143,11 @@
                             @endforeach
                         </tbody>
                     </table>
+                    <div class="card-footer clearfix">
+                        <ul class="pagination pagination-sm float-right">
+                            {{ $salesproducts->links() }}
+                        </ul>
+                    </div>
                 </div>
                 <!-- /.card-body -->
             </div>
@@ -171,6 +176,12 @@
                             @endforeach
                         </tbody>
                     </table>
+                    <div class="card-footer clearfix">
+                        <ul class="pagination pagination-sm float-right">
+                            {{ $stock_alerts->links() }}
+                        </ul>
+                    </div>
+
                 </div>
                 <!-- /.card-body -->
             </div>
