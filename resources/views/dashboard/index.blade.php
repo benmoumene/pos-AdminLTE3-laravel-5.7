@@ -144,9 +144,7 @@
                         </tbody>
                     </table>
                     <div class="card-footer clearfix">
-                        <ul class="pagination pagination-sm float-right">
-                            {{ $salesproducts->links() }}
-                        </ul>
+                        {{ $salesproducts->links() }}
                     </div>
                 </div>
                 <!-- /.card-body -->
@@ -177,9 +175,7 @@
                         </tbody>
                     </table>
                     <div class="card-footer clearfix">
-                        <ul class="pagination pagination-sm float-right">
-                            {{ $stock_alerts->links() }}
-                        </ul>
+                        {{ $stock_alerts->links() }}
                     </div>
 
                 </div>

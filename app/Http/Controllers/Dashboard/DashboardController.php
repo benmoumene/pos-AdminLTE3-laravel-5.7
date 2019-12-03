@@ -45,10 +45,10 @@ class DashboardController extends Controller
             ->selectRaw('products.*, SUM(product_sale.quantity) AS qty')
             ->groupBy('products.id')
             ->orderBy('qty', 'desc')
-            ->paginate(5);
+            ->paginate(3, ['*'], 'bestsale');
         //dd($salesproducts);
         // Product with min stock
-        $stock_alerts = DB::table('products')->where('stock', '<=', 'min_stock')->paginate(3);
+        $stock_alerts = DB::table('products')->where('stock', '<=', 'min_stock')->paginate(3, ['*'], 'stockalert');
 
         //dd($stock_alerts);
         return view(
