@@ -232,7 +232,7 @@
 <script type="text/javascript">
     $(document).ready(function () {
         // add new client in sale page
-        $('#new_client').on('submit', function (e) {
+        $('body').on('submit', '#new_client', function (e) {
             e.preventDefault();
             var formData = new FormData($(this)[0]);
             $.ajax({
@@ -242,8 +242,9 @@
                 contentType: false,
                 processData: false,
                 success: function (reponse) {
-                    console.log(reponse)
-                    $('.bd-example-modal-lg-client').modal('hide')
+                    console.log(reponse);
+                    $('.bd-example-modal-lg-client').modal('hide');
+                    $('#new_client')[0].reset();
                     $("#client").load(" #client");
 
                 },
