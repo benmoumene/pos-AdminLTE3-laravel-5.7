@@ -15,7 +15,7 @@ class ClientController extends Controller
      */
     public function index(Request $request)
     {
-        $clients = Client::all();
+        $clients = Client::where('id', '!=', '1')->get();
         return view('dashboard.client.index', compact('clients'));
     }
 

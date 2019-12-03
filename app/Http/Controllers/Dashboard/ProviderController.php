@@ -15,7 +15,7 @@ class ProviderController extends Controller
      */
     public function index(Request $request)
     {
-        $providers = Provider::all();
+        $providers = Provider::where('id', '!=', '1')->get();
         return view('dashboard.provider.index', compact('providers'));
     }
 
