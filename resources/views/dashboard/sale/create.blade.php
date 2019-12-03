@@ -131,26 +131,48 @@
                             @include('partials._errors')
                             <div class="modal-body">
                                 <div class="row">
-                                    <div class="col-md-12">
+                                    <div class="col-md-6">
                                         <div class="form-group">
                                             <label>@lang('site.clientname')</label>
-                                            <input type="text" name="client_name" id="client_name" class="form-control"
-                                                value="">
+                                            <input type="text" name="client_name" id="" class="form-control"
+                                                value="{{ old('client_name') }}">
                                         </div>
                                         <div class="form-group">
                                             <label>@lang('site.phone')</label>
-                                            <input type="text" name="phone" id="phone" class="form-control" value="">
+                                            <input type="text" name="phone" id="" class="form-control"
+                                                value="{{ old('phone') }}">
                                         </div>
                                         <div class="form-group">
                                             <label>@lang('site.address')</label>
-                                            <textarea type="text" name="address" id="address"
-                                                class="form-control"></textarea>
-
+                                            <textarea type="text" name="address" id=""
+                                                class="form-control">{{ old('address') }}</textarea>
                                         </div>
                                         <div class="form-group">
                                             <label>@lang('site.description')</label>
-                                            <textarea type="text" name="description" id="description"
-                                                class="form-control"></textarea>
+                                            <textarea type="text" name="description" id=""
+                                                class="form-control">{{ old('description') }}</textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>@lang('site.numeroregistrecommerce')</label>
+                                            <input type="text" name="rc" id="" class="form-control"
+                                                value="{{ old('rc') }}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>@lang('site.numeroarticle')</label>
+                                            <input type="number" name="article" id="" class="form-control"
+                                                value="{{ old('article') }}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>@lang('site.nif')</label>
+                                            <input type="number" name="nif" id="" class="form-control"
+                                                value="{{ old('nif') }}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>@lang('site.nis')</label>
+                                            <input type="number" name="nis" id="" class="form-control"
+                                                value="{{ old('nis') }}">
                                         </div>
                                     </div>
                                 </div>
