@@ -176,7 +176,7 @@
         <div class="card-header">
             <h3 class="card-title">@lang('site.allproduct')</h3>
         </div> <!-- /.card-body -->
-        <div id="pronew" class="card-body">
+        <div id="pronew" class="card-body" style="overflow-y:scroll;">
             <label for="">@lang('site.searchforproductbynameorcategory')</label>
             <div class="row">
                 <div class="col-md-8">
