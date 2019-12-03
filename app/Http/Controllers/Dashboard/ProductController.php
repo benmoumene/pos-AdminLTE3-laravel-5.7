@@ -123,7 +123,7 @@ class ProductController extends Controller
                 $output .= '<div class="col-lg-3 col-md-4 col-6"><a href="" id="product" data-toggle="tooltip" title="' . $product->product_name . ' Price : ' . $product->purchase_price . '"
                             data-placement="top" id="product-' . $product->id . '" +
                             data-name="' . $product->product_name . '" + data-id="' . $product->id . '" +
-                            data-price="' . $product->purchase_price . '" + data-stock="' . $product->stock . '" class="con d-block mb-4
+                            data-price="' . $product->purchase_price . '" + data-stock="' . $product->stock . '" + data-sale="' . $product->sale_price . '" class="con d-block mb-4
                                 add-product-btn">
                             <img class="img-fluid img-product" src="' . $product->image_path . '" alt="">
                             <span class="mbr-gallery-title">' . $product->product_name . '<br>Stock :

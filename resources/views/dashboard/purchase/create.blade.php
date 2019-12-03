@@ -309,11 +309,12 @@
                     @foreach ($products as $product)
 
                     <div class="col-lg-3 col-md-4 col-6">
-                        <a href="" id="product" data-toggle="tooltip" title="Price : {{ $product->purchase_price }}"
-                            data-placement="top" id="product-{{ $product->id }}" +
-                            data-name="{{ $product->product_name }}" + data-id="{{ $product->id }}" +
-                            data-price="{{ $product->purchase_price }}" + data-stock="{{ $product->stock }}"
-                            class="con d-block mb-4 add-product-purchase">
+                        <a href="" id="product" data-toggle="modal" data-target="#modal-update-price"
+                            data-toggle="tooltip" title="Price : {{ $product->purchase_price }}" data-placement="top"
+                            id="product-{{ $product->id }}" + data-name="{{ $product->product_name }}" +
+                            data-id="{{ $product->id }}" + data-price="{{ $product->purchase_price }}" +
+                            data-stock="{{ $product->stock }}" + data-sale="{{ $product->sale_price }}" class="con
+                            d-block mb-4 add-product-purchase">
                             <img class="img-fluid img-product" src="{{ $product -> image_path }}" alt="">
                             <span class="mbr-gallery-title">{{ $product->product_name }}<br>Stock :
                                 {{ $product->stock }}</span>
@@ -329,6 +330,44 @@
                     </div>
                 </div>
                 @endif
+                <div class="modal fade" id="modal-update-price" tabindex="-1" role="dialog"
+                    aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle">@lang('site.updateproduct')
+                                </h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <form enctype="multipart/form-data" id="update_product_price">
+                                {{ csrf_field() }}
+                                {{ method_field('post') }}
+                                <div class="modal-body">
+                                    @include('partials._errors')
+                                    <input type="hidden" name="id" id="id">
+                                    <div class="form-group">
+                                        <label>@lang('site.purchaseprice')</label>
+                                        <input type="number" name="purchase_price" id="purchase_price"
+                                            class="form-control" value="">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>@lang('site.saleprice')</label>
+                                        <input type="number" name="sale_price" id="sale_price" class="form-control"
+                                            value="">
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-dismiss="modal">@lang('site.close')</button>
+                                    <button type="submit" class="btn btn-primary">@lang('site.save')</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                {{--    --}}
             </div>
         </div><!-- /.card-body -->
     </div>
@@ -448,6 +487,21 @@
             // } else {
             //     $('#pds').html(old_content);
             // }
+        });
+        // Update product prices
+        $('#modal-update-price').on('show.bs.modal', function (event) { // id of the modal with event
+            var button = $(event.relatedTarget) // Button that triggered the modal
+            var id = button.data('id') // Extract info from data-* attributes
+            var purchase_price = button.data('price')
+            var sale_price = button.data('sale')
+
+            // Update the modal's content.
+            var modal = $(this)
+            modal.find('#id').val(id)
+            modal.find('#purchase_price').val(purchase_price)
+            modal.find('#sale_price').val(sale_price)
+
+
         });
         // Search for product to purchase by category id selected
         // not working perfectly i will fix it later
