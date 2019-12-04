@@ -221,6 +221,19 @@ class ProductController extends Controller
         return redirect()->back();
     }
 
+    public function updateprice(Request $request, $id)
+    {
+        $request->validate([
+            'purchase_price' => 'required',
+            'sale_price' => 'required',
+        ]);
+        $productprice = Product::findOrFail($id);
+        $productprice->purchase_price = $request->input('purchase_price');
+        $productprice->sale_price = $request->input('sale_price');
+
+        $productprice->save();
+    }
+
     /**
      * Remove the specified resource from storage.
      *

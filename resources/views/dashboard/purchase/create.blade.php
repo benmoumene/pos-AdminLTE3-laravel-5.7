@@ -304,7 +304,7 @@
 
             <div class="col-md-12">
                 @if ($products->count() > 0)
-                <div class="row text-center text-lg-left containerItems">
+                <div id="pds" class="row text-center text-lg-left containerItems">
 
                     @foreach ($products as $product)
 
@@ -315,6 +315,8 @@
                             data-id="{{ $product->id }}" + data-price="{{ $product->purchase_price }}" +
                             data-stock="{{ $product->stock }}" + data-sale="{{ $product->sale_price }}" class="con
                             d-block mb-4 add-product-purchase">
+                            <button id="updateproductprice" style="display: inline-block; position: absolute;float:right;margin:5px 5px 0
+                                0;">x</button>
                             <img class="img-fluid img-product" src="{{ $product -> image_path }}" alt="">
                             <span class="mbr-gallery-title">{{ $product->product_name }}<br>Stock :
                                 {{ $product->stock }}</span>
@@ -489,20 +491,79 @@
             // }
         });
         // Update product prices
-        $('#modal-update-price').on('show.bs.modal', function (event) { // id of the modal with event
-            var button = $(event.relatedTarget) // Button that triggered the modal
-            var id = button.data('id') // Extract info from data-* attributes
-            var purchase_price = button.data('price')
-            var sale_price = button.data('sale')
+        /*
+        1 = Left mouse button
+        2 = Centre mouse button
+        3 = Right mouse button
+        */
+        $('#product').mousedown(function (e) {
 
-            // Update the modal's content.
-            var modal = $(this)
-            modal.find('#id').val(id)
-            modal.find('#purchase_price').val(purchase_price)
-            modal.find('#sale_price').val(sale_price)
+            /* Right mouse button was clicked! */
+            $('#modal-update-price').on('show.bs.modal', function (
+                event) { // id of the modal with event
+                var button = $(event.relatedTarget) // Button that triggered the modal
+                var id = button.data('id') // Extract info from data-* attributes
+                var purchase_price = button.data('price')
+                var sale_price = button.data('sale')
+
+                // Update the modal's content.
+                var modal = $(this)
+                modal.find('#id').val(id)
+                modal.find('#purchase_price').val(purchase_price)
+                modal.find('#sale_price').val(sale_price)
 
 
+            });
+            $('body').on('submit', '#update_product_price', function (e) {
+                e.preventDefault();
+                var id = $('#id').val();
+
+                $.ajax({
+                    type: 'PUT',
+                    url: "{{ \LaravelLocalization::localizeURL('/updateprice') }}/" +
+                        id,
+                    data: $('#update_product_price').serialize(),
+                    success: function (data) {
+                        //console.log(data);
+                        $('#modal-update-price').modal('hide');
+                        $('#update_product_price')[0].reset();
+                        //$("#pds").load(" #pds");
+                        $("#pronew").load(" #pronew > *");
+                        // refresh only datatable
+                        //$('#spending_table').datatable().ajax.reload();
+                        //location.reload();
+
+                    },
+                    error: function (error) {
+                        console.log(error)
+                        const errors = error.responseJSON.errors
+                        const firstitem = Object.keys(errors)[0]
+                        const firstitemDOM = document.getElementById(firstitem)
+                        const firstErrorMessage = errors[firstitem][0]
+                        firstitemDOM.scrollIntoView({})
+
+                        const errorMessages = document.querySelectorAll(
+                            '.text-danger')
+                        errorMessages.forEach((element) => element.textContent =
+                            '')
+
+                        firstitemDOM.insertAdjacentHTML('afterend',
+                            `<div class="text-danger">${firstErrorMessage}</div>`
+                        )
+
+                        const formControls = document.querySelectorAll(
+                            '.form-control')
+                        formControls.forEach((element) => element.classList
+                            .remove('border',
+                                'border-danger'))
+
+                        firstitemDOM.classList.add('border', 'border-danger')
+                    }
+                });
+            });
         });
+
+
         // Search for product to purchase by category id selected
         // not working perfectly i will fix it later
         /*$("#category").change(function () {

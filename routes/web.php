@@ -39,6 +39,7 @@ Route::group(
             Route::get('/searchsale', ['uses' => 'Dashboard\ProductController@searchsale', 'as' => 'product.searchsale']);
             Route::get('/searchpurchase', ['uses' => 'Dashboard\ProductController@searchpurchase', 'as' => 'product.searchpurchase']);
             Route::get('/addproduct', ['uses' => 'Dashboard\ProductController@addproduct', 'as' => 'product.addproduct']);
+            Route::put('/updateprice/{id}', 'Dashboard\ProductController@updateprice');
 
             Route::put('/paymentdue/{id}', 'Dashboard\SaleController@paymentdue');
             Route::put('/paymentduep/{id}', 'Dashboard\purchaseController@paymentduep');
