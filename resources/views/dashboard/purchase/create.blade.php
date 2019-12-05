@@ -304,22 +304,25 @@
 
             <div class="col-md-12">
                 @if ($products->count() > 0)
-                <div id="pds" class="row text-center text-lg-left containerItems">
+                <div id="pds" class="row text-center text-lg-left containerItems" style="position:relative;">
 
                     @foreach ($products as $product)
 
-                    <div class="col-lg-3 col-md-4 col-6">
+                    <div class="col-md-2 col-md-offset-1" style="margin:0;">
+                        {{-- <button id="updateproductprice mb-4" style="position: absolute;top: 0;right: 0;">x</button> --}}
+                        <div id="update_product_price" class="btn btn-primary btn-sm"
+                            style="position: absolute; top: 0; right: 15px;z-index: 1;">
+                            <i class="fas fa-edit"></i>
+                        </div>
                         <a href="" id="product" data-toggle="modal" data-target="#modal-update-price"
-                            data-toggle="tooltip" title="Price : {{ $product->purchase_price }}" data-placement="top"
-                            id="product-{{ $product->id }}" + data-name="{{ $product->product_name }}" +
-                            data-id="{{ $product->id }}" + data-price="{{ $product->purchase_price }}" +
-                            data-stock="{{ $product->stock }}" + data-sale="{{ $product->sale_price }}" class="con
+                            data-toggle="tooltip" title="Price : {{ $product->purchase_price }} stock :
+                            {{ $product->stock }}" data-placement="top" id="product-{{ $product->id }}" +
+                            data-name="{{ $product->product_name }}" + data-id="{{ $product->id }}" +
+                            data-price="{{ $product->purchase_price }}" + data-stock="{{ $product->stock }}" +
+                            data-sale="{{ $product->sale_price }}" class="con
                             d-block mb-4 add-product-purchase">
-                            <button id="updateproductprice" style="display: inline-block; position: absolute;float:right;margin:5px 5px 0
-                                0;">x</button>
-                            <img class="img-fluid img-product" src="{{ $product -> image_path }}" alt="">
-                            <span class="mbr-gallery-title">{{ $product->product_name }}<br>Stock :
-                                {{ $product->stock }}</span>
+                            <img class="img-fluid" src="{{ $product -> image_path }}" alt="">
+                            <span class="mbr-gallery-title text-truncate">{{ $product->product_name }}</span>
                         </a>
                     </div>
                     @endforeach
@@ -496,7 +499,7 @@
         2 = Centre mouse button
         3 = Right mouse button
         */
-        $('#product').mousedown(function (e) {
+        $('body').on('click', '#update_product_price', function (e) {
 
             /* Right mouse button was clicked! */
             $('#modal-update-price').on('show.bs.modal', function (

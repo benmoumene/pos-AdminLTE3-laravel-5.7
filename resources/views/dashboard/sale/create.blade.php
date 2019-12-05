@@ -218,15 +218,15 @@
 
                     @foreach ($products as $product)
 
-                    <div class="col-lg-3 col-md-4 col-6">
-                        <a href="" data-toggle="tooltip" title="Price : {{ $product->sale_price }}" data-placement="top"
-                            id="product-{{ $product->id }}" + data-name="{{ $product->product_name }}" +
-                            data-id="{{ $product->id }}" + data-price="{{ $product->sale_price }}" +
-                            data-stock="{{ $product->stock }}" class="con d-block mb-4
+                    <div class="col-md-2 col-md-offset-1" style="margin:0;">
+                        <a href="" data-toggle="tooltip"
+                            title="Price : {{ $product->sale_price }} stock : {{ $product->stock }}"
+                            data-placement="top" id="product-{{ $product->id }}" +
+                            data-name="{{ $product->product_name }}" + data-id="{{ $product->id }}" +
+                            data-price="{{ $product->sale_price }}" + data-stock="{{ $product->stock }}" class="con d-block mb-4
                                 add-product-btn">
-                            <img class="img-fluid img-product" src="{{ $product -> image_path }}" alt="">
-                            <span class="mbr-gallery-title">{{ $product->product_name }}<br>Stock :
-                                {{ $product->stock }}</span>
+                            <img class="img-fluid" src="{{ $product -> image_path }}" alt="">
+                            <span class="mbr-gallery-title text-truncate">{{ $product->product_name }}</span>
                         </a>
 
                     </div>
