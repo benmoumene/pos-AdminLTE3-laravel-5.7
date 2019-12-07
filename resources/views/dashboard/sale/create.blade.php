@@ -219,7 +219,7 @@
                     @foreach ($products as $product)
 
                     <div class="col-md-2 col-md-offset-1" style="margin:0;">
-                        <a href="" data-toggle="tooltip"
+                        <a href="" data-tooltip="tooltip"
                             title="Price : {{ $product->sale_price }} stock : {{ $product->stock }}"
                             data-placement="top" id="product-{{ $product->id }}" +
                             data-name="{{ $product->product_name }}" + data-id="{{ $product->id }}" +
@@ -253,6 +253,10 @@
 @section('script')
 <script type="text/javascript">
     $(document).ready(function () {
+        $('body').tooltip({
+            selector: "[data-tooltip=tooltip]",
+            container: "body"
+        });
         // add new client in sale page
         $('body').on('submit', '#new_client', function (e) {
             e.preventDefault();
@@ -303,6 +307,7 @@
                 dataType: 'json',
                 success: function (data) {
                     $('#pds').html(data.row_result);
+                    $('[data-tooltip="tooltip"]').tooltip();
                     console.log(data)
 
                 }

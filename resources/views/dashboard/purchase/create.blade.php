@@ -310,12 +310,14 @@
 
                     <div class="col-md-2 col-md-offset-1" style="margin:0;">
                         {{-- <button id="updateproductprice mb-4" style="position: absolute;top: 0;right: 0;">x</button> --}}
-                        <div id="update_product_price" class="btn btn-primary btn-sm"
-                            style="position: absolute; top: 0; right: 15px;z-index: 1;">
+                        <div id="update_product_price_button" data-tooltip="tooltip" title="Update product"
+                            data-toggle="modal" data-target="#modal-update-price"
+                            data-name="{{ $product->product_name }}" + data-id="{{ $product->id }}" +
+                            data-price="{{ $product->purchase_price }}" + data-sale="{{ $product->sale_price }}"
+                            class="btn btn-primary btn-sm" style="position: absolute; top: 0; right: 15px;z-index: 1;">
                             <i class="fas fa-edit"></i>
                         </div>
-                        <a href="" id="product" data-toggle="modal" data-target="#modal-update-price"
-                            data-toggle="tooltip" title="Price : {{ $product->purchase_price }} stock :
+                        <a href="" id="product" data-tooltip="tooltip" title="Price : {{ $product->purchase_price }} stock :
                             {{ $product->stock }}" data-placement="top" id="product-{{ $product->id }}" +
                             data-name="{{ $product->product_name }}" + data-id="{{ $product->id }}" +
                             data-price="{{ $product->purchase_price }}" + data-stock="{{ $product->stock }}" +
@@ -383,6 +385,10 @@
 @section('script')
 <script type="text/javascript">
     $(document).ready(function () {
+        $('body').tooltip({
+            selector: "[data-tooltip=tooltip]",
+            container: "body"
+        });
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -405,6 +411,7 @@
                     $('#new_product')[0].reset();
                     //$("#pds").load(" #pds");
                     $("#pronew").load(" #pronew > *");
+                    $('[data-tooltip="tooltip"]').tooltip();
                     // $("#proscroll").animate({
                     //     scrollTop: $(document).height()
                     // }, 'slow');
@@ -485,6 +492,7 @@
                 dataType: 'json',
                 success: function (data) {
                     $('#pds').html(data.row_result);
+                    $('[data-tooltip="tooltip"]').tooltip();
                     console.log(data)
 
                 }
@@ -499,7 +507,7 @@
         2 = Centre mouse button
         3 = Right mouse button
         */
-        $('body').on('click', '#update_product_price', function (e) {
+        $('body').on('click', '#update_product_price_button', function (e) {
 
             /* Right mouse button was clicked! */
             $('#modal-update-price').on('show.bs.modal', function (

@@ -97,7 +97,7 @@ class ProductController extends Controller
             $product = $request->pro;
             $products = Product::where('product_name', 'like', '%' . $product . '%')->get();
             foreach ($products as $product) {
-                $output .= '<div class="col-md-2 col-md-offset-1" style="margin:0;"><a href="" id="product" data-toggle="tooltip" title="Price : ' . $product->sale_price . ' stock : ' . $product->stock . '"
+                $output .= '<div class="col-md-2 col-md-offset-1" style="margin:0;"><a href="" id="product" data-tooltip="tooltip" title="Price : ' . $product->sale_price . ' stock : ' . $product->stock . '"
                             data-placement="top" id="product-' . $product->id . '" +
                             data-name="' . $product->product_name . '" + data-id="' . $product->id . '" +
                             data-price="' . $product->sale_price . '" + data-stock="' . $product->stock . '" class="con d-block mb-4
@@ -120,10 +120,13 @@ class ProductController extends Controller
             $products = Product::where('product_name', 'like', '%' . $product . '%')->get();
             foreach ($products as $product) {
                 $output .= '<div class="col-md-2 col-md-offset-1" style="margin:0;">
-                <div id="update_product_price" class="btn btn-primary btn-sm" style="position: absolute; top: 0; right: 15px;z-index: 1;">
+                <div id="update_product_price_button" data-tooltip="tooltip" title="Update product" data-toggle="modal" data-target="#modal-update-price"
+                            data-name="' . $product->product_name . '" + data-id="' . $product->id . '" +
+                            data-price="' . $product->purchase_price . '" + data-sale="' . $product->sale_price . '"
+                            class="btn btn-primary btn-sm" style="position: absolute; top: 0; right: 15px;z-index: 1;">
                             <i class="fas fa-edit"></i>
                         </div>
-                <a href="" id="product" data-toggle="tooltip" title="Price : ' . $product->purchase_price . ' stock : ' . $product->stock . '"
+                <a href="" id="product" data-tooltip="tooltip" title="Price : ' . $product->purchase_price . ' stock : ' . $product->stock . '"
                             data-placement="top" id="product-' . $product->id . '" +
                             data-name="' . $product->product_name . '" + data-id="' . $product->id . '" +
                             data-price="' . $product->purchase_price . '" + data-stock="' . $product->stock . '" + data-sale="' . $product->sale_price . '" class="con d-block mb-4
