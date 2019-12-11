@@ -36,7 +36,15 @@ class ProductController extends Controller
     public function create()
     {
         $categories = Category::all();
-        return view('dashboard.product.create', compact('categories'));
+        // generate barcode code 128 number
+        if (Product::all()->last() == null) {
+            $barcode_number = '613' . '0000000001';
+        } else {
+            $lastsaleId = Product::all()->last()->codebar;
+            $lastIncreament = substr($lastsaleId, -10);
+            $barcode_number = '613' . str_pad($lastIncreament + 1, 10, '0', STR_PAD_LEFT);
+        }
+        return view('dashboard.product.create', compact('categories', 'barcode_number'));
     }
 
     /**

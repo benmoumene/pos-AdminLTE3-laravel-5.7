@@ -246,7 +246,7 @@
                                             <div class="form-group">
                                                 <label>@lang('site.codebar')</label>
                                                 <input type="text" name="codebar" id="codebar" class="form-control bar"
-                                                    value="">
+                                                    value="{{ $barcode_number }}">
                                             </div>
                                             <div class="form-group">
                                                 <label>@lang('site.productname')</label>

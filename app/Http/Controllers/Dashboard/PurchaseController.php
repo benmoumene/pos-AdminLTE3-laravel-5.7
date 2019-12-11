@@ -38,6 +38,8 @@ class PurchaseController extends Controller
         $categories = Category::all();
         $products = Product::all();
         $purchases = Purchase::all();
+
+
         //$lastsaleId = sale::all()->last()->number_sale;
 
         //$sale_number = 'SN' . date('Ymd') . '0001';
@@ -48,8 +50,16 @@ class PurchaseController extends Controller
             $lastIncreament = substr($lastsaleId, -4);
             $purchase_number = 'PN' . date('Ymd') . str_pad($lastIncreament + 1, 4, 0, STR_PAD_LEFT);
         }
+        // generate barcode code 128 number
+        if (Product::all()->last() == null) {
+            $barcode_number = '613' . '0000000001';
+        } else {
+            $lastsaleId = Product::all()->last()->codebar;
+            $lastIncreament = substr($lastsaleId, -10);
+            $barcode_number = '613' . str_pad($lastIncreament + 1, 10, '0', STR_PAD_LEFT);
+        }
 
-        return view('dashboard.purchase.create', compact('purchase_number', 'providers', 'categories', 'products'));
+        return view('dashboard.purchase.create', compact('purchase_number', 'barcode_number', 'providers', 'categories', 'products'));
     }
 
 

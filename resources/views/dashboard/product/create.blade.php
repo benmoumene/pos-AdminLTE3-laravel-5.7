@@ -32,18 +32,9 @@
                             </select>
                         </div>
                         <div class="form-group">
-
                             <label>@lang('site.codebar')</label>
-                            <div class="row">
-                                <div class="col-md-8">
-                                    <input type="text" name="codebar" id="bar" class="form-control bar"
-                                        value="{{ old('codebar') }}">
-                                </div>
-                                <div class="col-md-4">
-                                    <button type="button" id="button_barcode"
-                                        class="btn btn-primary float-right">@lang('site.generatecodebar')</button>
-                                </div>
-                            </div>
+                            <input type="text" name="codebar" id="" class="form-control" value="{{ $barcode_number }}"
+                                readonly>
                         </div>
                         <div class="form-group">
                             <label>@lang('site.productname')</label>
@@ -74,8 +65,7 @@
                         </div>
                         <div class="form-group">
                             <label>@lang('site.minstock')</label>
-                            <input type="number" name="min_stock" id="" class="form-control"
-                                value="{{ old('min_stock') }}">
+                            <input type="number" name="min_stock" id="" class="form-control" value="1">
                         </div>
                         <div class="form-group">
                             <div class="custom-file">
