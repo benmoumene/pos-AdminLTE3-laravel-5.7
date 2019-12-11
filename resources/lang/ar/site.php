@@ -131,6 +131,8 @@ return [
     'thereisnoproductforpurchase' => "لا يوجد منتج للشراء",
     'quantitypurchase' => "كمية الشراء",
 
+    'toppurchase' => "أفضل المنتجات التي اشتريتها",
+
     'total' => "مجموع",
     'discount' => "خصم",
     'totalamount' => "المبلغ الإجمالي",

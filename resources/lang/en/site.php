@@ -133,6 +133,8 @@ return [
     'thereisnoproductforpurchase' => "There is no product for Purchase",
     'quantitypurchase' => "Purchase quantity",
 
+    'toppurchase' => "The best products that purchase",
+
     'total' => "Total",
     'discount' => "Discount",
     'totalamount' => "Total Amount",

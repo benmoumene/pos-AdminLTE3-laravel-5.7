@@ -134,56 +134,87 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($salesproducts as $index => $item)
+                            @foreach ($topsales as $index => $item)
                             <tr>
                                 <td>{{ $index + 1 }}</td>
                                 <td>{{ $item->product_name }}</td>
-                                <td>{{ $item->qty }}</td>
+                                <td>{{ $item->total }}</td>
                             </tr>
                             @endforeach
                         </tbody>
                     </table>
-                    <div class="card-footer clearfix">
-                        {{ $salesproducts->links() }}
-                    </div>
-                </div>
-                <!-- /.card-body -->
+                    {{-- <div class="card-footer clearfix">
+                        {{ $topsales->links() }}
+                </div> --}}
             </div>
-            <!-- /.card -->
+            <!-- /.card-body -->
         </div>
-        <div class="col-md-6">
-            <div class="card">
-                <div class="card-header">
-                    <h3 class="card-title">@lang('site.stockalert')</h3>
-                </div>
-                <!-- /.card-header -->
-                <div class="card-body">
-                    <table class="table table-bordered">
-                        <thead>
-                            <tr>
-                                <th style="width: 10px">#</th>
-                                <th>@lang('site.productname')</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($stock_alerts as $index => $stock_alert)
-                            <tr>
-                                <td>{{ $index + 1 }}</td>
-                                <td>{{ $stock_alert->product_name }}</td>
-                            </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                    <div class="card-footer clearfix">
-                        {{ $stock_alerts->links() }}
-                    </div>
-
-                </div>
-                <!-- /.card-body -->
+        <!-- /.card -->
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">@lang('site.toppurchase')</h3>
             </div>
-            <!-- /.card -->
+            <!-- /.card-header -->
+            <div class="card-body">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th style="width: 10px">#</th>
+                            <th>@lang('site.productname')</th>
+                            <th>@lang('site.quantitypurchase')</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($toppurchases as $index => $item)
+                        <tr>
+                            <td>{{ $index + 1 }}</td>
+                            <td>{{ $item->product_name }}</td>
+                            <td>{{ $item->total }}</td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+                {{-- <div class="card-footer clearfix">
+                        {{ $toppurchases->links() }}
+            </div> --}}
         </div>
+        <!-- /.card-body -->
     </div>
+    <!-- /.card -->
+</div>
+<div class="col-md-6">
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">@lang('site.stockalert')</h3>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th style="width: 10px">#</th>
+                        <th>@lang('site.productname')</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($stock_alerts as $index => $stock_alert)
+                    <tr>
+                        <td>{{ $index + 1 }}</td>
+                        <td>{{ $stock_alert->product_name }}</td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+            <div class="card-footer clearfix">
+                {{ $stock_alerts->links() }}
+            </div>
+
+        </div>
+        <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+</div>
+</div>
 
 </div>
 

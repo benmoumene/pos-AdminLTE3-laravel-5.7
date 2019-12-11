@@ -132,6 +132,7 @@ return [
     'thereisnoproductforpurchase' => "Il n'y a pas de produit à achat",
     'quantitypurchase' => "Quantité d'achat",
 
+    'toppurchase' => "Les meilleurs produits qui achètent",
 
     'total' => "Total",
     'discount' => "Remise",

@@ -23,7 +23,7 @@ class DashboardController extends Controller
         $moderator = User::all();
         $categories = Category::all();
         $products = Product::all();
-        $sumprofit = collect($products)->sum('purchase_price', '-', 'sale_price');
+        //$sumprofit = collect($products)->sum('purchase_price', '-', 'sale_price');
         $sales = Sale::all();
         $purchases = Purchase::all();
         $spendmoneys = Spending::all();
@@ -41,12 +41,51 @@ class DashboardController extends Controller
         //     dd($sp_quantity);
         // }
         // Best product that sale
-        $salesproducts = Product::join('product_sale', 'products.id', '=', 'product_sale.product_id')
-            ->selectRaw('products.*, SUM(product_sale.quantity) AS qty')
-            ->groupBy('products.id')
-            ->orderBy('qty', 'desc')
-            ->paginate(3, ['*'], 'bestsale');
+        $topsales = DB::table('product_sale')
+            ->leftJoin('products', 'products.id', '=', 'product_sale.product_id')
+            ->select(
+                'products.id',
+                'products.product_name',
+                'product_sale.product_id',
+                DB::raw('SUM(product_sale.quantity) as total')
+            )
+            ->groupBy('products.id', 'product_sale.product_id', 'products.product_name')
+            ->orderBy('total', 'desc')
+            ->limit(6)
+            ->get();
+
+        // Best product that purchase
+        $toppurchases = DB::table('product_purchase')
+            ->leftJoin('products', 'products.id', '=', 'product_purchase.product_id')
+            ->select(
+                'products.id',
+                'products.product_name',
+                'product_purchase.product_id',
+                DB::raw('SUM(product_purchase.quantity) as total')
+            )
+            ->groupBy('products.id', 'product_purchase.product_id', 'products.product_name')
+            ->orderBy('total', 'desc')
+            ->limit(6)
+            ->get();
         //dd($salesproducts);
+
+        $sale_profit = DB::table('product_sale')
+            ->leftJoin('products', 'products.id', '=', 'product_sale.product_id')
+            ->select(
+                'products.id',
+                'products.product_name',
+                'products.sale_price',
+                'products.purchase_price',
+                'products.created_at',
+                'product_sale.product_id',
+                DB::raw('SUM(products.sale_price - products.purchase_price) as total')
+            )
+            ->groupBy('products.id', 'product_sale.product_id', 'products.product_name', 'products.created_at')
+            ->orderBy('total', 'desc')
+            ->whereDate('created_at', '=', $today)->get();
+        $sumprofit = $sale_profit->sum('total');
+
+        //dd($sale_profit);
         // Product with min stock
         $stock_alerts = DB::table('products')->where('stock', '<=', 'min_stock')->paginate(3, ['*'], 'stockalert');
 
@@ -58,7 +97,8 @@ class DashboardController extends Controller
                 'categories',
                 'products',
                 'sumprofit',
-                'salesproducts',
+                'topsales',
+                'toppurchases',
                 'stock_alerts',
                 'sales',
                 'sales_today',
