@@ -71,21 +71,24 @@ class DashboardController extends Controller
 
         $sale_profit = DB::table('product_sale')
             ->leftJoin('products', 'products.id', '=', 'product_sale.product_id')
+            ->leftJoin('sales', 'sales.id', '=', 'product_sale.sale_id')
             ->select(
-                'products.id',
+                'sales.id',
                 'products.product_name',
                 'products.sale_price',
                 'products.purchase_price',
-                'products.created_at',
                 'product_sale.product_id',
-                DB::raw('SUM(products.sale_price - products.purchase_price) as total')
+                'sales.created_at',
+                DB::raw('SUM(products.sale_price - products.purchase_price) as profit'),
+                DB::raw('DATE(sales.created_at) as date')
             )
-            ->groupBy('products.id', 'product_sale.product_id', 'products.product_name', 'products.created_at')
-            ->orderBy('total', 'desc')
-            ->whereDate('created_at', '=', $today)->get();
-        $sumprofit = $sale_profit->sum('total');
+            ->groupBy('sales.id', 'product_sale.product_id', 'products.product_name', 'sales.created_at', 'date')
+            ->orderBy('date')
+            ->whereDate('sales.created_at', '=', $today)
+            ->get();
+        $sumprofit = $sale_profit->sum('profit');
 
-        //dd($sale_profit);
+        //dd($sumprofit);
         // Product with min stock
         $stock_alerts = DB::table('products')->where('stock', '<=', 'min_stock')->paginate(3, ['*'], 'stockalert');
 
