@@ -16,9 +16,9 @@ class MoneyBoxController extends Controller
     public function index(Request $request)
     {
         //$salemoney = Sale::where('total_amount')->whereDay('created_at', '=', date('d'));
-        $salemoneys = Sale::all();
-        $purchasemoneys = Purchase::all();
-        $spendmoneys = Spending::all();
+        $salemoneys = Sale::orderBy('created_at', 'DESC')->get();
+        $purchasemoneys = Purchase::orderBy('created_at', 'DESC')->get();
+        $spendmoneys = Spending::orderBy('created_at', 'DESC')->get();
         $general_settings = GeneralSetting::all();
 
 

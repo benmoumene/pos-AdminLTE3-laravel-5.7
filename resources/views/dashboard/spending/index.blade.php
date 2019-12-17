@@ -221,7 +221,7 @@
             var formData = new FormData($(this)[0]);
             $.ajax({
                 type: "POST",
-                url: "/newspend",
+                url: "{{ \LaravelLocalization::localizeURL('/newspend') }}",
                 data: formData,
                 contentType: false,
                 processData: false,

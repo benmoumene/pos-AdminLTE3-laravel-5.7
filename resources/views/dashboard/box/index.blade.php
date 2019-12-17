@@ -76,34 +76,36 @@
     <div class="card card-primary">
         <div class="card-header with-border">
             <div class="row">
-                <div class="col-md-2 text-center">
-                    <h4><span class="badge bg-success col-md-12">@lang('site.totalsalemoney') :
-                            {{ $totalsalemoneys }}</span></h4>
-                </div>
-                <div class="col-md-2 text-center">
-                    <h4><span class="badge bg-warning col-md-12">@lang('site.totalpurchasemoney') :
-                            {{ $totalpurchasemoneys }}</span>
-                    </h4>
-                </div>
-                <div class="col-md-2 text-center">
-                    <h4><span class="badge bg-danger col-md-12">@lang('site.totalcreditprovidermoney') :
-                            {{ $totalpurchaseduemoneys }}</span>
-                    </h4>
-                </div>
-                <div class="col-md-2 text-center">
-                    <h4><span class="badge bg-danger col-md-12">@lang('site.totalcreditclientmoney') :
-                            {{ $totalsaleduemoneys }}</span>
-                    </h4>
-                </div>
-                <div class="col-md-2 text-center">
-                    <h4><span class="badge bg-danger col-md-12">@lang('site.totalspendingmoney') :
-                            {{ $totalspendmoneys }}</span>
-                    </h4>
+                <div class="col-md-12">
+                    <div class="text-center">
+                        <h4><span class="badge p-2 bg-success col-md-12">@lang('site.totalsalemoney') :
+                                {{ $totalsalemoneys }}</span></h4>
+                    </div>
+                    <div class="text-center">
+                        <h4><span class="badge p-2 bg-warning col-md-12">@lang('site.totalpurchasemoney') :
+                                {{ $totalpurchasemoneys }}</span>
+                        </h4>
+                    </div>
+                    <div class="text-center">
+                        <h4><span class="badge p-2 bg-danger col-md-12">@lang('site.totalcreditprovidermoney') :
+                                {{ $totalpurchaseduemoneys }}</span>
+                        </h4>
+                    </div>
+                    <div class="text-center">
+                        <h4><span class="badge p-2 bg-danger col-md-12">@lang('site.totalcreditclientmoney') :
+                                {{ $totalsaleduemoneys }}</span>
+                        </h4>
+                    </div>
+                    <div class="text-center">
+                        <h4><span class="badge p-2 bg-danger col-md-12">@lang('site.totalspendingmoney') :
+                                {{ $totalspendmoneys }}</span>
+                        </h4>
+                    </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12 text-center">
-                    <h1><span class="badge bg-white col-md-6">@lang('site.totalboxmoney') :
+                    <h1><span class="badge bg-white col-md-12">@lang('site.totalboxmoney') :
                             {{ $totalboxmoneys }}</span></h1>
                 </div>
 

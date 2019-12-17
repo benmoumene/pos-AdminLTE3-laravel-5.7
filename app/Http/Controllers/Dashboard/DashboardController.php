@@ -32,6 +32,12 @@ class DashboardController extends Controller
         $today = Carbon::today();
         // Count number of Sale today
         $sales_today = Sale::whereDate('created_at', '=', $today);
+        //sum of due of Sale today
+        $sale_due_today = Sale::whereDate('created_at', '=', $today)->sum('due');
+        //sum of spending in day
+        $spending_today = Spending::whereDate('created_at', '=', $today)->sum('spending_price');
+
+
         // Count number of Purchase today
         $purchases_today = Purchase::whereDate('created_at', '=', $today);
         //dd($sales_today);
@@ -69,6 +75,7 @@ class DashboardController extends Controller
             ->get();
         //dd($salesproducts);
 
+
         $sale_profit = DB::table('product_sale')
             ->leftJoin('products', 'products.id', '=', 'product_sale.product_id')
             ->leftJoin('sales', 'sales.id', '=', 'product_sale.sale_id')
@@ -78,15 +85,21 @@ class DashboardController extends Controller
                 'products.sale_price',
                 'products.purchase_price',
                 'product_sale.product_id',
+                'product_sale.quantity as qty',
                 'sales.created_at',
-                DB::raw('SUM(products.sale_price - products.purchase_price) as profit'),
+                //DB::raw('SUM(products.sale_price - products.purchase_price) as profit'),
+                DB::raw('SUM(products.sale_price - products.purchase_price) * product_sale.quantity as profits'),
                 DB::raw('DATE(sales.created_at) as date')
+
             )
-            ->groupBy('sales.id', 'product_sale.product_id', 'products.product_name', 'sales.created_at', 'date')
+            ->groupBy('sales.id', 'product_sale.product_id', 'products.product_name', 'sales.created_at', 'date', 'qty')
             ->orderBy('date')
             ->whereDate('sales.created_at', '=', $today)
             ->get();
-        $sumprofit = $sale_profit->sum('profit');
+        //dd($sale_profit);
+
+        $sumprofit = $sale_profit->sum('profits') - $sale_due_today - $spending_today;
+        //dd($sumprofit);
 
         //dd($sumprofit);
         // Product with min stock
