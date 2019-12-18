@@ -45,7 +45,7 @@
             </a>
         </li>
         <li class="dropdown user user-menu" style="font-size: 1.3em;padding: 5px">
-            <a href=" #" class="user-panel d-flex" style="text-decoration: none;" data-toggle="dropdown">
+            <a href="" class="user-panel d-flex" style="text-decoration: none;" data-toggle="dropdown">
                 <div class="image">
                     <img src="{{ auth()->user()->image_path }}" class="img-circle elevation-2" alt="User Image">
                 </div>
@@ -63,7 +63,8 @@
                 <span class="dropdown-item dropdown-header">{{ auth()->user()->first_name }}
                     {{ auth()->user()->last_name }}</span>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item dropdown-header"><i class="fas fa-user-circle"></i> @lang('site.profile')</a>
+                <a href="{{ route('moderator.profile') }}" class="dropdown-item dropdown-header"><i
+                        class="fas fa-user-circle"></i> @lang('site.profile')</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item dropdown-header" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();"><i

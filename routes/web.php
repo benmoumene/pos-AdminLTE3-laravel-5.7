@@ -30,6 +30,9 @@ Route::group(
             Route::resource('/moderator', 'Dashboard\ModeratorController')->except([
                 'show'
             ]);
+            Route::get('/moderator/profile', 'Dashboard\ModeratorController@profile')->name(
+                'moderator.profile'
+            );
             Route::resource('/category', 'Dashboard\CategoryController')->except([
                 'show'
             ]);

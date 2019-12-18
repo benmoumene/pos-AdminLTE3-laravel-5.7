@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\ImageManagerStatic as Image;
 
@@ -55,6 +56,14 @@ class ModeratorController extends Controller
             });
         })->latest()->paginate(5);
         return view('dashboard.moderator.index', compact('moderator'));
+    }
+
+    public function profile()
+    {
+        $profile = Auth::user();
+        $allprofilepermission = $profile->allPermissions();
+        //dd($allprofilepermission);
+        return view('dashboard.moderator.profile', compact('profile', 'allprofilepermission'));
     }
 
     /**

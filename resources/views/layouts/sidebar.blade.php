@@ -13,7 +13,8 @@
                 <img src="{{ auth()->user()->image_path }}" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">{{ auth()->user()->first_name }} {{ auth()->user()->last_name }}</a>
+                <a href="{{ route('moderator.profile') }}" class="d-block">{{ auth()->user()->first_name }}
+                    {{ auth()->user()->last_name }}</a>
             </div>
         </div>
         <!-- Sidebar Menu -->
