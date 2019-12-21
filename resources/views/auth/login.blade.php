@@ -24,22 +24,20 @@
         .login {
             width: 100%;
             height: 100vh;
-            margin: 0;
-            padding: 0;
+
         }
 
         .login-body {
-            width: 100%;
-            margin: 0;
-            padding: 0;
             position: absolute;
             top: 25%;
+            left: 30%;
+            text-align: center;
         }
 
     </style>
 </head>
 
-<body class="text-center">
+<body>
 
     <div class="row no-gutters">
         <div class="col-md-6">
@@ -47,24 +45,37 @@
         </div>
         <div class="col-md-6 login  mx-auto my-auto">
             <div class="login-body">
-                <img src="{{ asset('/uploads/settings/login.png') }}" alt="magasin logo">
-                <h2>Login to Your Store</h2>
+
+                <img class="pb-5" src="{{ asset('/uploads/settings/magasin_logo.png') }}" style="width:400px;"
+                    alt="magasin logo">
+                <h2>Welcome To Your Store</h2>
                 <br>
                 @include('partials._errors')
                 <form action="{{ route('login') }}" method="post">
                     {{ csrf_field() }}
                     {{ method_field('post') }}
-                    <div class="form-group col-md-6 offset-md-3">
-                        <input class="validate form-control" placeholder="Enter Your Email" type="email" name="email"
-                            id="email">
+                    <div class="input-group mb-3">
+                        <input class="form-control" placeholder="Enter Your Email" type="email" name="email" id="email">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-envelope"></span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="form-group col-md-6 offset-md-3">
-                        <input class="validate form-control" placeholder="Enter Your Password" type="password"
-                            name="password" id="password">
+                    <div class="input-group mb-3">
+                        <input class="form-control" placeholder="Enter Your Password" type="password" name="password"
+                            id="password">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-lock"></span>
+                            </div>
+                        </div>
                     </div>
-
-                    <button type="submit" name="login" value="login" class="btn btn-primary">Sign
-                        In</button>
+                    <div class="row">
+                        <div class="col-4 offset-8">
+                            <button type="submit" class="btn btn-primary btn-block float-right">Login</button>
+                        </div>
+                    </div>
                 </form>
             </div>
         </div>
