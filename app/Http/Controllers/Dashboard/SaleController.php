@@ -115,7 +115,7 @@ class SaleController extends Controller
     public function show(Sale $sale)
     {
         $product_sales = $sale->products;
-        $client_sales =$sale->client;
+        $client_sales = $sale->client;
         // foreach ($product_sales as $key => $product_sale) {
         //     dd($product_sale->quantity);
         // }
@@ -124,7 +124,7 @@ class SaleController extends Controller
         $i = 0;
 
 
-        return view('dashboard.sale.showtwo', compact('product_sales','client_sales', 'sale', 'i'));
+        return view('dashboard.sale.showtwo', compact('product_sales', 'client_sales', 'sale', 'i'));
     }
 
     /**
@@ -134,7 +134,8 @@ class SaleController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(Sale $sale)
-    { }
+    {
+    }
 
 
     /**
@@ -145,7 +146,8 @@ class SaleController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Sale $sale)
-    { }
+    {
+    }
 
     // Payment of credit function
     public function paymentdue(Request $request, $id)
@@ -172,5 +174,14 @@ class SaleController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(Sale $sale)
-    { }
+    {
+        foreach ($sale->products as $key => $product) {
+            $product->update([
+                'stock' => $product->stock + $product->pivot->quantity
+            ]);
+        }
+        $sale->delete();
+        toast('Sale deleted Successfully', 'error', 'top-right');
+        return redirect()->back();
+    }
 }

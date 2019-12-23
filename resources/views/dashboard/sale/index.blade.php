@@ -93,7 +93,7 @@
                                         <button class="btn btn-warning btn-sm pcredit">@lang('site.paymentdue')</button>
                                         @endif
                                         @endif
-                                        @if (auth()->user()->hasPermission('delete_categories'))
+                                        @if (auth()->user()->hasPermission('delete_sales'))
                                         <button id="delete" onclick="deletemoderator({{ $sale->id }})"
                                             class="btn btn-danger btn-sm"><i class="fas fa-trash"></i>
                                             @lang('site.delete')</button>
