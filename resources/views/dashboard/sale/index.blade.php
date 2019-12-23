@@ -86,8 +86,8 @@
                                     <td>{{ $sale->paid }}</td>
                                     <td>{{ $sale->due }}</td>
                                     <td>
-                                        <a href="{{ route('sale.show', $sale->id) }}"
-                                            class="btn btn-primary btn-sm">@lang('site.print')</a>
+                                        <a href="{{ route('sale.show', $sale->id) }}" class="btn btn-primary btn-sm"><i
+                                                class="fas fa-print"></i></a>
                                         @if (auth()->user()->hasPermission('update_sales'))
                                         @if ($sale->due != 0)
                                         <button class="btn btn-warning btn-sm pcredit">@lang('site.paymentdue')</button>
@@ -95,8 +95,7 @@
                                         @endif
                                         @if (auth()->user()->hasPermission('delete_sales'))
                                         <button id="delete" onclick="deletemoderator({{ $sale->id }})"
-                                            class="btn btn-danger btn-sm"><i class="fas fa-trash"></i>
-                                            @lang('site.delete')</button>
+                                            class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button>
                                         <form id="form-delete-{{ $sale->id }}"
                                             action="{{ route('sale.destroy', $sale->id) }}" method="post"
                                             style="display:inline-block;">

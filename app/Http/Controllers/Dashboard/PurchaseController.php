@@ -184,6 +184,13 @@ class PurchaseController extends Controller
 
     public function destroy(Purchase $purchase)
     {
-        // ToDo later destroy by soft-Delete
+        foreach ($purchase->products as $key => $product) {
+            $product->update([
+                'stock' => $product->stock - $product->pivot->quantity
+            ]);
+        }
+        $purchase->delete();
+        toast('Purchase deleted Successfully', 'error', 'top-right');
+        return redirect()->back();
     }
 }

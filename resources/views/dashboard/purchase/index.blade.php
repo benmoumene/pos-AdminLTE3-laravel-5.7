@@ -87,16 +87,15 @@
                                     <td>{{ $purchase->due }}</td>
                                     <td>
                                         <a href="{{ route('purchase.show', $purchase->id) }}"
-                                            class="btn btn-primary btn-sm">@lang('site.print')</a>
+                                            class="btn btn-primary btn-sm"><i class="fas fa-print"></i></a>
                                         @if (auth()->user()->hasPermission('update_purchases'))
                                         @if ($purchase->due != 0)
                                         <button class="btn btn-warning btn-sm pcredit">@lang('site.paymentdue')</button>
                                         @endif
                                         @endif
-                                        @if (auth()->user()->hasPermission('delete_categories'))
+                                        @if (auth()->user()->hasPermission('delete_purchases'))
                                         <button id="delete" onclick="deletemoderator({{ $purchase->id }})"
-                                            class="btn btn-danger btn-sm"><i class="fas fa-trash"></i>
-                                            @lang('site.delete')</button>
+                                            class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button>
                                         <form id="form-delete-{{ $purchase->id }}"
                                             action="{{ route('purchase.destroy', $purchase->id) }}" method="post"
                                             style="display:inline-block;">
