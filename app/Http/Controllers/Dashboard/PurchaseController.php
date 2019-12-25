@@ -144,10 +144,11 @@ class PurchaseController extends Controller
      */
     public function edit(Purchase $purchase)
     {
+        $providersel = $purchase->provider;
         $providers = Provider::all();
         $categories = Category::all();
         $products = Product::all();
-        return view('dashboard.purchase.edit', compact('purchase', 'providers', 'categories', 'products'));
+        return view('dashboard.purchase.edit', compact('purchase', 'providersel', 'providers', 'categories', 'products'));
     }
 
     /**
@@ -159,7 +160,54 @@ class PurchaseController extends Controller
      */
     public function update(Request $request, Purchase $purchase)
     {
-        //
+        $request->validate([
+            'number_purchase' => 'required',
+            'total' => 'required',
+            'discount' => 'required',
+            'total_amount' => 'required',
+            'paid' => 'required',
+            'credit' => 'required',
+            'status' => 'required',
+            'provider_id' => 'required',
+            'product' => 'required',
+            'quantity' => 'required',
+        ]);
+
+        foreach ($purchase->products as $key => $product) {
+            $product->update([
+                'stock' => $product->stock - $product->pivot->quantity
+            ]);
+        }
+        $purchase->delete();
+
+        $data = $request->all();
+
+        $purchase_update = Purchase::create([
+            'number_purchase' => $data['number_purchase'],
+            'total' => $data['total'],
+            'discount' => $data['discount'],
+            'total_amount' => $data['total_amount'],
+            'paid' => $data['paid'],
+            'due' => $data['credit'],
+            'status' => $data['status'],
+            'provider_id' => $data['provider_id'],
+
+        ]);
+        $dat = $data['product'];
+        $qty = $request->get('quantity');
+        //attach sale with there products and quantities
+        $attach_data = [];
+        for ($i = 0; $i < count($dat); $i++) {
+            $attach_data[$dat[$i]] = ['quantity' => $qty[$i]];
+        }
+        $purchase_update->products()->attach($attach_data);
+        //check products stock and substract quntities that is sale
+        for ($i = 0; $i < count($dat); $i++) {
+            $product = Product::find($dat[$i]);
+            $product->stock = $product->stock + ($qty[$i]);
+            $product->save();
+        }
+        return redirect()->route('purchase.index');
     }
     // Payment of credit function
     public function paymentduep(Request $request, $id)

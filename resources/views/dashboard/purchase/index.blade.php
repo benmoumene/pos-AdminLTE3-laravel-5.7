@@ -93,6 +93,15 @@
                                         <button class="btn btn-warning btn-sm pcredit">@lang('site.paymentdue')</button>
                                         @endif
                                         @endif
+                                        @if (auth()->user()->hasPermission('update_purchases'))
+                                        <a class="btn btn-warning btn-sm"
+                                            href="{{ route('purchase.edit', $purchase->id) }}"><i
+                                                class="fas fa-user-edit"></i></a>
+                                        @else
+                                        <a class="btn btn-warning btn-sm disabled"
+                                            href="{{ route('purchase.edit', $purchase->id) }}"><i
+                                                class="fas fa-user-edit"></a>
+                                        @endif
                                         @if (auth()->user()->hasPermission('delete_purchases'))
                                         <button id="delete" onclick="deletemoderator({{ $purchase->id }})"
                                             class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button>
