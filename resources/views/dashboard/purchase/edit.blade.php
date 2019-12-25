@@ -274,6 +274,59 @@
             selector: "[data-tooltip=tooltip]",
             container: "body"
         });
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        // add new product in purchase page
+        $('body').on('submit', '#new_product', function (e) {
+            e.preventDefault();
+            var formData = new FormData($(this)[0]);
+            $.ajax({
+                type: "POST",
+                url: "{{ \LaravelLocalization::localizeURL('/product') }}",
+                data: formData,
+                contentType: false,
+                processData: false,
+                success: function (reponse) {
+                    //alert(reponse)
+                    //console.log(reponse)
+                    $('.bd-example-modal-lg').modal('hide')
+                    $('#new_product')[0].reset();
+                    //$("#pds").load(" #pds");
+                    $("#pronew").load(" #pronew > *");
+                    $('[data-tooltip="tooltip"]').tooltip();
+                    // $("#proscroll").animate({
+                    //     scrollTop: $(document).height()
+                    // }, 'slow');
+
+                    //alert("data saved");
+                },
+                error: function (error) {
+                    const errors = error.responseJSON.errors
+                    const firstitem = Object.keys(errors)[0]
+                    const firstitemDOM = document.getElementById(firstitem)
+                    const firstErrorMessage = errors[firstitem][0]
+                    firstitemDOM.scrollIntoView({})
+
+                    const errorMessages = document.querySelectorAll('.text-danger')
+                    errorMessages.forEach((element) => element.textContent = '')
+
+                    firstitemDOM.insertAdjacentHTML('afterend',
+                        `<div class="text-danger">${firstErrorMessage}</div>`)
+
+                    const formControls = document.querySelectorAll('.form-control')
+                    formControls.forEach((element) => element.classList.remove('border',
+                        'border-danger'))
+
+                    firstitemDOM.classList.add('border', 'border-danger')
+                    //console.log(firstitem)
+
+                    //alert("data not saved");
+                }
+            });
+        });
         // add new provider in purchase page
         $('body').on('submit', '#new_provider', function (e) {
             e.preventDefault();
@@ -313,7 +366,7 @@
             });
         });
         // Search for product to purchase by product name
-        //let old_content = $('#pds').html();
+        let old_content = $('#pds').html();
         $("#searchpurchase").keyup(function () {
             var pro = $("#searchpurchase").val();
             // if (pro != '') {
@@ -333,34 +386,102 @@
             //     $('#pds').html(old_content);
             // }
         });
+        // Update product prices
+        /*
+        1 = Left mouse button
+        2 = Centre mouse button
+        3 = Right mouse button
+        */
+        $('body').on('click', '#update_product_price_button', function (e) {
 
-        // Add product to purchase by barcode
-        $("#addbarcode").keypress(function () {
-            var code = $("#addbarcode").val();
-            if (code.length == 13) {
+            /* Right mouse button was clicked! */
+            $('#modal-update-price').on('show.bs.modal', function (
+                event) { // id of the modal with event
+                var button = $(event.relatedTarget) // Button that triggered the modal
+                var id = button.data('id') // Extract info from data-* attributes
+                var purchase_price = button.data('price')
+                var sale_price = button.data('sale')
+
+                // Update the modal's content.
+                var modal = $(this)
+                modal.find('#id').val(id)
+                modal.find('#purchase_price').val(purchase_price)
+                modal.find('#sale_price').val(sale_price)
+
+
+            });
+            $('body').on('submit', '#update_product_price', function (e) {
+                e.preventDefault();
+                var id = $('#id').val();
+
                 $.ajax({
-                    type: "GET",
-                    url: "/addproduct",
-                    data: 'code=' + code,
-                    dataType: 'json',
+                    type: 'PUT',
+                    url: "{{ \LaravelLocalization::localizeURL('/updateprice') }}/" +
+                        id,
+                    data: $('#update_product_price').serialize(),
                     success: function (data) {
-                        $('.order-list').append(data.addproduct);
-                        $("#addbarcode").val("");
-                        calculateTotal();
-                        calculateTotalAmount();
-                        console.log(data.addproduct)
+                        //console.log(data);
+                        $('#modal-update-price').modal('hide');
+                        $('#update_product_price')[0].reset();
+                        //$("#pds").load(" #pds");
+                        $("#pronew").load(" #pronew > *");
+                        // refresh only datatable
+                        //$('#spending_table').datatable().ajax.reload();
+                        //location.reload();
 
+                    },
+                    error: function (error) {
+                        console.log(error)
+                        const errors = error.responseJSON.errors
+                        const firstitem = Object.keys(errors)[0]
+                        const firstitemDOM = document.getElementById(firstitem)
+                        const firstErrorMessage = errors[firstitem][0]
+                        firstitemDOM.scrollIntoView({})
+
+                        const errorMessages = document.querySelectorAll(
+                            '.text-danger')
+                        errorMessages.forEach((element) => element.textContent =
+                            '')
+
+                        firstitemDOM.insertAdjacentHTML('afterend',
+                            `<div class="text-danger">${firstErrorMessage}</div>`
+                        )
+
+                        const formControls = document.querySelectorAll(
+                            '.form-control')
+                        formControls.forEach((element) => element.classList
+                            .remove('border',
+                                'border-danger'))
+
+                        firstitemDOM.classList.add('border', 'border-danger')
                     }
                 });
-            }
+            });
         });
 
 
+        // Search for product to purchase by category id selected
+        // not working perfectly i will fix it later
+        /*$("#category").change(function () {
+            var cat = $("#category").val();
+            if (cat != '') {
+                $.ajax({
+                    type: "GET",
+                    url: "/search",
+                    data: 'cat=' + cat,
+                    dataType: 'json',
+                    success: function (data) {
+                        $('#pds').html(data.row_result);
+                        console.log(data)
 
-
+                    }
+                });
+            } else {
+                $('#pds').html(old_content);
+            }
+        });*/
     });
 
 </script>
-
 
 @endsection
