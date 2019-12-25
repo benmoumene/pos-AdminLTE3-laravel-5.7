@@ -93,6 +93,13 @@
                                         <button class="btn btn-warning btn-sm pcredit">@lang('site.paymentdue')</button>
                                         @endif
                                         @endif
+                                        @if (auth()->user()->hasPermission('update_sales'))
+                                        <a class="btn btn-warning btn-sm" href="{{ route('sale.edit', $sale->id) }}"><i
+                                                class="fas fa-user-edit"></i></a>
+                                        @else
+                                        <a class="btn btn-warning btn-sm disabled"
+                                            href="{{ route('sale.edit', $sale->id) }}"><i class="fas fa-user-edit"></a>
+                                        @endif
                                         @if (auth()->user()->hasPermission('delete_sales'))
                                         <button id="delete" onclick="deletemoderator({{ $sale->id }})"
                                             class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button>
@@ -104,8 +111,7 @@
                                         </form>
                                         @else
                                         <button type="submit" class="btn btn-danger btn-sm disabled"><i
-                                                class="fas fa-trash"></i>
-                                            @lang('site.delete')</button>
+                                                class="fas fa-trash"></i></button>
                                         @endif
 
                                     </td>
