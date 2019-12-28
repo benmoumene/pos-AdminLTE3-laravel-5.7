@@ -50,18 +50,12 @@
                                     <th class="sorting" tabindex="0" aria-controls="provider_table" rowspan="1"
                                         colspan="1" aria-label="Platform(s): activate to sort column ascending"
                                         style="width: 250px;">@lang('site.address')</th>
-                                    <th class="sorting" tabindex="0" aria-controls="provider_table" rowspan="1"
+                                    <th class="sorting" tabindex="0" aria-controls="client_table" rowspan="1"
                                         colspan="1" aria-label="Platform(s): activate to sort column ascending"
-                                        style="width: 250px;">@lang('site.numeroregistrecommerce')</th>
-                                    <th class="sorting" tabindex="0" aria-controls="provider_table" rowspan="1"
+                                        style="width: 250px;">dues Sales</th>
+                                    <th class="sorting" tabindex="0" aria-controls="client_table" rowspan="1"
                                         colspan="1" aria-label="Platform(s): activate to sort column ascending"
-                                        style="width: 250px;">@lang('site.numeroarticle')</th>
-                                    <th class="sorting" tabindex="0" aria-controls="provider_table" rowspan="1"
-                                        colspan="1" aria-label="Platform(s): activate to sort column ascending"
-                                        style="width: 250px;">@lang('site.nif')</th>
-                                    <th class="sorting" tabindex="0" aria-controls="provider_table" rowspan="1"
-                                        colspan="1" aria-label="Platform(s): activate to sort column ascending"
-                                        style="width: 250px;">@lang('site.nis')</th>
+                                        style="width: 250px;">details Sales</th>
                                     <th class="sorting" tabindex="0" aria-controls="client_table" rowspan="1"
                                         colspan="1" aria-label="Engine version: activate to sort column ascending"
                                         style="width: 243px;">@lang('site.action')</th>
@@ -76,12 +70,18 @@
                                     <td>{{ $provider -> provider_name }}</td>
                                     <td>{{ $provider -> phone }}</td>
                                     <td>{{ $provider -> address }}</td>
-                                    <td>{{ $provider -> rc }}</td>
-                                    <td>{{ $provider -> article }}</td>
-                                    <td>{{ $provider -> nif }}</td>
-                                    <td>{{ $provider -> nis }}</td>
+                                    <td>{{ $provider ->purchases->sum('due') }}</td>
+                                    <td>@if ($provider ->purchases->count() > 0)
+                                        <a class="btn btn-primary btn-sm"
+                                            href="{{ route('provider.detail', $provider->id) }}">details of
+                                            {{ $provider ->purchases->count() }} purchases</i></a>
+                                        @else
+                                        <a class="btn btn-primary btn-sm disabled"
+                                            href="{{ route('provider.edit', $provider->id) }}">details of
+                                            {{ $provider ->purchases->count() }} purchases</i></a>
+                                        @endif</td>
                                     <td>
-                                        @if (auth()->user()->hasPermission('update_providers'))
+                                        @if (auth()->user()->hasPermission('update_providers') && $provider->id != 1)
                                         <a class="btn btn-warning btn-sm"
                                             href="{{ route('provider.edit', $provider->id) }}"><i
                                                 class="fas fa-edit"></i>
@@ -92,7 +92,7 @@
                                                 class="fas fa-edit"></i>
                                             @lang('site.edit')</a>
                                         @endif
-                                        @if (auth()->user()->hasPermission('delete_providers'))
+                                        @if (auth()->user()->hasPermission('delete_providers') && $provider->id != 1)
                                         <button id="delete" onclick="deletemoderator({{ $provider->id }})"
                                             class="btn btn-danger btn-sm"><i class="fas fa-trash"></i>
                                             @lang('site.delete')</button>
@@ -119,10 +119,8 @@
                                     <th rowspan="1" colspan="1">@lang('site.providername')</th>
                                     <th rowspan="1" colspan="1">@lang('site.phone')</th>
                                     <th rowspan="1" colspan="1">@lang('site.address')</th>
-                                    <th rowspan="1" colspan="1">@lang('site.numeroregistrecommerce')</th>
-                                    <th rowspan="1" colspan="1">@lang('site.numeroarticle')</th>
-                                    <th rowspan="1" colspan="1">@lang('site.nif')</th>
-                                    <th rowspan="1" colspan="1">@lang('site.nis')</th>
+                                    <th rowspan="1" colspan="1">dues sales</th>
+                                    <th rowspan="1" colspan="1">details sales</th>
                                     <th rowspan="1" colspan="1">@lang('site.action')</th>
                                 </tr>
                             </tfoot>

@@ -15,10 +15,25 @@ class ProviderController extends Controller
      */
     public function index(Request $request)
     {
-        $providers = Provider::where('id', '!=', '1')->get();
+        $providers = Provider::all();
         return view('dashboard.provider.index', compact('providers'));
     }
 
+
+
+    public function purchasedetail($id)
+    {
+        //$allclients = Client::all();
+        $provider = Provider::find($id);
+        // $sales = Sale::all();
+        // foreach ($allclients as $key => $value) {
+        //     dd($value->sales->sum('due'));
+        // }
+        //dd($client->sales);
+
+
+        return view('dashboard.provider.purchasedetail', compact('provider'));
+    }
     /**
      * Show the form for creating a new resource.
      *

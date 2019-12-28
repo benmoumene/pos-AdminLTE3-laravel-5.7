@@ -117,6 +117,7 @@
                                     <th rowspan="1" colspan="1">@lang('site.clientname')</th>
                                     <th rowspan="1" colspan="1">@lang('site.phone')</th>
                                     <th rowspan="1" colspan="1">@lang('site.address')</th>
+                                    <th rowspan="1" colspan="1">dues sales</th>
                                     <th rowspan="1" colspan="1">details sales</th>
                                     <th rowspan="1" colspan="1">@lang('site.action')</th>
                                 </tr>

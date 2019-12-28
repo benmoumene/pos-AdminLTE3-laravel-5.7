@@ -55,6 +55,7 @@ Route::group(
             Route::resource('/provider', 'Dashboard\ProviderController')->except([
                 'show'
             ]);
+            Route::get('/provider/detail/{id}', 'Dashboard\ProviderController@purchasedetail')->name('provider.detail');
 
             // spending route
 
