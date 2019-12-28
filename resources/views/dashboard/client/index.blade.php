@@ -52,16 +52,10 @@
                                         style="width: 250px;">@lang('site.address')</th>
                                     <th class="sorting" tabindex="0" aria-controls="client_table" rowspan="1"
                                         colspan="1" aria-label="Platform(s): activate to sort column ascending"
-                                        style="width: 250px;">@lang('site.numeroregistrecommerce')</th>
+                                        style="width: 250px;">dues Sales</th>
                                     <th class="sorting" tabindex="0" aria-controls="client_table" rowspan="1"
                                         colspan="1" aria-label="Platform(s): activate to sort column ascending"
-                                        style="width: 250px;">@lang('site.numeroarticle')</th>
-                                    <th class="sorting" tabindex="0" aria-controls="client_table" rowspan="1"
-                                        colspan="1" aria-label="Platform(s): activate to sort column ascending"
-                                        style="width: 250px;">@lang('site.nif')</th>
-                                    <th class="sorting" tabindex="0" aria-controls="client_table" rowspan="1"
-                                        colspan="1" aria-label="Platform(s): activate to sort column ascending"
-                                        style="width: 250px;">@lang('site.nis')</th>
+                                        style="width: 250px;">details Sales</th>
                                     <th class="sorting" tabindex="0" aria-controls="client_table" rowspan="1"
                                         colspan="1" aria-label="Engine version: activate to sort column ascending"
                                         style="width: 243px;">@lang('site.action')</th>
@@ -76,12 +70,18 @@
                                     <td>{{ $client -> client_name }}</td>
                                     <td>{{ $client -> phone }}</td>
                                     <td>{{ $client -> address }}</td>
-                                    <td>{{ $client -> rc }}</td>
-                                    <td>{{ $client -> article }}</td>
-                                    <td>{{ $client -> nif }}</td>
-                                    <td>{{ $client -> nis }}</td>
+                                    <td>{{ $client ->sales->sum('due') }}</td>
+                                    <td>@if ($client ->sales->count() > 0)
+                                        <a class="btn btn-primary btn-sm"
+                                            href="{{ route('client.detail', $client->id) }}">details of
+                                            {{ $client ->sales->count() }} sales</i></a>
+                                        @else
+                                        <a class="btn btn-primary btn-sm disabled"
+                                            href="{{ route('client.edit', $client->id) }}">details of
+                                            {{ $client ->sales->count() }} sales</i></a>
+                                        @endif</td>
                                     <td>
-                                        @if (auth()->user()->hasPermission('update_clients'))
+                                        @if (auth()->user()->hasPermission('update_clients') && $client->id != 1)
                                         <a class="btn btn-warning btn-sm"
                                             href="{{ route('client.edit', $client->id) }}"><i class="fas fa-edit"></i>
                                             @lang('site.edit')</a>
@@ -90,7 +90,7 @@
                                             href="{{ route('client.edit', $client->id) }}"><i class="fas fa-edit"></i>
                                             @lang('site.edit')</a>
                                         @endif
-                                        @if (auth()->user()->hasPermission('delete_clients'))
+                                        @if (auth()->user()->hasPermission('delete_clients') && $client->id != 1)
                                         <button id="delete" onclick="deletemoderator({{ $client->id }})"
                                             class="btn btn-danger btn-sm"><i class="fas fa-trash"></i>
                                             @lang('site.delete')</button>
@@ -117,10 +117,7 @@
                                     <th rowspan="1" colspan="1">@lang('site.clientname')</th>
                                     <th rowspan="1" colspan="1">@lang('site.phone')</th>
                                     <th rowspan="1" colspan="1">@lang('site.address')</th>
-                                    <th rowspan="1" colspan="1">@lang('site.numeroregistrecommerce')</th>
-                                    <th rowspan="1" colspan="1">@lang('site.numeroarticle')</th>
-                                    <th rowspan="1" colspan="1">@lang('site.nif')</th>
-                                    <th rowspan="1" colspan="1">@lang('site.nis')</th>
+                                    <th rowspan="1" colspan="1">details sales</th>
                                     <th rowspan="1" colspan="1">@lang('site.action')</th>
                                 </tr>
                             </tfoot>

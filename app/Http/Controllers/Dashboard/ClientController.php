@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Dashboard;
 
+use App\Sale;
 use App\Client;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -15,10 +16,30 @@ class ClientController extends Controller
      */
     public function index(Request $request)
     {
-        $clients = Client::where('id', '!=', '1')->get();
+        //$allclients = Client::all();
+        $clients = Client::all();
+        // $sales = Sale::all();
+        // foreach ($allclients as $key => $value) {
+        //     dd($value->sales->sum('due'));
+        // }
+
         return view('dashboard.client.index', compact('clients'));
     }
 
+
+    public function saledetail($id)
+    {
+        //$allclients = Client::all();
+        $client = Client::find($id);
+        // $sales = Sale::all();
+        // foreach ($allclients as $key => $value) {
+        //     dd($value->sales->sum('due'));
+        // }
+        //dd($client->sales);
+
+
+        return view('dashboard.client.saledetail', compact('client'));
+    }
     /**
      * Show the form for creating a new resource.
      *
