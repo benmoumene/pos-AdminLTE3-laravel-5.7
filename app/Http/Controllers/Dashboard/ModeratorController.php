@@ -73,7 +73,7 @@ class ModeratorController extends Controller
      */
     public function create()
     {
-        return view('dashboard.moderator.create', compact('moderator'));
+        return view('dashboard.moderator.create');
     }
 
     /**
