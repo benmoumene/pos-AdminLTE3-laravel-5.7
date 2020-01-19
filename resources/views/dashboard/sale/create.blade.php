@@ -198,15 +198,22 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="">@lang('site.addproducttosalewithbarcode')</label>
-                        <input id="addbarcode" class="form-control" type="text" name="addbarcode"
-                            placeholder="@lang('site.scanbarcode')" autocomplete="off">
+                        <label>@lang('site.categories')</label>
+                        <select id="searchbycategoty" name="category_id" class="form-control">
+                            <option value="">@lang('site.categories')</option>
+                            @foreach ($categories as $category)
+                            <option value="{{ $category->id }}"
+                                {{ old('category_id') == $category->id ? 'selected' : ''}}>{{
+                                    $category->category_name }} {{
+                                    $category->brand_name }}</option>
+                            @endforeach
+                        </select>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="">@lang('site.searchforproductbynameorcategory')</label>
-                        <input id="searchsale" class="form-control" type="text" name="searchproduct"
+                        <input id="searchbyproduct" class="form-control" type="text" name="searchproduct"
                             placeholder="@lang('site.searchforproduct')" autocomplete="off">
                     </div>
                 </div>
@@ -297,13 +304,14 @@
         });
         // Search for product to sale by product name
         //let old_content = $('#pds').html();
-        $("#searchsale").keyup(function () {
-            var pro = $("#searchsale").val();
+
+        $("#searchbyproduct").on('input', function () {
+            var searchbyproduct = $("#searchbyproduct").val();
             // if (pro != '') {
             $.ajax({
                 type: "GET",
                 url: "/searchsale",
-                data: 'pro=' + pro,
+                data: 'searchbyproduct=' + searchbyproduct,
                 dataType: 'json',
                 success: function (data) {
                     $('#pds').html(data.row_result);
@@ -312,9 +320,22 @@
 
                 }
             });
-            // } else {
-            //     $('#pds').html(old_content);
-            // }
+        });
+        $("#searchbycategoty").on('change', function () {
+            var searchbycategoty = $('#searchbycategoty').val();
+            // if (pro != '') {
+            $.ajax({
+                type: "GET",
+                url: "/searchsale",
+                data: 'searchbycategoty=' + searchbycategoty,
+                dataType: 'json',
+                success: function (data) {
+                    $('#pds').html(data.row_result);
+                    $('[data-tooltip="tooltip"]').tooltip();
+                    console.log(data)
+
+                }
+            });
         });
 
         // Add product to sale by barcode

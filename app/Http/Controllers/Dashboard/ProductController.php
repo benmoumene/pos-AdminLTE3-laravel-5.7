@@ -103,8 +103,13 @@ class ProductController extends Controller
     {
         if ($request->ajax()) {
             $output = "";
-            $product = $request->pro;
-            $products = Product::where('product_name', 'like', '%' . $product . '%')->get();
+            //dd($request->searchbycategoty);
+            $products = Product::when($request->searchbyproduct, function ($q) use ($request) {
+                return $q->where('product_name', 'like', '%' . $request->searchbyproduct . '%');
+            })->when($request->searchbycategoty, function ($q) use ($request) {
+                return $q->where('category_id', $request->searchbycategoty);
+            })->get();
+            //dd($products);
             foreach ($products as $product) {
                 $output .= '<div class="col-md-2 col-md-offset-1" style="margin:0;"><a href="" id="product" data-tooltip="tooltip" title="Price : ' . $product->sale_price . ' stock : ' . $product->stock . '"
                             data-placement="top" id="product-' . $product->id . '" +
