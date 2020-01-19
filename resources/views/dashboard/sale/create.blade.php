@@ -318,25 +318,123 @@
         });
 
         // Add product to sale by barcode
-        $("#addbarcode").keypress(function () {
-            var code = $("#addbarcode").val();
-            if (code.length == 13) {
+        // $("#addbarcode").keypress(function () {
+        //     var code = $("#addbarcode").val();
+        //     if (code.length == 13) {
+        //         $.ajax({
+        //             type: "GET",
+        //             url: "/addproduct",
+        //             data: 'code=' + code,
+        //             dataType: 'json',
+        //             success: function (data) {
+        //                 $('.order-list').append(data.addproduct);
+        //                 $("#addbarcode").val("");
+        //                 calculateTotal();
+        //                 calculateTotalAmount();
+        //                 console.log(data.addproduct)
+
+        //             }
+        //         });
+        //     }
+        // });
+
+        // var _keybuffer = "";
+
+        // $(document).on("keyup", function (e) {
+        //     e.preventDefault();
+        //     var code = e.keyCode || e.which;
+        //     _keybuffer += String.fromCharCode(code);
+        //     if (_keybuffer.length > 13) {
+        //         _keybuffer = _keybuffer.substr(_keybuffer.length - 13);
+        //     }
+        //     if (_keybuffer.length == 13) {
+        //         if (!isNaN(parseInt(_keybuffer))) {
+        //             barcodeEntered(_keybuffer);
+        //             _keybuffer = "";
+        //         }
+        //     }
+
+
+        // });
+
+        // function barcodeEntered(value) {
+        //     console.log(value);
+        //if (value.length == 13) {
+
+        // // Enable scan events for the entire document
+        // onScan.attachTo(document);
+        // // Register event listener
+        // document.addEventListener('scan', function (sScancode, iQuatity) {
+        //     alert(iQuantity + 'x ' + sScancode);
+        // });
+        onScan.attachTo(document, {
+            suffixKeyCodes: [13], // enter-key expected at the end of a scan
+            reactToPaste: true, // Compatibility to built-in scanners in paste-mode (as opposed to keyboard-mode)
+            onScan: function (sCode, iQty) { // Alternative to document.addEventListener('scan')
+                console.log('Scanned: ' + iQty + 'x ' + sCode);
                 $.ajax({
                     type: "GET",
                     url: "/addproduct",
-                    data: 'code=' + code,
+                    data: 'code=' + sCode,
                     dataType: 'json',
                     success: function (data) {
-                        $('.order-list').append(data.addproduct);
-                        $("#addbarcode").val("");
+                        console.log(data.products);
+                        //console.log(data.products[0].codebar);
+                        var name = data.products[0].product_name;
+                        var id = data.products[0].id;
+                        var price = data.products[0].sale_price;
+                        var stock = data.products[0].stock;
+
+                        numRows = $('.order-list .items').length + 1;
+                        //var qty = $('#qty').val();
+                        for (var i = 1; i < numRows; i++) {
+                            var code = $("tr:nth-child(" + i + ") td:nth-child(1)")
+                                .html();
+                            var next = $("tr:nth-child(" + i +
+                                ") td:nth-child(3) input").val();
+                            if (code == name) {
+                                var add = parseInt(next) + 1;
+                                if (add <= stock) {
+                                    $("tr:nth-child(" + i +
+                                        ") td:nth-child(3) input").val(add);
+                                    var all = add * price;
+                                }
+                                $("tr:nth-child(" + i +
+                                    ") td:nth-child(4)").html(all);
+                                calculateTotal();
+                                calculateTotalAmount();
+                                return true;
+                            }
+                        }
+                        var html =
+                            `<tr id="${id}" class="form-group items">
+                            <td id="name" class="namex">${name}</td>
+                            <input type="hidden" name="product[]" value="${id}">
+                            <td style="display: flex;">
+                                <input id="qty" style="width: 60% !important;" type="number" name="quantity[]"
+                                    data-price="${price}" data-stock="${stock}"
+                                    class="form-control input-sm product-quantity" min="1" max="${stock}" value="1">
+                            </td>
+                            <td class="product-price">${price}</td>
+                            <td><button type="button" class="btn btn-danger btn-sm remove-product-btn"
+                                    data-id="${id}"><span class="fa fa-trash"></span></button></td>
+                        </tr>`;
+
+                        $('.order-list').append(html);
                         calculateTotal();
                         calculateTotalAmount();
-                        console.log(data.addproduct)
-
+                        return true;
                     }
                 });
+            },
+            onKeyDetect: function (
+                iKeyCode) { // output all potentially relevant key events - great for debugging!
+                console.log('Pressed: ' + iKeyCode);
             }
         });
+
+        //}
+        // }
 
 
 

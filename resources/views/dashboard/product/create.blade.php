@@ -33,8 +33,7 @@
                         </div>
                         <div class="form-group">
                             <label>@lang('site.codebar')</label>
-                            <input type="text" name="codebar" id="" class="form-control" value="{{ $barcode_number }}"
-                                readonly>
+                            <input type="text" name="codebar" id="" class="form-control" value="{{ $barcode_number }}">
                         </div>
                         <div class="form-group">
                             <label>@lang('site.productname')</label>

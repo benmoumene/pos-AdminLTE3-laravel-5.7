@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Product;
+use Response;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Category;
@@ -154,20 +155,23 @@ class ProductController extends Controller
         $out = "";
         $barcode = $request->code;
         $products = Product::where('codebar', '=', $barcode)->get();
-        foreach ($products as $product) {
-            $out .= '
-                    <tr class="form-group items">
-                                <td class="namex">' . $product->product_name . '</td>
-                                <input type="hidden" name="product[]" value="' . $product->id . '">
-                                <td style="display: flex;">        
-                                <input id="qty" style="width: 60% !important;" type="number" name="quantity[]" data-price="' . $product->purchase_price . '" data-stock="' . $product->stock . '" class="form-control input-sm product-quantity" min="1" max="' . $product->stock . '" value="1">
-                                </td>
-                                <td class="product-price">' . $product->purchase_price . '</td>
-                                <td><button type="button" class="btn btn-danger btn-sm remove-product-btn" data-id="' . $product->id . '"><span class="fa fa-trash"></span></button></td>
-                    </tr>';
-        }
+        return Response::json(array(
+            'products' => $products,
+        ));
+        // foreach ($products as $product) {
+        //     $out .= '
+        //             <tr class="form-group items">
+        //                         <td class="namex">' . $product->product_name . '</td>
+        //                         <input type="hidden" name="product[]" value="' . $product->id . '">
+        //                         <td style="display: flex;">
+        //                         <input id="qty" style="width: 60% !important;" type="number" name="quantity[]" data-price="' . $product->purchase_price . '" data-stock="' . $product->stock . '" class="form-control input-sm product-quantity" min="1" max="' . $product->stock . '" value="1">
+        //                         </td>
+        //                         <td class="product-price">' . $product->purchase_price . '</td>
+        //                         <td><button type="button" class="btn btn-danger btn-sm remove-product-btn" data-id="' . $product->id . '"><span class="fa fa-trash"></span></button></td>
+        //             </tr>';
+        // }
 
-        return $data = array('addproduct' => $out,);
+        // return $data = array('addproduct' => $out,);
     }
 
 

@@ -86,6 +86,7 @@ __do that with one command :__
   -  [___AdminLTE3___](https://adminlte.io/docs/2.4/installation)  Dashboard Template
   -  [___fontawesome-free___](https://github.com/realrashid/sweet-alert) Font Icon Template
   -  [___Select2.js___](https://select2.org/) a customizable select box
+  -  [___OnScan.js___](https://github.com/axenox/onscan.js) On-scan events for hardware barcode scanners in vanilla JS
   -  __.....__
 ## Todo List featured
   - [ ] create a backup and restore for this application

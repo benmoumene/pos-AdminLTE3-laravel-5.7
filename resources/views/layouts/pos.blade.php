@@ -69,7 +69,7 @@
     <script src="/js/moment.js"></script>
     <script src="/js/sale.js"></script>
     <script src="/js/img-preview.js"></script>
-
+    <script src="/js/onscan.min.js"></script>
     <script src="/js/jquery.nicescroll.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 
