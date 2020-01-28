@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers\Dashboard;
 
-use App\Product;
 use Response;
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use App\Product;
 use App\Category;
-use Intervention\Image\ImageManagerStatic as Image;
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class ProductController extends Controller
 {
@@ -102,28 +102,22 @@ class ProductController extends Controller
     public function searchsale(Request $request)
     {
         if ($request->ajax()) {
-            $output = "";
-            //dd($request->searchbycategoty);
             $products = Product::when($request->searchbyproduct, function ($q) use ($request) {
                 return $q->where('product_name', 'like', '%' . $request->searchbyproduct . '%');
             })->when($request->searchbycategoty, function ($q) use ($request) {
                 return $q->where('category_id', $request->searchbycategoty);
             })->get();
-            //dd($products);
-            foreach ($products as $product) {
-                $output .= '<div class="col-md-2 col-md-offset-1" style="margin:0;"><a href="" id="product" data-tooltip="tooltip" title="Price : ' . $product->sale_price . ' stock : ' . $product->stock . '"
-                            data-placement="top" id="product-' . $product->id . '" +
-                            data-name="' . $product->product_name . '" + data-id="' . $product->id . '" +
-                            data-price="' . $product->sale_price . '" + data-stock="' . $product->stock . '" class="con d-block mb-4
-                                add-product-btn">
-                            <img class="img-fluid img-product" src="' . $product->image_path . '" alt="">
-                             <span class="mbr-gallery-title text-truncate">' . $product->product_name . '</span>
-                        </a>
-                    </div>';
-            }
+            return Response::json(array(
+                'products' => $products,
+            ));
+        } else {
+            $products = Product::all();
+            return Response::json(array(
+                'products' => $products,
+            ));
         }
 
-        return $data = array('row_result' => $output,);
+        // return $data = array('row_result' => $output,);
     }
     // search fuction for purchase product
     public function searchpurchase(Request $request)
@@ -161,22 +155,8 @@ class ProductController extends Controller
         $barcode = $request->code;
         $products = Product::where('codebar', '=', $barcode)->get();
         return Response::json(array(
-            'products' => $products,
+            'product' => $product,
         ));
-        // foreach ($products as $product) {
-        //     $out .= '
-        //             <tr class="form-group items">
-        //                         <td class="namex">' . $product->product_name . '</td>
-        //                         <input type="hidden" name="product[]" value="' . $product->id . '">
-        //                         <td style="display: flex;">
-        //                         <input id="qty" style="width: 60% !important;" type="number" name="quantity[]" data-price="' . $product->purchase_price . '" data-stock="' . $product->stock . '" class="form-control input-sm product-quantity" min="1" max="' . $product->stock . '" value="1">
-        //                         </td>
-        //                         <td class="product-price">' . $product->purchase_price . '</td>
-        //                         <td><button type="button" class="btn btn-danger btn-sm remove-product-btn" data-id="' . $product->id . '"><span class="fa fa-trash"></span></button></td>
-        //             </tr>';
-        // }
-
-        // return $data = array('addproduct' => $out,);
     }
 
 

@@ -302,92 +302,49 @@
                 }
             });
         });
-        // Search for product to sale by product name
-        //let old_content = $('#pds').html();
 
-        $("#searchbyproduct").on('input', function () {
-            var searchbyproduct = $("#searchbyproduct").val();
-            // if (pro != '') {
-            $.ajax({
-                type: "GET",
-                url: "/searchsale",
-                data: 'searchbyproduct=' + searchbyproduct,
-                dataType: 'json',
-                success: function (data) {
-                    $('#pds').html(data.row_result);
-                    $('[data-tooltip="tooltip"]').tooltip();
-                    console.log(data)
+        // Search for product to sale by Category Product and by product name
 
-                }
-            });
-        });
-        $("#searchbycategoty").on('change', function () {
+        $("#searchbycategoty").add("#searchbyproduct").on('change input', function () {
             var searchbycategoty = $('#searchbycategoty').val();
-            // if (pro != '') {
+            var searchbyproduct = $("#searchbyproduct").val();
             $.ajax({
                 type: "GET",
                 url: "/searchsale",
-                data: 'searchbycategoty=' + searchbycategoty,
+                //data: 'searchbycategoty=' + searchbycategoty,
+                data: {
+                    'searchbycategoty': searchbycategoty,
+                    'searchbyproduct': searchbyproduct,
+                },
                 dataType: 'json',
                 success: function (data) {
-                    $('#pds').html(data.row_result);
+                    var html = data.products.map(function (item) {
+                        var sale = item.sale_price;
+                        var stock = item.stock;
+                        var id = item.id;
+                        var name = item.product_name;
+                        var image = item.image_path;
+                        return `<div class="col-md-2 col-md-offset-1" style="margin:0;"><a href="" id="product"
+                           data-tooltip="tooltip" title="Price : ${sale} stock : ${stock}" data-placement="top"
+                           id="product-${id}" + data-name="${name}" + data-id="${id}" + data-price="${sale}" +
+                           data-stock="${stock}" class="con d-block mb-4
+                                add-product-btn">
+                           <img class="img-fluid img-product" src="${image}" alt="">
+                           <span class="mbr-gallery-title text-truncate">${name}</span>
+                       </a>
+                   </div>`;
+                    });
+
+                    console.log(html);
+                    $('#pds').html(html);
                     $('[data-tooltip="tooltip"]').tooltip();
-                    console.log(data)
 
                 }
             });
         });
 
-        // Add product to sale by barcode
-        // $("#addbarcode").keypress(function () {
-        //     var code = $("#addbarcode").val();
-        //     if (code.length == 13) {
-        //         $.ajax({
-        //             type: "GET",
-        //             url: "/addproduct",
-        //             data: 'code=' + code,
-        //             dataType: 'json',
-        //             success: function (data) {
-        //                 $('.order-list').append(data.addproduct);
-        //                 $("#addbarcode").val("");
-        //                 calculateTotal();
-        //                 calculateTotalAmount();
-        //                 console.log(data.addproduct)
+        // Add product to sale by barcode scanner
 
-        //             }
-        //         });
-        //     }
-        // });
-
-        // var _keybuffer = "";
-
-        // $(document).on("keyup", function (e) {
-        //     e.preventDefault();
-        //     var code = e.keyCode || e.which;
-        //     _keybuffer += String.fromCharCode(code);
-        //     if (_keybuffer.length > 13) {
-        //         _keybuffer = _keybuffer.substr(_keybuffer.length - 13);
-        //     }
-        //     if (_keybuffer.length == 13) {
-        //         if (!isNaN(parseInt(_keybuffer))) {
-        //             barcodeEntered(_keybuffer);
-        //             _keybuffer = "";
-        //         }
-        //     }
-
-
-        // });
-
-        // function barcodeEntered(value) {
-        //     console.log(value);
-        //if (value.length == 13) {
-
-        // // Enable scan events for the entire document
-        // onScan.attachTo(document);
-        // // Register event listener
-        // document.addEventListener('scan', function (sScancode, iQuatity) {
-        //     alert(iQuantity + 'x ' + sScancode);
-        // });
         onScan.attachTo(document, {
             suffixKeyCodes: [13], // enter-key expected at the end of a scan
             reactToPaste: true, // Compatibility to built-in scanners in paste-mode (as opposed to keyboard-mode)
@@ -399,12 +356,12 @@
                     data: 'code=' + sCode,
                     dataType: 'json',
                     success: function (data) {
-                        console.log(data.products);
+                        console.log(data.product);
                         //console.log(data.products[0].codebar);
-                        var name = data.products[0].product_name;
-                        var id = data.products[0].id;
-                        var price = data.products[0].sale_price;
-                        var stock = data.products[0].stock;
+                        var name = data.product[0].product_name;
+                        var id = data.product[0].id;
+                        var price = data.product[0].sale_price;
+                        var stock = data.product[0].stock;
 
                         numRows = $('.order-list .items').length + 1;
                         //var qty = $('#qty').val();
@@ -453,13 +410,6 @@
                 console.log('Pressed: ' + iKeyCode);
             }
         });
-
-        //}
-        // }
-
-
-
-
     });
 
 </script>
