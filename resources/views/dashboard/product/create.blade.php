@@ -33,7 +33,17 @@
                         </div>
                         <div class="form-group">
                             <label>@lang('site.codebar')</label>
-                            <input type="text" name="codebar" id="" class="form-control" value="{{ $barcode_number }}">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input type="text" name="codebar" id="barcode" class="form-control" value=""
+                                        placeholder="Scan with Barcode scanner or Click to Generate
+                                Barcode">
+                                </div>
+                                <div class="col-md-6">
+                                    <button id="barcodebutton" type="button" class="btn btn-success">Generate
+                                        Barcode</button>
+                                </div>
+                            </div>
                         </div>
                         <div class="form-group">
                             <label>@lang('site.productname')</label>
@@ -94,3 +104,39 @@
 
 
 @stop
+@section('script')
+<script type="text/javascript">
+    $(document).ready(function () {
+        // add new client in sale page
+        $('body').on('click', '#barcodebutton', function (e) {
+            e.preventDefault();
+            //var barcode = $("#barcode").val();
+            $.ajax({
+                type: "get",
+                url: "/barcode",
+                contentType: false,
+                processData: false,
+                success: function (data) {
+                    $("#barcode").val(data.barcode_number);
+
+                }
+            });
+        });
+        onScan.attachTo(document, {
+            suffixKeyCodes: [13], // enter-key expected at the end of a scan
+            reactToPaste: true, // Compatibility to built-in scanners in paste-mode (as opposed to keyboard-mode)
+            onScan: function (sCode, iQty) { // Alternative to document.addEventListener('scan')
+                console.log('Scanned: ' + iQty + 'x ' + sCode);
+                $('#barcode').val(sCode);
+
+            },
+            onKeyDetect: function (
+                iKeyCode) { // output all potentially relevant key events - great for debugging!
+                console.log('Pressed: ' + iKeyCode);
+            }
+        });
+    });
+
+</script>
+
+@endsection
