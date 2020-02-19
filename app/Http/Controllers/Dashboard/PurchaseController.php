@@ -50,8 +50,8 @@ class PurchaseController extends Controller
         if (Product::all()->last() == null) {
             $barcode_number = '000000000001';
         } else {
-            $lastsaleId = Product::all()->count();
-            $lastIncreament = substr($lastsaleId, -12);
+            $lastproductId = Product::all()->last()->id;
+            $lastIncreament = substr($lastproductId, -12);
             $barcode_number = str_pad($lastIncreament + 1, 12, '0', STR_PAD_LEFT);
         }
 
