@@ -48,8 +48,8 @@ class ProductController extends Controller
                 $barcode_number = '000000000001';
             } else {
                 $lastsaleId = Product::all()->count();
-                $lastIncreament = substr($lastsaleId, -10);
-                $barcode_number = str_pad($lastIncreament + 1, 10, '0', STR_PAD_LEFT);
+                $lastIncreament = substr($lastsaleId, -12);
+                $barcode_number = str_pad($lastIncreament + 1, 12, '0', STR_PAD_LEFT);
             }
             return Response::json(array(
                 'barcode_number' => $barcode_number,

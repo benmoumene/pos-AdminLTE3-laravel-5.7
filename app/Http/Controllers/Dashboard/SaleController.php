@@ -42,11 +42,11 @@ class SaleController extends Controller
 
         //$sale_number = 'SN' . date('Ymd') . '0001';
         if (sale::all()->last() == null) {
-            $sale_number = 'SN' . date('Ymd') . '0001';
+            $sale_number = 'SN' . ' : ' . '1' . ' / ' . date('Y');
         } else {
-            $lastsaleId = sale::all()->last()->number_sale;
-            $lastIncreament = substr($lastsaleId, -4);
-            $sale_number = 'SN' . date('Ymd') . str_pad($lastIncreament + 1, 4, 0, STR_PAD_LEFT);
+            $lastsaleNumber = sale::all()->last()->number_sale;
+            $lastNumber = substr($lastsaleNumber,5,-7);
+            $sale_number = 'SN' .' : ' . str_pad($lastNumber + 1, 0, 0, STR_PAD_LEFT) . ' / ' . date('Y');
         }
 
         return view('dashboard.sale.create', compact('sale_number', 'clients', 'categories', 'products'));

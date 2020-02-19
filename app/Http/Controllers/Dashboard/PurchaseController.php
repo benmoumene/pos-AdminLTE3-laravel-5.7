@@ -39,24 +39,20 @@ class PurchaseController extends Controller
         $products = Product::all();
         $purchases = Purchase::all();
 
-
-        //$lastsaleId = sale::all()->last()->number_sale;
-
-        //$sale_number = 'SN' . date('Ymd') . '0001';
         if (Purchase::all()->last() == null) {
-            $purchase_number = 'PN' . date('Ymd') . '0001';
+            $purchase_number = 'PN' . ' : ' . '1' . ' / ' . date('Y');
         } else {
-            $lastsaleId = Purchase::all()->last()->number_purchase;
-            $lastIncreament = substr($lastsaleId, -4);
-            $purchase_number = 'PN' . date('Ymd') . str_pad($lastIncreament + 1, 4, 0, STR_PAD_LEFT);
+            $lastpurchaseNumber = Purchase::all()->last()->number_purchase;
+            $lastNumber = substr($lastpurchaseNumber, 5 ,-7);
+            $purchase_number = 'PN' . ' : ' . str_pad($lastNumber + 1, 0, 0, STR_PAD_LEFT). ' / ' . date('Y');
         }
-        // generate barcode code 128 number
+         // generate barcode code 128 number
         if (Product::all()->last() == null) {
-            $barcode_number = '613' . '0000000001';
+            $barcode_number = '000000000001';
         } else {
-            $lastsaleId = Product::all()->last()->codebar;
-            $lastIncreament = substr($lastsaleId, -10);
-            $barcode_number = '613' . str_pad($lastIncreament + 1, 10, '0', STR_PAD_LEFT);
+            $lastsaleId = Product::all()->count();
+            $lastIncreament = substr($lastsaleId, -12);
+            $barcode_number = str_pad($lastIncreament + 1, 12, '0', STR_PAD_LEFT);
         }
 
         return view('dashboard.purchase.create', compact('purchase_number', 'barcode_number', 'providers', 'categories', 'products'));
