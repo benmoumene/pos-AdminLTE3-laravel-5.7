@@ -67,7 +67,7 @@ Route::group(
             ]);
 
             // Money box route
-            Route::get('/moneybox', 'Dashboard\MoneyBoxController@index');
+            Route::get('/moneybox', 'Dashboard\MoneyBoxController@index')->name('moneybox');
 
             // generale Settings route
             Route::resource('/generalsetting', 'Dashboard\GeneralSettingController')->except([

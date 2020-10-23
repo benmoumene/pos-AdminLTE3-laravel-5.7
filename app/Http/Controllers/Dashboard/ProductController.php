@@ -38,7 +38,7 @@ class ProductController extends Controller
     {
         $categories = Category::all();
 
-        return view('dashboard.product.create', compact('categories', 'barcode_number'));
+        return view('dashboard.product.create', compact('categories'));
     }
     public function barcode(Request $request)
     {
